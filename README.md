@@ -31,12 +31,13 @@
 - サウナをこれから始めたいとき
 
 ## 設計書 🖊
-- WBSシート
-- 機能実装リスト
-- UIflows
-- ワイヤーフレーム
-- ER図
-- APP詳細設計書
+- [WBSシート](https://docs.google.com/spreadsheets/d/1U6XWwfN6ne9CG8ahbSvTK3K_BZBQSwemWFFZ0ggkDc0/edit#gid=1773513600)
+- [機能実装リスト](https://docs.google.com/spreadsheets/d/1U6XWwfN6ne9CG8ahbSvTK3K_BZBQSwemWFFZ0ggkDc0/edit#gid=685742023)
+- [UIflows](https://app.diagrams.net/?src=about#G1-hv83Rlebdy0FtdpjovFhusSaOUPAUuz)
+- [ワイヤーフレーム1](https://docs.google.com/presentation/d/1kbvXwflN5p0b9C4XKG9W_ZoHWhKQDei39NQKzoQE_44/edit#slide=id.g24f3c547109_0_68)
+- [ワイヤーフレーム2](https://docs.google.com/presentation/d/1FT91bwEb00Zv6w_fzyPimTGmuJT27n1wkMfBGb0p16E/edit#slide=id.p)
+- [ER図](https://app.diagrams.net/?libs=general;er#G1x2Dq3auqa3nNXlcGS-znj1qaFetSGdHG)
+- [APP詳細設計書]()
 
 ## 開発環境 🖥
 - OS：Linux(CentOS)
