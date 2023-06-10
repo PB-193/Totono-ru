@@ -11,24 +11,56 @@
   </head>
 
   <body>
-      <% if flash[:notice] %>
-        <div class="alert alert-success" role="alert" >
-          <%= flash[:notice] %>
-        </div>
+    <header>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
       <% end %>
+    </header>
+    
+    <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert" >
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
+    <% if flash[:alert] %>
+      <div class="alert alert-danger" role="alert" >
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
       
-      <% if flash[:alert] %>
-        <div class="alert alert-danger" role="alert" >
-          <%= flash[:alert] %>
-        </div>
-      <% end %>
-      
-
       
     <%= yield %>
       <footer>
-        <%= link_to "ユーザログイン", new_user_session_path %>
-        <%= link_to "ユーザ新規登録", new_user_registration_path %>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to "マイページ",  mypage_users_path %>
+          </li>
+          <li>
+            <%= link_to "投稿一覧",  contents_path %>
+          </li>
+          <li>
+            <%= link_to "投稿する", new_content_path %>
+          </li>
+          <li>
+            <%= link_to "検索", find_searches_path %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to "投稿一覧", contents_path %>
+          </li>
+          <li>
+            <%= link_to "検索", find_searches_path %>
+          </li>
+        <% end %>
         <%= link_to "管理者ログイン", new_admin_session_path %>
       </footer>
   </body>

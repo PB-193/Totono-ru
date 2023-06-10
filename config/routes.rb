@@ -12,14 +12,20 @@ Rails.application.routes.draw do
       resources :tags, only: [:new, :create, :destroy]
       resources :comments, only: [:new, :create, :destroy]
     end
+    # 検索
+    resources :searches, only: [:index] do
+      get :find, on: :collection
+    end
     # マイページ
     resources :users, only: [:show, :edit, :update] do
       member do
         get :finalcheck
         delete :unsubscribe
       end
+      get :mypage, on: :collection, action: :show
+      get :information_edit, on: :collection, action: :edit
+      patch :information, on: :collection, action: :update
     end
-
   end
   
   # 管理者用
