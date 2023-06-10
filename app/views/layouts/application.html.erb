@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TotonoRu</title>
+    <title>ととの〜る'サ活レビューサイト></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -23,6 +23,13 @@
         </div>
       <% end %>
       
+
+      
     <%= yield %>
+      <footer>
+        <%= link_to "ユーザログイン", new_user_session_path %>
+        <%= link_to "ユーザ新規登録", new_user_registration_path %>
+        <%= link_to "管理者ログイン", new_admin_session_path %>
+      </footer>
   </body>
 </html>

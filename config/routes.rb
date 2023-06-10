@@ -1,52 +1,40 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-  end
-  namespace :admin do
-    get 'tags/index'
-  end
-  namespace :admin do
-    get 'contents/show'
-  end
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :user do
-    get 'homes/top'
-  end
-  namespace :user do
-    get 'tags/new'
-  end
-  namespace :user do
-    get 'comments/new'
-  end
-  namespace :user do
-    get 'contents/index'
-    get 'contents/show'
-    get 'contents/new'
-    get 'contents/edit'
-  end
-  namespace :user do
-    get 'users/show'
-    get 'users/edit'
-    get 'users/finalcheck'
-  end
-  # 顧客用
-  # URL /customers/sign_in ...
+  # ユーザ用
+  # 新規投稿とログイン
   devise_for :users, controllers: {
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
+  # namespaceをURLで使わない
+  scope module: :user do
+    # 投稿とタグとコメント
+    resources :contents do
+      resources :tags, only: [:new, :create, :destroy]
+      resources :comments, only: [:new, :create, :destroy]
+    end
+    # マイページ
+    resources :users, only: [:show, :edit, :update] do
+      member do
+        get :finalcheck
+        delete :unsubscribe
+      end
+    end
+
+  end
   
   # 管理者用
-  # URL /admin/sign_in ...
+  # 管理者のログイン
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
+  # ユーザ、投稿、タグの管理
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :tags, only: [:index, :create, :destroy]
+    resources :contents, only: [:show, :destroy]
+    get 'homes/top'
+  end
   
-  
-  
-  root to: "homes#top"
+  root to: "user/homes#top"
+
 end
