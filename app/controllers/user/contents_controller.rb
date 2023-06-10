@@ -13,7 +13,7 @@ class User::ContentsController < ApplicationController
   def create
     @content = current_user.contents.build(content_params)
     @content = Content.new(content_params)
-    @Content.user_id = session[:user_id]
+    @content.user_id = session[:user_id]
     if @content.save
       flash[:notice] = "投稿しました"
       redirect_to contents_path

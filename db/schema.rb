@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_050333) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.integer "content_id", null: false
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_050333) do
   end
 
   create_table "contents", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.date "visit_day", null: false
     t.string "spot", null: false
     t.string "title", null: false
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2023_06_09_050333) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "content_id", null: false
+    t.integer "user_id"
+    t.integer "content_id"
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

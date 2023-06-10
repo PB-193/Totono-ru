@@ -1,21 +1,20 @@
-<h3>今回のサ活をレビューしよう</h3>
-<%= form_with model:content , local: true do |f| %>
-  
-    <% if content.errors.any? %>
-      <div class="alert alert-danger">
-        <h2><%= content.errors.count %>つのエラーが発生しました</h2>
-        <ul>
+<h3>サ活をレビューしよう</h3>
+<%= form_with model: content, local: true do |f| %>
+  <% if content.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= content.errors.count %>つのエラーが発生しました</h2>
+      <ul>
         <% content.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
-        </ul>
-      </div>
-    <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <label>訪問した日</label>
-    <%= f.date_field :visit_day %>
-    <%= f.button "本日", id: "today-button" %>
+    <%= f.date_field :visit_day, id: "visit-day-field" %>
+    <button type="button" id="today-button">本日</button>
   </div>
   <div class="form-group">
     <label>レビュータイトル</label>
@@ -27,17 +26,17 @@
   </div>
   <div class="form-group">
     <label>タグを作るところ</label>
-
+    <!-- タグのフォームフィールドを追加してください -->
   </div>
   <div class="form-group">
     <label>スポット</label>
     <%= f.text_field :spot %>
   </div>
-   <div class="form-group">
+  <div class="form-group">
     <label>レビューをつけるところ（とりあえず値を数値をしている）</label>
     <%= f.number_field :review %>
   </div>
   
   <%= f.submit type %>
-  <%= link_to "戻る" , contents_path %>
+  <%= link_to "戻る", contents_path %>
 <% end %>

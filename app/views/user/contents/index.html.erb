@@ -1,2 +1,14 @@
-<h1>User::Contents#index</h1>
-<p>Find me in app/views/user/contents/index.html.erb</p>
+<table>
+    <% @contents.each do |content| %>
+      <tr>
+        <td>訪問日<%= content.created_at %></td>
+        <td>アイコン</td>
+        <td>@<%= content.user.name if content.user %></td>
+        <td>aaaa</td>
+        <td>
+          <%= link_to content.title, content_path(content) %>
+        </td>
+        <td>タグ一覧を表示させる</td>
+      </tr>
+    <% end %>
+</table>
