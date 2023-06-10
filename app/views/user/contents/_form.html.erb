@@ -1,0 +1,43 @@
+<h3>今回のサ活をレビューしよう</h3>
+<%= form_with model:content , local: true do |f| %>
+  
+    <% if content.errors.any? %>
+      <div class="alert alert-danger">
+        <h2><%= content.errors.count %>つのエラーが発生しました</h2>
+        <ul>
+        <% content.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div class="form-group">
+    <label>訪問した日</label>
+    <%= f.date_field :visit_day %>
+    <%= f.button "本日", id: "today-button" %>
+  </div>
+  <div class="form-group">
+    <label>レビュータイトル</label>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <label>投稿内容</label>
+    <%= f.text_area :text %>
+  </div>
+  <div class="form-group">
+    <label>タグを作るところ</label>
+
+  </div>
+  <div class="form-group">
+    <label>スポット</label>
+    <%= f.text_field :spot %>
+  </div>
+   <div class="form-group">
+    <label>レビューをつけるところ（とりあえず値を数値をしている）</label>
+    <%= f.number_field :review %>
+  </div>
+  
+  <%= f.submit type %>
+  <%= link_to "戻る" , contents_path %>
+<% end %>
