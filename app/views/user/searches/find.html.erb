@@ -1,2 +1,14 @@
-<h1>User::Searches#find</h1>
-<p>Find me in app/views/user/searches/find.html.erb</p>
+<h3>絞り込み検索を行います</h3>
+
+<%= form_tag(searches_path, method: :get) do %>
+  <label>開始日:</label>
+  <%= date_field_tag :start_date %>
+
+  <label>終了日:</label>
+  <%= date_field_tag :end_date %>
+
+  <label>最低点数:</label>
+  <%= number_field_tag :min_review %>
+
+  <%= submit_tag "絞り込み" %>
+<% end %>

@@ -1,2 +1,4 @@
-<h1>User::Searches#index</h1>
-<p>Find me in app/views/user/searches/index.html.erb</p>
+<h3>検索結果</h3>
+<% @contents.each do |content| %>
+  <p><%= content.title %></p>
+<% end %>

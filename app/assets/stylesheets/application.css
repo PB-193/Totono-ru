@@ -1,15 +1,43 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+header {
+  background-color: silver;
+  text-align: right;
+}
+
+header li {
+  display: inline;
+  margin-left: 10px;
+}
+
+header li:last-child {
+  margin-right: 0;
+}
+
+header li a {
+  color: black;
+  text-decoration: none;
+}
+
+header li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: silver;
+  text-align: center;
+  color: black;
+}
+
+
+.footer-menu {
+  list-style-type: none; /* リストスタイルを削除 */
+  display: flex; /* 横並びにする */
+  justify-content: center; /* メニューを中央寄せにする */
+}
+
+.footer-menu li {
+  margin-right: 10px; /* 必要に応じて間隔を調整 */
+}

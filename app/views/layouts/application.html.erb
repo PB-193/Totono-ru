@@ -37,36 +37,38 @@
       
     <%= yield %>
       <footer>
-        <% unless current_page?(root_path) %>
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to "マイページ",  mypage_users_path %>
-            </li>
-            <li>
-              <%= link_to "投稿一覧",  contents_path %>
-            </li>
-            <li>
-              <%= link_to "投稿する", new_content_path %>
-            </li>
-            <li>
-              <%= link_to "検索", find_searches_path %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "新規登録", new_user_registration_path %>
-            </li>
-            <li>
-              <%= link_to "ログイン", new_user_session_path %>
-            </li>
-            <li>
-              <%= link_to "投稿一覧", contents_path %>
-            </li>
-            <li>
-              <%= link_to "検索", find_searches_path %>
-            </li>
+        <ul class="footer-menu">
+          <% unless current_page?(root_path) %>
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "マイページ",  mypage_users_path %>
+              </li>
+              <li>
+                <%= link_to "投稿一覧",  contents_path %>
+              </li>
+              <li>
+                <%= link_to "投稿する", new_content_path %>
+              </li>
+              <li>
+                <%= link_to "検索", find_searches_path %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "新規登録", new_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to "投稿一覧", contents_path %>
+              </li>
+              <li>
+                <%= link_to "検索", find_searches_path %>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
-        <%= link_to "管理者ログイン", new_admin_session_path %>
+          <%= link_to "管理者ログイン", new_admin_session_path %>
+        </ul>
       </footer>
   </body>
 </html>

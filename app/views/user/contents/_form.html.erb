@@ -37,8 +37,6 @@
     <%= f.number_field :review %>
   </div>
   
-  <%= f.hidden_field :user_id, value: @user.id %>
-  
   <%= f.submit type %>
   <%= link_to "戻る", contents_path %>
 <% end %>
