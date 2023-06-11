@@ -1,2 +1,37 @@
-<h1>User::Contents#show</h1>
-<p>Find me in app/views/user/contents/show.html.erb</p>
+<h3>投稿の詳細をみよう</h3>
+<p>
+  <%= link_to "編集する",edit_content_path %>
+  <span><%= link_to "削除する", content_path, method: :delete, data: { confirm: '本当に削除しますか？' } %></span>
+  <span><%= link_to "戻る",contents_path %></span>
+</p>
+<table>
+  <tr>
+    <th>投稿日</th>
+    <td><%= @content.created_at %></td>
+  </tr>
+  <tr>アイコン</tr>
+  <tr>
+    <th>ユーザ名</th>
+    <td><%= @content.user.name %></td>
+  </tr>
+  <tr>
+    <th>訪問日</th>
+    <td>
+      <%= @content.visit_day %>
+    </td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @content.title %></td>
+  </tr>
+  <tr>
+    <th>タグ一覧を表示</th>
+  </tr>
+  <tr>
+    <th>本文</th>
+    <td><%= @content.text %></td>
+  </tr>
+  <tr>
+    <th>コメントを表示</th>
+  </tr>
+</table>

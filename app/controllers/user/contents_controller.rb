@@ -4,9 +4,11 @@ class User::ContentsController < ApplicationController
   end
 
   def show
+    @content = Content.find(params[:id])
   end
 
   def new
+    @user = current_user
     @content = Content.new
   end
   
