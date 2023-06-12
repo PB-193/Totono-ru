@@ -6,6 +6,7 @@ class User::ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
