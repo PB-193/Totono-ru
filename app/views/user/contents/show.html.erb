@@ -43,7 +43,7 @@
         <p>
           <%= comment.comment %>
           <span>
-            <%= link_to '削除', content_comment_path(comment), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+            <%= link_to '削除', content_comment_path(comment.content, comment), method: :delete, data: { confirm: '本当に削除しますか？' } %>
           </span>
         </p>
       <% end %>
@@ -56,7 +56,6 @@
   <td>
     <%= form_with(model: @comment, url: content_comments_path(@content), local: true) do |f| %>
       <div class="field">
-        <%= f.label :comment %>
         <%= f.text_area :comment %>
       </div>
       <%= f.submit "コメントする" %>
