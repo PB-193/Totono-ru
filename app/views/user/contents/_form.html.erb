@@ -28,6 +28,19 @@
     <label>タグを作るところ</label>
     <!-- タグのフォームフィールドを追加してください -->
   </div>
+  
+  <div class='form-group'>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class='form-check form-check-inline'> <!-- 横並びにするためのスタイル -->
+        <%= tag.label class: 'form-check-label' do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  
   <div class="form-group">
     <label>スポット</label>
     <%= f.text_field :spot %>

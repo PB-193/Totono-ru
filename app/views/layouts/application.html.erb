@@ -16,6 +16,9 @@
       <% unless current_page?(root_path) %>
         <% if user_signed_in? %>
           <li>
+            ようこそ<%= current_user.name %>！
+          </li>
+          <li>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
         <% end %>

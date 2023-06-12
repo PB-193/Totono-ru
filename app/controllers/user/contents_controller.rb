@@ -30,7 +30,7 @@ class User::ContentsController < ApplicationController
   private
   
   def content_params
-    params.require(:content).permit(:visit_day,:title, :spot, :text, :review)
+    params.require(:content).permit(:visit_day,:title, :spot, :text, :review, tag_ids: [])
   end
   
 end

@@ -30,3 +30,11 @@ puts "-------------user create------------"
     end
 
 puts "------------content create------------"
+
+    Tag.create!(name: "サ活")
+    Tag.create!(name: "水風呂")
+    Tag.create!(name: "サウナ飯")
+    Tag.create!(name: "グッズ")
+    Tag.create!(name: "聖地巡礼")
+
+puts "------------tag create------------"

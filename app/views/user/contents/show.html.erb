@@ -26,6 +26,11 @@
   </tr>
   <tr>
     <th>タグ一覧を表示</th>
+    <td>
+      <% @content.tags.each do |tag| %>
+          <span><%= tag.name %></span>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <th>本文</th>
