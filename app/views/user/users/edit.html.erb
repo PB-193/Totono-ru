@@ -1,2 +1,16 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<%= form_with model:@user, url: information_users_path do |f| %>
+    <table>
+        <tr>
+        	<td>ユーザ名</td>
+        	<td><%= f.label :name %> <%= f.text_field :name, :placeholder =>"#{@user.name}" %></td>
+        </tr>
+        <tr>
+        	<td><%= f.label :email, "メールアドレス" %></td>
+        	<td><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@user.email}" %></td>
+        </tr>
+        <tr>
+        	<td><%= f.submit "編集内容を保存する" %></td>
+        	<td><%= link_to "退会する", finalcheck_user_path %></td>
+        </tr>
+    </table>
+<% end %>

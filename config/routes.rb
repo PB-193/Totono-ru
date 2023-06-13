@@ -42,5 +42,6 @@ Rails.application.routes.draw do
   end
   
   root to: "homes#top"
+  post "/homes/guest_sign_in", to: "homes#guest_sign_in"
 
 end

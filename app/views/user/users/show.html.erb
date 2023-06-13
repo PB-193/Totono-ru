@@ -1,2 +1,24 @@
-<h1>User::Users#show</h1>
-<p>Find me in app/views/user/users/show.html.erb</p>
+<p>アイコン</p>
+<h3><%= current_user.name %></h3>
+<h3><%= current_user.email %></h3>
+<p><%= link_to "編集する", information_edit_users_path %></p>
+<p><%= link_to "パスワードを変更する", edit_user_registration_path %></p>
+<p>
+  <span>
+    投稿一覧
+    <ul>
+      <% current_user.contents.each do |content| %>
+        <li><%= link_to content.title, content_path(content) %></li>
+      <% end %>
+    </ul>
+  </span>
+
+  <span>
+    コメントした投稿一覧
+    <ul>
+      <% current_user.comments.each do |comment| %>
+        <li><%= link_to comment.content.title, content_path(comment.content) %></li>
+      <% end %>
+    </ul>
+  </span>
+</p>
