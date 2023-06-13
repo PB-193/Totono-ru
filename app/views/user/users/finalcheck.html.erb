@@ -1,2 +1,8 @@
-<h1>User::Users#finalcheck</h1>
-<p>Find me in app/views/user/users/finalcheck.html.erb</p>
+<section>
+	<h2>本当に退会しますか？</h2>
+	<h3>退会すると、会員登録情報や<br>これまでの投稿履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h3>
+	<div>
+		<%= link_to "マイページに戻る", mypage_path %>
+		<%= link_to "退会する", withdraw_user_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？" %>
+	</div>
+</section>

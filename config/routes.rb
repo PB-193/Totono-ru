@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }
-  # namespaceをURLで使わない
   scope module: :user do
     # 投稿とタグとコメント
     resources :contents do
@@ -17,16 +16,15 @@ Rails.application.routes.draw do
       get :find, on: :collection
     end
     # マイページ
-    resources :users, only: [:show, :edit, :update] do
-      member do
-        get :finalcheck
-        delete :unsubscribe
-      end
-      get :mypage, on: :collection, action: :show
-      get :information_edit, on: :collection, action: :edit
-      patch :information, on: :collection, action: :update
-    end
+    get 'user/mypage' => 'users#show', as: 'mypage'
+    # customers/editのようにするとdeviseのルーティングとかぶってしまうためinformationを付け加えている。
+    get 'user/information/edit' => 'users#edit', as: 'edit_information'
+    patch 'user/information' => 'users#update', as: 'update_information'
+    get 'user/finalcheck' => 'users#finalcheck', as: 'finalcheck'
+    put 'user/information' => 'users#update'
+    patch 'user/withdraw' => 'users#withdraw', as: 'withdraw_user'
   end
+
   
   # 管理者用
   # 管理者のログイン

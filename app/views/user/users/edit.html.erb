@@ -1,4 +1,4 @@
-<%= form_with model:@user, url: information_users_path do |f| %>
+<%= form_with model: @user, url: update_information_path do |f| %>
     <table>
         <tr>
         	<td>ユーザ名</td>
@@ -10,7 +10,7 @@
         </tr>
         <tr>
         	<td><%= f.submit "編集内容を保存する" %></td>
-        	<td><%= link_to "退会する", finalcheck_user_path %></td>
+        	<td><%= link_to "退会する", finalcheck_path %></td>
         </tr>
     </table>
 <% end %>
