@@ -1,43 +1,107 @@
-header {
-  background-color: silver;
-  text-align: right;
+
+#body-main {
+  background-color: rgb(255, 195, 161) ;
+  height: 100%;
 }
 
-header li {
-  display: inline;
-  margin-left: 10px;
+main {
+  padding: 100px 0;
 }
 
-header li:last-child {
-  margin-right: 0;
-}
 
-header li a {
-  color: black;
-  text-decoration: none;
+@keyframes steam01 {
+  0% {
+    bottom: -600px;
+    filter: blur(16px);
+    transform: rotateY(0deg);
+    transform: scale(0.6, 1);
+    opacity: 0
+  }
+  11% { opacity: 0.1 }
+  33% {
+    transform: rotateY(40deg);
+    transform: scale(1, 1.4);
+    opacity: 0.5
+  }
+  66% {
+    transform: rotateY(10deg);
+    transform: scaleY(1.8, 1);
+    opacity: 0.4
+  }
+  100% {
+    bottom: 0;
+    filter: blur(20px);
+    transform: rotateY(60deg);
+    transform: scaleY(2, 1.8);
+    opacity: 0
+  }
 }
-
-header li a:hover {
-  text-decoration: underline;
+@keyframes steam02 {
+  0% {
+    bottom: -400px;
+    filter: blur(16px);
+    transform: rotateY(0deg);
+    transform: scale(0.6, 0.6);
+    opacity: 0
+  }
+  11% { opacity: 0.1 }
+  33% {
+    transform: rotateY(40deg);
+    transform: scale(0.8, 1);
+    opacity: 0.4
+  }
+  66% {
+    transform: rotateY(2deg);
+    transform: scaleY(1, 1.2)
+  }
+  100% {
+    bottom: 0;
+    filter: blur(20px);
+    transform: rotateY(50deg);
+    transform: scaleY(1.2, 1.4);
+    opacity: 0
+  }
 }
-
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+.steamWrap {
+  width: 740px;
+  margin: 100px auto 0
+}
+.steamBox {
   width: 100%;
-  background-color: silver;
-  text-align: center;
-  color: black;
+  height: 100%;
+  position: relative;
+  overflow: hidden
 }
-
-
-.footer-menu {
-  list-style-type: none; /* リストスタイルを削除 */
-  display: flex; /* 横並びにする */
-  justify-content: center; /* メニューを中央寄せにする */
+.steamBox > img {
+  width: 100%;
+  display: block
 }
-
-.footer-menu li {
-  margin-right: 10px; /* 必要に応じて間隔を調整 */
+.steam01 {
+  position: absolute;
+  right: 0;
+  animation: steam01 10s infinite linear;
+  opacity: 0
+}
+.steam02 {
+  position: absolute;
+  left: 0;
+  animation: steam02 14s infinite linear;
+  opacity: 0
+}
+.steam03 {
+  margin: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  animation: steam02 12s infinite linear;
+  animation-delay: 6s;
+  opacity: 0
+}
+.steam01 img, .steam03 img {
+  width: 532px;
+  height: 800px
+}
+.steam02 img {
+  width: 399px;
+  height: 600px
 }

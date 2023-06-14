@@ -10,29 +10,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
-
-<body>
-  <%= render 'layouts/header' %>
-  
-  <div class="container">
-    <% if flash[:notice] %>
-      <div class="alert alert-success" role="alert">
-        <%= flash[:notice] %>
+  <body>
+    <%= render 'layouts/header' %>
+    <div id="body-main">
+      <div class="container" >
+        <%= render 'layouts/alert' %>
+        <main>
+          <%= yield %>
+        </main>
+        <%= render 'layouts/footer' %>
       </div>
-    <% end %>
-    
-    <% if flash[:alert] %>
-      <div class="alert alert-danger" role="alert">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
-      
-    <div class="content">
-      <%= yield %>
     </div>
-      
-    <%= render 'layouts/footer' %>
-  </div>
-</body>
-
+  </body>
 </html>

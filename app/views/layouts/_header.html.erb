@@ -1,21 +1,23 @@
-<header>
-<% unless current_page?(root_path) %>
-  <% if user_signed_in? %>
-    <li>
-      ようこそ<%= current_user.name %>！
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </li>
-  <% end %>
-<% end %>
-
-  <% if admin_signed_in? %>
-    <li>
-      お疲れ様です！
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-    </li>
-  <% end %>
+<header class="navbar navbar-light sticky-top" style="background-color: rgb(240, 153, 125);">
+  <div class="container">
+    <% unless current_page?(root_path) %>
+      <% if user_signed_in? %>
+        <li class="navbar-text">
+          ようこそ<%= current_user.name %>！
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+        </li>
+      <% end %>
+    <% end %>
+    
+    <% if admin_signed_in? %>
+      <li class="navbar-text">
+        お疲れ様です！
+      </li>
+      <li class="nav-item">
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+    <% end %>
+  </div>
 </header>

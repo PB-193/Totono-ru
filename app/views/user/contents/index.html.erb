@@ -10,7 +10,9 @@
               <strong>ユーザー:</strong> <%= content.user.name if content.user %><br>
               <strong>タグ:</strong>
               <% content.tags.each do |tag| %>
-                <span class="badge badge-primary"><%= tag.name %> (<%= tag.contents.count %>)</span>
+                <%= link_to searches_path, class: "badge badge-primary", style: "opacity: 1;" do %>
+                  <%= tag.name %>
+                <% end %>
               <% end %>
             </p>
           </div>
@@ -19,3 +21,7 @@
     </div>
   </div>
 </div>
+
+
+
+
