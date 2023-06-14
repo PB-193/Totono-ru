@@ -1,15 +1,21 @@
-<table>
-    <% @contents.each do |content| %>
-      <tr>
-        <td>訪問日<%= content.created_at %></td>
-        <td>アイコン</td>
-        <td>@<%= content.user.name if content.user %></td>
-        <td>aaaa</td>
-        <td>
-          <%= link_to content.title, content_path(content) %>
-        </td>
-        <td>タグ一覧を表示させる</td>
-      </tr>
-    <% end %>
-</table>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <% @contents.each do |content| %>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to content.title, content_path(content) %></h5>
+            <p class="card-text">
+              <strong>投稿日:</strong> <%= content.created_at.strftime("%Y年%m月%d日") %><br>
+              <strong>ユーザー:</strong> <%= content.user.name if content.user %><br>
+              <strong>タグ:</strong>
+              <% content.tags.each do |tag| %>
+                <span class="badge badge-primary"><%= tag.name %> (<%= tag.contents.count %>)</span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

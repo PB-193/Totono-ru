@@ -2,3 +2,10 @@
 <% @contents.each do |content| %>
   <p><%= content.title %></p>
 <% end %>
+
+<h2>タグが<%=@tag.name%>の投稿一覧</h2>
+<!--タグリスト-->
+<% @tag_list.each do |list|%>
+    <%=link_to list.name,search_tag_path(workout_tag_id: list.id) %>
+    <%="(#{list.post_workouts.count})" %>
+<% end %>

@@ -1,64 +1,76 @@
-<h3>投稿の詳細をみよう</h3>
-<p>
-  <%= link_to "編集する",edit_content_path %>
-  <span><%= link_to "削除する", content_path, method: :delete, data: { confirm: '本当に削除しますか？' } %></span>
-  <span><%= link_to "戻る",contents_path %></span>
-</p>
-<table>
-  <tr>
-    <th>投稿日</th>
-    <td><%= @content.created_at %></td>
-  </tr>
-  <tr>アイコン</tr>
-  <tr>
-    <th>ユーザ名</th>
-    <td><%= @content.user.name %></td>
-  </tr>
-  <tr>
-    <th>訪問日</th>
-    <td>
-      <%= @content.visit_day %>
-    </td>
-  </tr>
-  <tr>
-    <th>タイトル</th>
-    <td><%= @content.title %></td>
-  </tr>
-  <tr>
-    <th>タグ一覧を表示</th>
-    <td>
-      <% @content.tags.each do |tag| %>
-          <span><%= tag.name %></span>
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <th>本文</th>
-    <td><%= @content.text %></td>
-  </tr>
-  <tr>
-  <th>コメントを表示</th>
-    <td>
-      <% @content.comments.each do |comment| %>
-        <p>
-          <%= comment.comment %>
-          <span>
-            <%= link_to '削除', content_comment_path(comment.content, comment), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-          </span>
-        </p>
-      <% end %>
-    </td>
-  </tr>
-</table>
-
-<table>
-  <th>コメントをする</th>
-  <td>
-    <%= form_with(model: @comment, url: content_comments_path(@content), local: true) do |f| %>
-      <div class="field">
-        <%= f.text_area :comment %>
+  <h3>投稿の詳細をみよう</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">投稿情報</h5>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <tr>
+              <th>投稿日</th>
+              <td><%= @content.created_at %></td>
+            </tr>
+            <tr>
+              <th>アイコン</th>
+              <td><!-- アイコン表示のコード --></td>
+            </tr>
+            <tr>
+              <th>ユーザ名</th>
+              <td><%= @content.user.name %></td>
+            </tr>
+            <tr>
+              <th>訪問日</th>
+              <td><%= @content.visit_day %></td>
+            </tr>
+            <tr>
+              <th>タイトル</th>
+              <td><%= @content.title %></td>
+            </tr>
+            <tr>
+              <th>タグ一覧</th>
+              <td>
+                <% @content.tags.each do |tag| %>
+                  <span class="badge badge-secondary"><%= tag.name %></span>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th>本文</th>
+              <td><%= @content.text %></td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <%= f.submit "コメントする" %>
-    <% end %>
-  </td>
-</table>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">コメント</h5>
+        </div>
+        <div class="card-body">
+          <% @content.comments.each do |comment| %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <p class="card-text"><%= comment.comment %></p>
+                <span>
+                  <%= link_to '削除', content_comment_path(@content, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "text-danger" %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+          <%= form_with(model: @comment, url: content_comments_path(@content), local: true) do |f| %>
+            <div class="form-group">
+              <%= f.text_area :comment, class: "form-control" %>
+            </div>
+            <%= f.submit "コメントする", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <%= link_to "編集する", edit_content_path(@content), class: "btn btn-primary" %>
+    <%= link_to "削除する", content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+    <%= link_to "戻る", contents_path, class: "btn btn-secondary" %>
+  </div>

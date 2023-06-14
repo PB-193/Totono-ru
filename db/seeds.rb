@@ -38,3 +38,11 @@ puts "------------content create------------"
     Tag.create!(name: "聖地巡礼")
 
 puts "------------tag create------------"
+
+    Admin.create!(
+      email: "admin@com",
+      password: "ikmikm"
+    )
+
+puts "------------admin create------------"
+

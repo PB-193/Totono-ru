@@ -1,6 +1,7 @@
 class User::ContentsController < ApplicationController
   def index
-    @contents = Content.all
+    @contents = Content.page(params[:content]).per(10)
+    @tag_list=Tag.all
     @user = current_user
   end
 
@@ -17,7 +18,10 @@ class User::ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.user = current_user
+    # tag作成で受け取った値を,で区切って配列にする
+    tag_list=params[:content][:name].split(',')
     if @content.save
+      @content.save_tag(tag_list)
       flash[:notice] = "投稿しました"
       redirect_to contents_path
     else
@@ -31,7 +35,7 @@ class User::ContentsController < ApplicationController
   private
   
   def content_params
-    params.require(:content).permit(:visit_day,:title, :spot, :text, :review, tag_ids: [])
+    params.require(:content).permit(:visit_day,:title, :spot, :text, :review)
   end
   
 end

@@ -1,2 +1,9 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<h2>全ての投稿を確認する</h2>
+<p>
+  <% @content.each do |content| %>
+    <%= link_to content_path(content) do %>
+      <%= content.title %>
+    <% end %>
+  <% end %>
+</p>
+

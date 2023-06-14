@@ -8,70 +8,31 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
 
-  <body>
-    <h3>ここは開ける</h1>
-    <header>
-      <% unless current_page?(root_path) %>
-        <% if user_signed_in? %>
-          <li>
-            ようこそ<%= current_user.name %>！
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          </li>
-        <% end %>
-      <% end %>
-    </header>
-    
+<body>
+  <%= render 'layouts/header' %>
+  
+  <div class="container">
     <% if flash[:notice] %>
-      <div class="alert alert-success" role="alert" >
+      <div class="alert alert-success" role="alert">
         <%= flash[:notice] %>
       </div>
     <% end %>
     
     <% if flash[:alert] %>
-      <div class="alert alert-danger" role="alert" >
+      <div class="alert alert-danger" role="alert">
         <%= flash[:alert] %>
       </div>
     <% end %>
       
+    <div class="content">
+      <%= yield %>
+    </div>
       
-    <%= yield %>
-      <footer>
-        <ul class="footer-menu">
-          <% unless current_page?(root_path) %>
-            <% if user_signed_in? %>
-              <li>
-                <%= link_to "マイページ",  mypage_path %>
-              </li>
-              <li>
-                <%= link_to "投稿一覧",  contents_path %>
-              </li>
-              <li>
-                <%= link_to "投稿する", new_content_path %>
-              </li>
-              <li>
-                <%= link_to "検索", find_searches_path %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to "新規登録", new_user_registration_path %>
-              </li>
-              <li>
-                <%= link_to "ログイン", new_user_session_path %>
-              </li>
-              <li>
-                <%= link_to "投稿一覧", contents_path %>
-              </li>
-              <li>
-                <%= link_to "検索", find_searches_path %>
-              </li>
-            <% end %>
-          <% end %>
-          <%= link_to "管理者ログイン", new_admin_session_path %>
-        </ul>
-      </footer>
-  </body>
+    <%= render 'layouts/footer' %>
+  </div>
+</body>
+
 </html>
