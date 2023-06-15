@@ -30,6 +30,25 @@ class User::ContentsController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @content = Content.find(params[:id])
+  end
+  
+  def update
+    @content = Content.find(params[:id])
+    if @content.update(content_params)
+      flash[:notice] ="更新が完了しました"
+      redirect_to content_path
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @content = Content.find(params[:id])
+    @content.destroy
+    flash[:notice] = "削除しました"
+    redirect_to contents_path
   end
   
   private

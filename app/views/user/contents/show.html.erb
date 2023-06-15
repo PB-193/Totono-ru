@@ -1,6 +1,6 @@
 <h3>投稿の詳細をみよう</h3>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-7">
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">投稿情報</h5>
@@ -10,10 +10,6 @@
           <tr>
             <th>投稿日</th>
             <td><%= @content.created_at.to_date %></td>
-          </tr>
-          <tr>
-            <th>アイコン</th>
-            <td><!-- アイコン表示のコード --></td>
           </tr>
           <tr>
             <th>ユーザ名</th>
@@ -36,6 +32,10 @@
             </td>
           </tr>
           <tr>
+            <th>サウナ施設</th>
+            <td><%= @content.spot%></td>
+          </tr>
+          <tr>
             <th>本文</th>
             <td><%= @content.text %></td>
           </tr>
@@ -43,10 +43,10 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-5">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">コメント</h5>
+        <h5 class="card-title">コメント欄</h5>
       </div>
       <div class="card-body">
         <% @content.comments.each do |comment| %>
