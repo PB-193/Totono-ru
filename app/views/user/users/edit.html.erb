@@ -1,16 +1,40 @@
-<%= form_with model: @user, url: update_information_path do |f| %>
-    <table>
-        <tr>
-        	<td>ユーザ名</td>
-        	<td><%= f.label :name %> <%= f.text_field :name, :placeholder =>"#{@user.name}" %></td>
-        </tr>
-        <tr>
-        	<td><%= f.label :email, "メールアドレス" %></td>
-        	<td><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@user.email}" %></td>
-        </tr>
-        <tr>
-        	<td><%= f.submit "編集内容を保存する" %></td>
-        	<td><%= link_to "退会する", finalcheck_path %></td>
-        </tr>
+<%= form_with model: @user, url: update_information_path, method: :patch, class: "my-form", multipart: true do |f| %>
+  <div class="container">
+    <table class="table table-bordered">
+      <tr>
+        <td>ユーザ名</td>
+        <td>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control", placeholder: @user.name %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><%= f.label :email, "メールアドレス" %></td>
+        <td>
+          <div class="form-group">
+            <%= f.email_field :email, class: "form-control", autocomplete: "email", placeholder: @user.email %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>プロフィール画像</td>
+        <td>
+          <div class="form-group">
+            <%= f.label :profile_image, "画像を選択する" %>
+            <%= f.file_field :profile_image, class: "form-control-file" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="d-flex justify-content-between">
+            <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+            <%= link_to "退会する", finalcheck_path, class: "btn btn-danger" %>
+          </div>
+        </td>
+      </tr>
     </table>
+  </div>
 <% end %>

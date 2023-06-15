@@ -1,19 +1,19 @@
 
   <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="d-flex align-items-center mb-3">
-            <div class="mr-3">
-              <p class="mb-0">アイコン</p>
-              <%= image_tag current_user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
-            </div>
-            <div>
-              <h3 class="mb-0"><%= current_user.name %></h3>
-              <p class="mb-0"><%= current_user.email %></p>
-            </div>
+  <div class="col-md-8 offset-md-2">
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center mb-3">
+          <div class="mr-3">
+            <%= image_tag current_user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
           </div>
-          <div class="mb-3">
+          <div>
+            <h3 class="mb-0"><%= current_user.name %></h3>
+            <p class="mb-0"><%= current_user.email %></p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
             <h5>投稿一覧</h5>
             <ul class="list-group">
               <% current_user.contents.each do |content| %>
@@ -23,7 +23,7 @@
               <% end %>
             </ul>
           </div>
-          <div>
+          <div class="col">
             <h5>コメントした投稿一覧</h5>
             <ul class="list-group">
               <% current_user.comments.each do |comment| %>
@@ -34,9 +34,9 @@
             </ul>
           </div>
         </div>
+        <p><%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary" %>
+        <span><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></span></%></p>
       </div>
-      <p><%= link_to "編集する", edit_information_path, class: "btn btn-primary" %></p>
-      <p><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></p>
     </div>
   </div>
-
+</div>

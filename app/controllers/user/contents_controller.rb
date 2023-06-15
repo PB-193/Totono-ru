@@ -1,4 +1,6 @@
 class User::ContentsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @contents = Content.page(params[:content]).per(10)
     @tag_list=Tag.all
