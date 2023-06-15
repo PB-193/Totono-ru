@@ -1,44 +1,85 @@
-  <h3>サ活をレビューしよう</h3>
-  <%= form_with model: content, local: true, class: "my-form" do |f| %>
-    <% if content.errors.any? %>
-      <div class="alert alert-danger">
-        <h2><%= content.errors.count %>つのエラーが発生しました</h2>
-        <ul>
-          <% content.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.label :visit_day, "訪問した日" %>
-      <%= f.date_field :visit_day, id: "visit-day-field", class: "form-control form-control-sm" %>
-      <button type="button" id="today-button" class="btn btn-secondary btn-sm">本日</button>
+<h3>サ活をレビューしよう</h3>
+<%= form_with model: content, local: true, class: "my-form" do |f| %>
+  <% if content.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= content.errors.count %>つのエラーが発生しました</h2>
+      <ul>
+        <% content.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-    <div class="form-group">
-      <%= f.label :title, "レビュータイトル" %>
-      <%= f.text_field :title, class: "form-control form-control-sm" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :text, "投稿内容" %>
-      <%= f.text_area :text, class: "form-control form-control-sm", rows: 3 %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name, "タグを作るところ" %>
-      <p><label>タグ(,で区切ると複数タグ登録できます)</label></p>
-      <%= f.text_field :name, value: @tag_list, class: "form-control form-control-sm" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :spot, "スポット" %>
-      <%= f.text_field :spot, class: "form-control form-control-sm" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :review, "レビューをつけるところ（とりあえず値を数値をしている）" %>
-      <%= f.number_field :review, class: "form-control form-control-sm" %>
-    </div>
-  
-    <%= f.submit type, class: "btn btn-primary btn-sm" %>
-    <%= link_to "戻る", contents_path, class: "btn btn-secondary btn-sm" %>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :visit_day, "訪問した日" %>
+    <%= f.date_field :visit_day, id: "visit-day-field", class: "form-control form-control-sm" %>
+    <button type="button" id="today-button" class="btn btn-secondary btn-sm">本日</button>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, "レビュータイトル" %>
+    <%= f.text_field :title, class: "form-control form-control-sm" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :text, "投稿内容" %>
+    <%= f.text_area :text, class: "form-control form-control-sm", rows: 3 %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, "タグを作るところ" %>
+    <p><label>タグ(,で区切ると複数タグ登録できます)</label></p>
+    <%= f.text_field :name, value: @tag_list, class: "form-control form-control-sm" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :spot, "スポット" %>
+    <%= f.text_field :spot, class: "form-control form-control-sm", id: "address", type: "textbox", size: "50", autocomplete: "off" %>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="form-group">
+    <%= f.label :review, "レビューをつけるところ（とりあえず値を数値をしている）" %>
+    <%= f.number_field :review, class: "form-control form-control-sm" %>
+  </div>
+
+  <%= f.submit type, class: "btn btn-primary btn-sm" %>
+  <%= link_to "戻る", contents_path, class: "btn btn-secondary btn-sm" %>
+<% end %>
+
+<script>
+  let map;
+  let geocoder;
+
+  function initMap() {
+    geocoder = new google.maps.Geocoder();
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 40.7828, lng: -73.9653 },
+      zoom: 12,
+    });
+
+    const marker = new google.maps.Marker({
+      position: { lat: 40.7828, lng: -73.9653 },
+      map: map
+    });
+
+    const input = document.getElementById('address');
+    const autocomplete = new google.maps.places.Autocomplete(input);
+  }
+
+  function codeAddress() {
+    const inputAddress = document.getElementById('address').value;
+
+    geocoder.geocode({ 'address': inputAddress }, function (results, status) {
+      if (status === 'OK') {
+        map.setCenter(results[0].geometry.location);
+        const marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('該当する結果がありませんでした：' + status);
+      }
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&libraries=places&callback=initMap" async defer></script>

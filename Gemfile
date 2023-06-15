@@ -68,3 +68,7 @@ gem 'pry-byebug'
 gem 'jquery-rails'
 
 gem 'faker'
+
+gem 'dotenv-rails'
+
+gem 'google_places'
