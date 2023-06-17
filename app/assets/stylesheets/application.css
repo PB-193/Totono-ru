@@ -8,6 +8,9 @@ main {
   margin: 0 0 100px 0 ;
 }
 
+.nav-item {
+  list-style: none;
+}
 
 @keyframes steam01 {
   0% {

@@ -1,2 +1,8 @@
-<h1>Admin::Contents#show</h1>
-<p>Find me in app/views/admin/contents/show.html.erb</p>
+<h3>投稿の詳細をみよう</h3>
+<div class="row">
+  <%= render 'user/contents/show',content: @content %>
+</div>
+<div class="text-center mt-3">
+  <%= link_to "管理者権限で削除する", content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+  <%= link_to "戻る", admin_homes_top_path, class: "btn btn-secondary" %>
+</div>
