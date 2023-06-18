@@ -1,0 +1,43 @@
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">投稿情報</h5>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <tr>
+            <th>投稿日</th>
+            <td><%= @content.created_at.to_date %></td>
+          </tr>
+          <tr>
+            <th>ユーザ名</th>
+            <td><%= @content.user.name %></td>
+          </tr>
+          <tr>
+            <th>訪問日</th>
+            <td><%= @content.visit_day %></td>
+          </tr>
+          <tr>
+            <th>タイトル</th>
+            <td><%= @content.title %></td>
+          </tr>
+          <tr>
+            <th>タグ一覧</th>
+            <td>
+              <% @content.tags.each do |tag| %>
+                <%= link_to tag.name, searches_path(tag), class: "badge badge-primary" %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>サウナ施設</th>
+            <td><%= @content.spot%></td>
+          </tr>
+          <tr>
+            <th>本文</th>
+            <td><%= @content.text %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

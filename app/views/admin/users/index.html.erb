@@ -1,2 +1,30 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>会員No.</th>
+      <th>ユーザ名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.is_deleted? %>
+            <span class="badge bg-danger badge-lg">無効</span>	
+          <% else %>
+            <span class="badge bg-success badge-lg">有効</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "詳細", admin_user_path(user), class: "btn btn-outline-secondary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

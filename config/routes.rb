@@ -30,15 +30,20 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
-  # ユーザ、投稿、タグの管理
   namespace :admin do
-    resources :users, only: [:index, :show, :edit, :update]
-    resources :tags, only: [:index, :create, :destroy]
+    resources :users, only: [:index, :show, :edit, :update] 
+    resources :tags, only:[:index] do
+      collection do
+        post :create
+        delete :delete
+      end
+    end
     resources :contents, only: [:show, :destroy]
     get 'homes/top'
   end
   
   root to: "homes#top"
+  #　ゲストログイン用
   post "/homes/guest_sign_in", to: "homes#guest_sign_in"
 
 end

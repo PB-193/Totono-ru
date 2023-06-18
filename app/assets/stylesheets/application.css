@@ -1,13 +1,20 @@
+body {
+  font-family: "Maru Antique Medium", sans-serif;
+}
+
+
 
 #body-main {
   background-color: rgb(255, 195, 161) ;
-  height: 100%;
 }
 
 main {
   margin: 0 0 100px 0 ;
 }
 
+.nav-item {
+  list-style: none;
+}
 
 @keyframes steam01 {
   0% {
