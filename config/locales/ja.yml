@@ -22,3 +22,10 @@ ja:
       not_saved: 
         one: "エラーが発生しました。以下ご確認お願いいたします。"
         other: "エラーが発生しました。以下ご確認お願いいたします。"
+        
+  activerecord:
+    attributes:
+      user:
+        name: "ユーザ名"
+        email: "メールアドレス"
+        password: "パスワード"
