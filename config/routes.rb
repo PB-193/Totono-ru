@@ -32,7 +32,12 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :update] 
-    resources :tags, only: [:index, :create, :destroy]
+    resources :tags, only:[:index] do
+      collection do
+        post :create
+        delete :delete
+      end
+    end
     resources :contents, only: [:show, :destroy]
     get 'homes/top'
   end

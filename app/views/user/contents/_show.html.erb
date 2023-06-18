@@ -25,7 +25,7 @@
             <th>タグ一覧</th>
             <td>
               <% @content.tags.each do |tag| %>
-                <%= link_to tag.name, searches_path(tag), class: "badge badge-secondary" %>
+                <%= link_to tag.name, searches_path(tag), class: "badge badge-primary" %>
               <% end %>
             </td>
           </tr>
