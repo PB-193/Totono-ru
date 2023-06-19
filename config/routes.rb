@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     # 投稿とタグとコメント
     resources :contents do
       resources :tags, only: [:new, :create, :destroy]
-      resources :comments, only: [:new, :create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
     # 検索
     resources :searches, only: [:index] do
