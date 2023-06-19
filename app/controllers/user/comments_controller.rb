@@ -1,6 +1,5 @@
 class User::CommentsController < ApplicationController
   
-  
   def create
     @content = Content.find(params[:content_id])
     comment = @content.comments.build(comment_params)

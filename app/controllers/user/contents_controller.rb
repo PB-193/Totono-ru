@@ -27,6 +27,7 @@ class User::ContentsController < ApplicationController
       flash[:notice] = "投稿しました"
       redirect_to contents_path
     else
+      flash[:alert] = "タイトルの入力は必須になります"
       render :new
     end
   end
@@ -39,9 +40,10 @@ class User::ContentsController < ApplicationController
   def update
     @content = Content.find(params[:id])
     if @content.update(content_params)
-      flash[:notice] ="更新が完了しました"
+      flash[:notice] ="編集が完了しました"
       redirect_to content_path
     else
+      flash[:alert] ="編集が失敗しました"
       render :edit
     end
   end

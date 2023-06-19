@@ -4,3 +4,16 @@
 .form-group {
     display: inline;
 }
+
+.table tbody th {
+    padding-right: 50px;
+    background-color: red;
+}
+
+.table tbody tr {
+  height: 40px; /* 行の高さを指定 */
+}
+
+.table-main {
+  margin-top: 20px; /* 本文以外のテーブルとの間にスペースを追加 */
+}

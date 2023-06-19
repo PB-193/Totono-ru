@@ -1,5 +1,4 @@
 <%= form_with model: content, local: true, class: "my-form" do |f| %>
-  <%= render 'layouts/alerm', obj: content %>
   <div class="form-group">
     <%= f.label :title, "レビュータイトル" %>
     <%= f.text_field :title, class: "form-control form-control-sm" %>
@@ -11,7 +10,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <%= f.label :visit_day, "訪問した日" %>
-      <%= f.date_field :visit_day, id: "visit-day-field", class: "form-control form-control-sm" %>
+      <%= f.date_field :visit_day ,class: "form-control form-control-sm" %>
     </div>
     <div class="form-group col-md-6">
       <%= f.label :name, "タグ(複数登録するには , で区切りましょう)" %>
@@ -25,6 +24,68 @@
     <%= f.number_field :review, class: "form-control form-control-sm" %>
   </div>
 
+  <div class="form-group">
+    <div class="search-tag-form">
+      <span>
+        <%= text_field_tag nil, nil, class: "search-tag-field" %>
+      </span>
+      <span class="add-search-tag">追加</span>
+    </div>
+    <%# 追加されたタグを表示する領域 %>
+    <div class="added-tags">
+      <% content.tags.each do |tag| %>
+        <label class="tag-label">
+          <%= check_box_tag "content[tag_ids][]", tag.id, checked: true %>
+          <%= tag.name %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
   <%= f.submit type, class: "btn btn-primary btn-sm" %>
   <%= link_to "戻る", contents_path, class: "btn btn-secondary btn-sm" %>
 <% end %>
+
+<script>
+  $(function() {
+    var search_tag_field = '.search-tag-field';
+    var search_tag_form = '.search-tag-form';
+
+    // 追加ボタンを押した時の処理(入力された内容を元にチェックボックスを随時追加)
+    var add_search_tag = function() {
+      // エラーメッセージが存在する場合、削除
+      $(".tag-alert").remove();
+
+      // 入力内容を取得
+      var tag_name = $(search_tag_field).val().trim();
+      // 追加済みのタグを取得して配列に詰め込む
+      var added_tags = [];
+      $(".tag-label").each(function() {
+        added_tags.push($(this).text().trim());
+      });
+
+      // 追加済みのタグと追加予定のタグの重複チェック
+      var is_duplicate = added_tags.some(function(value) {
+        return value === tag_name;
+      });
+
+      // 空ではなく、追加済みのタグと重複していない場合、追加
+      if (tag_name && !is_duplicate) {
+        // パラメータで渡す際に値が被るのを防ぐため現時刻を取得(被っていると統合されて複数渡せないため)
+        var id = new Date().getTime();
+
+        // 検索タグを登録できるチェックボックスを追加(入力内容を保持)
+        $('.added-tags').append($(`<label class="tag-label"><input class="tag-input" type="checkbox" checked="checked" name="content[tag_ids][]" value="${id}" />${' ' + tag_name}</label>`));
+
+        // チェックボックス追加後、入力フォームをリセット
+        $(search_tag_field).val('');
+      }
+      // 追加済みのタグと重複している場合、エラーメッセージを表示
+      if (is_duplicate) {
+        $(search_tag_form).after($(`<p class="tag-alert">※既に存在するタグです。</p>`));
+      }
+    };
+
+    $('.add-search-tag').on('click', add_search_tag); // 追加イベント発火
+  });
+</script>

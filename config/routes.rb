@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # ユーザ用
   # 新規投稿とログイン
   devise_for :users, controllers: {
@@ -40,10 +41,11 @@ Rails.application.routes.draw do
     end
     resources :contents, only: [:show, :destroy]
     get 'homes/top'
+    get 'tests/show'
   end
   
   root to: "homes#top"
   #　ゲストログイン用
   post "/homes/guest_sign_in", to: "homes#guest_sign_in"
-
+  
 end

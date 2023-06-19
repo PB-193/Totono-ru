@@ -1,0 +1,53 @@
+<h1>Admin::Tests#show</h1>
+<p>Find me in app/views/admin/tests/show.html.erb</p>
+
+<div class="search-tag-form">
+  <span>
+    <%= text_field_tag nil, nil, class: "search-tag-field" %>
+  </span>
+  <span class="add-search-tag">追加</span>
+</div>
+
+<script>
+  $(function() {
+    var search_tag_field = '.search-tag-field';
+    var search_tag_form = '.search-tag-form';
+
+    // 追加ボタンを押した時の処理(入力された内容を元にチェックボックスを随時追加)
+    var add_search_tag = function() {
+      // エラーメッセージが存在する場合、削除
+      $(".tag-alert").remove();
+
+      // 入力内容を取得
+      var tag_name = $(search_tag_field).val().trim();
+      // 追加済みのタグを取得して配列に詰め込む
+      var added_tags = [];
+      $(".tag-label").each(function() {
+        added_tags.push($(this).text().trim());
+      });
+
+      // 追加済みのタグと追加予定のタグの重複チェック
+      var is_duplicate = added_tags.some(function(value) {
+        return value === tag_name;
+      });
+
+      // 空ではなく、追加済みのタグと重複していない場合、追加
+      if (tag_name && !is_duplicate) {
+        // パラメータで渡す際に値が被るのを防ぐため現時刻を取得(被っていると統合されて複数渡せないため)
+        var id = new Date().getTime();
+
+        // 検索タグを登録できるチェックボックスを追加(入力内容を保持)
+        $(search_tag_form).before($(`<label class="tag-label"><input class="tag-input" type="checkbox" checked="checked" name="job[search_tags_attributes][${id}][name]" value="${tag_name}" />${' ' + tag_name}</label>`));
+
+        // チェックボックス追加後、入力フォームをリセット
+        $(search_tag_field).val('');
+      }
+      // 追加済みのタグと重複している場合、エラーメッセージを表示
+      if (is_duplicate) {
+        $(search_tag_form).after($(`<p class="tag-alert">※既に存在するタグです。</p>`));
+      }
+    };
+
+    $('.add-search-tag').on('click', add_search_tag); // 追加イベント発火
+  });
+</script>
