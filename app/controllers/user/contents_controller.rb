@@ -21,14 +21,15 @@ class User::ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.user = current_user
-    # tag作成で受け取った値を,で区切って配列にする
-    tag_list=params[:content][:name].split(',')
+  
+    tag_names = params[:tag_name].split(',').map(&:strip) if params[:tag_name].present?
+    @content.tags = tag_names.map { |name| Tag.find_or_create_by(name: name) } if tag_names
+  
     if @content.save
-      @content.save_tag(tag_list)
       flash[:notice] = "投稿しました"
       redirect_to contents_path
     else
-      flash[:alert] = "タイトルの入力は必須になります"
+      flash[:alert] = "タイトルの入力は必須です"
       render :new
     end
   end

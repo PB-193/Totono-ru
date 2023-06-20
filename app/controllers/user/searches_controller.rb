@@ -1,11 +1,12 @@
 class User::SearchesController < ApplicationController
   
   def find
-    # 検索フォームを表示するアクション
+    @tags = Tag.all
   end
 
   def index
-    
+    @tag = Tag.find(params[:tag_id])
+    @contents = @tag.contents
   end
 
 end

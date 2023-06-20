@@ -24,24 +24,6 @@
     <%= f.number_field :review, class: "form-control form-control-sm" %>
   </div>
 
-  <div class="form-group">
-    <div class="search-tag-form">
-      <span>
-        <%= text_field_tag nil, nil, class: "search-tag-field" %>
-      </span>
-      <span class="add-search-tag">追加</span>
-    </div>
-    <%# 追加されたタグを表示する領域 %>
-    <div class="added-tags">
-      <% content.tags.each do |tag| %>
-        <label class="tag-label">
-          <%= check_box_tag "content[tag_ids][]", tag.id, checked: true %>
-          <%= tag.name %>
-        </label>
-      <% end %>
-    </div>
-  </div>
-
   <%= f.submit type, class: "btn btn-primary btn-sm" %>
   <%= link_to "戻る", contents_path, class: "btn btn-secondary btn-sm" %>
 <% end %>

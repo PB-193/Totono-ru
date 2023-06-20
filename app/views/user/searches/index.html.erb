@@ -1,11 +1,3 @@
 <h3>検索結果</h3>
-<% @contents.each do |content| %>
-  <p><%= content.title %></p>
-<% end %>
-
-<h2>タグが<%= @tag.name %>の投稿一覧</h2>
-<ul>
-  <% @contents.each do |content| %>
-    <li><%= content.title %></li>
-  <% end %>
-</ul>
+<h2>タグが「<%= @tag.name %>」の投稿一覧</h2>
+<%= render "user/contents/index", contents: @contents %>
