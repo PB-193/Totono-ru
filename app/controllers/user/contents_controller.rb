@@ -21,15 +21,13 @@ class User::ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.user = current_user
-  
-    tag_names = params[:tag_name].split(',').map(&:strip) if params[:tag_name].present?
-    @content.tags = tag_names.map { |name| Tag.find_or_create_by(name: name) } if tag_names
-  
+    tag_list=params[:content][:name].split(',')
     if @content.save
+      @content.save_tag(tag_list)
       flash[:notice] = "投稿しました"
       redirect_to contents_path
     else
-      flash[:alert] = "タイトルの入力は必須です"
+      flash[:alert] = "タイトルの入力は必須になります"
       render :new
     end
   end
@@ -60,7 +58,7 @@ class User::ContentsController < ApplicationController
   private
   
   def content_params
-    params.require(:content).permit(:visit_day,:title, :spot, :text, :review)
+    params.require(:content).permit(:visit_day,:title, :spot, :text, :rate)
   end
   
   def guest_check

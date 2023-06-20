@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2023_06_14_062520) do
     t.string "spot"
     t.string "title", null: false
     t.text "text"
-    t.float "review"
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

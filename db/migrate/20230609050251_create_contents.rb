@@ -6,7 +6,7 @@ class CreateContents < ActiveRecord::Migration[6.1]
       t.string :spot
       t.string :title, null: false
       t.text :text
-      t.float :review
+      t.float :rate
       
       t.timestamps
     end

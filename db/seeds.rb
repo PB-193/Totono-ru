@@ -25,7 +25,6 @@ puts "-------------user create------------"
         spot: "レインボー",
         title: "タイトル",
         text: "ととのいました",
-        review: 5
       )
     end
 
