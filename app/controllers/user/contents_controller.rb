@@ -1,5 +1,6 @@
 class User::ContentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :guest_check, only: [:new, :create]
 
   def index
     @contents = Content.page(params[:content]).per(10)
@@ -60,5 +61,12 @@ class User::ContentsController < ApplicationController
   def content_params
     params.require(:content).permit(:visit_day,:title, :spot, :text, :review)
   end
+  
+  def guest_check
+    if current_user.email == 'guest@example.com'
+      redirect_to contents_path, alert: "投稿をするには会員登録が必要です。"
+    end
+  end
+
   
 end
