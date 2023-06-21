@@ -9,6 +9,8 @@
     <div class="text-base leading-relaxed mx-auto text-gray-500">
       <p>ととの〜るはサウナが好きな人のためのサ活（サウナ活動）レビューサイトです。<br>日々の自分自身のサ活に点数をつけて次回のサ活へ改善していくことを目的として作成しました。</p>
     </div>
+              <%= render 'layouts/steam' %>
+
     <div class="flex mt-6 justify-center">
       <div class="w-16 h-1 rounded-full bg-fitting-pink inline-flex"></div>
     </div>
@@ -48,8 +50,8 @@
       </div>
     </div>
   </div>
-<div class="text-center">
-    <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post,class:"btn btn-outline-info" %>
-    <%= link_to "新規登録としてはじめる", new_user_registration_path,class:"btn btn-outline-info" %>
-    <%= link_to "ログインしてはじめる", new_user_session_path,class:"btn btn-outline-info" %>
-</div>
+  <div class="text-center pb-5">
+      <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post,class:"btn btn-outline-info mr-3" %>
+      <%= link_to "新規登録としてはじめる", new_user_registration_path,class:"btn btn-outline-info mr-3" %>
+      <%= link_to "ログインしてはじめる", new_user_session_path,class:"btn btn-outline-info" %>
+  </div>

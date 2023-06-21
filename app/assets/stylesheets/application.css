@@ -1,14 +1,14 @@
-body {
-  font-family: "Maru Antique Medium", sans-serif;
-}
-
-
 #body-main {
   background-color: rgb(255, 195, 161) ;
+  font-family: 'Kaisei HarunoUmi', serif;
 }
 
 main {
-  margin: 0 0 100px 0 ;
+  margin-bottom: 100px;
+}
+
+footer {
+  background-color: rgb(240, 153, 125);
 }
 
 .nav-item {
@@ -50,15 +50,16 @@ main {
     transform: scale(0.6, 0.6);
     opacity: 0
   }
-  11% { opacity: 0.1 }
+  11% { opacity: 0.5 }
   33% {
     transform: rotateY(40deg);
     transform: scale(0.8, 1);
-    opacity: 0.4
+    opacity: 0.9
   }
   66% {
     transform: rotateY(2deg);
-    transform: scaleY(1, 1.2)
+    transform: scaleY(1, 1.2);
+    opacity: 0.6
   }
   100% {
     bottom: 0;
@@ -68,31 +69,20 @@ main {
     opacity: 0
   }
 }
-.steamWrap {
-  width: 740px;
-  margin: 100px auto 0
-}
-.steamBox {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden
-}
-.steamBox > img {
-  width: 100%;
-  display: block
-}
+
 .steam01 {
   position: absolute;
   right: 0;
   animation: steam01 10s infinite linear;
-  opacity: 0
+  opacity: 0;
+  z-index:1000;
 }
 .steam02 {
   position: absolute;
   left: 0;
   animation: steam02 14s infinite linear;
-  opacity: 0
+  opacity: 0;
+  z-index:1000;
 }
 .steam03 {
   margin: auto;
@@ -101,7 +91,8 @@ main {
   left: 0;
   animation: steam02 12s infinite linear;
   animation-delay: 6s;
-  opacity: 0
+  opacity: 0;
+  z-index:1000;
 }
 .steam01 img, .steam03 img {
   width: 532px;
