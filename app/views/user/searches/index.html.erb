@@ -1,3 +1,7 @@
 <h3>検索結果</h3>
-<h2>タグが「<%= @tag.name %>」の投稿一覧</h2>
+<% if @tag.nil? %>
+  <h2>指定した投稿日の一覧を表示します</h2>
+<% else %>
+  <h2>タグが「<%= @tag.name %>」の投稿一覧を表示します</h2>
+<% end %>
 <%= render "user/contents/index", contents: @contents %>
