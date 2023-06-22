@@ -1,57 +1,60 @@
-<h1>最初の画面　Homes#top</h1>
-  <div class="row">
-    <div class="col-md-12">
+<div class="row">
+  <div class="top col-md-12">
+    <div class="top-title">
+      サ活レビューサイト<br>ととのーる
+    </div>
+    <div class="top-image">
       <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
     </div>
   </div>
-  <div class="text-center border-dotted border-t-2 border-fitting-pink py-20">
-    <h1 class="font-kaisei text-2xl title-font text-gray-900 mb-4">ととの〜るの使い方</h1>
-    <div class="text-base leading-relaxed mx-auto text-gray-500">
-      <p>ととの〜るはサウナが好きな人のためのサ活（サウナ活動）レビューサイトです。<br>日々の自分自身のサ活に点数をつけて次回のサ活へ改善していくことを目的として作成しました。</p>
-    </div>
-              <%= render 'layouts/steam' %>
-
-    <div class="flex mt-6 justify-center">
-      <div class="w-16 h-1 rounded-full bg-fitting-pink inline-flex"></div>
-    </div>
+</div>
+<div class="text-center border-dotted border-t-2 border-fitting-pink py-20">
+  <h1 class="font-kaisei text-2xl title-font text-gray-900 mb-4">ととの〜るの使い方</h1>
+  <div class="text-base leading-relaxed mx-auto text-gray-500">
+    <p>ととの〜るはサウナが好きな人のためのサ活（サウナ活動）レビューサイトです。<br>日々の自分自身のサ活に点数をつけて次回のサ活へ改善していくことを目的として作成しました。</p>
   </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="mb-6 p-4 flex flex-col text-center items-center">
-        <div class="inline-flex items-center justify-center justify-center mb-5 flex-shrink-0">
-          <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
-        </div>
-        <div class="flex-grow">
-          <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その1. みんなのサ活を見てみよう</h2>
-          <p class="leading-relaxed text-base text-gray-500">　まずは、ページ下部のゲストログインから、投稿しているサ活レビューをみてみよう</p>
-        </div>
+  <%= render 'layouts/steam' %>
+  <div class="flex mt-6 justify-center">
+    <div class="w-16 h-1 rounded-full bg-fitting-pink inline-flex"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="mb-6 p-4 flex flex-col text-center items-center">
+      <div class="inline-flex items-center justify-center justify-center mb-5 flex-shrink-0">
+        <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-6 p-4 flex flex-col text-center items-center">
-        <div class="inline-flex items-center justify-center mb-5 flex-shrink-0">
-          <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
-        </div>
-        <div class="flex-grow">
-          <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その2. ユーザ登録をしてみよう</h2>
-          <p class="leading-relaxed text-base text-gray-500">　ユーザ登録すると、「サ活の投稿」ができるようになります<br>サウナ施設の入力は APIを導入してスポットの予測変換が可能となっています</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-6 p-4 flex flex-col text-center items-center">
-        <div class="inline-flex items-center justify-center mb-5 flex-shrink-0">
-          <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
-        </div>
-        <div class="flex-grow">
-          <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その3. お気に入りのスポットを投稿・評価しよう</h2>
-          <p class="leading-relaxed text-base text-gray-500">　ユーザー登録を済ませたら、ページ下部の「投稿」ボタンから、あなたが見つけたお気に入りのスポットを投稿してみましょう。投稿後、スポット情報の詳細から、三段階の三つ星評価をすることができます。</p>
-        </div>
+      <div class="flex-grow">
+        <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その1. みんなのサ活を見てみよう</h2>
+        <p class="leading-relaxed text-base text-gray-500">　まずは、ページ下部のゲストログインから、投稿しているサ活レビューをみてみよう</p>
       </div>
     </div>
   </div>
-  <div class="text-center pb-5">
-      <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post,class:"btn btn-outline-info mr-3" %>
-      <%= link_to "新規登録としてはじめる", new_user_registration_path,class:"btn btn-outline-info mr-3" %>
-      <%= link_to "ログインしてはじめる", new_user_session_path,class:"btn btn-outline-info" %>
+  <div class="col-md-4">
+    <div class="mb-6 p-4 flex flex-col text-center items-center">
+      <div class="inline-flex items-center justify-center mb-5 flex-shrink-0">
+        <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
+      </div>
+      <div class="flex-grow">
+        <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その2. ユーザ登録をしてみよう</h2>
+        <p class="leading-relaxed text-base text-gray-500">　ユーザ登録すると、「サ活の投稿」ができるようになります<br>サウナ施設の入力は APIを導入してスポットの予測変換が可能となっています</p>
+      </div>
+    </div>
   </div>
+  <div class="col-md-4">
+    <div class="mb-6 p-4 flex flex-col text-center items-center">
+      <div class="inline-flex items-center justify-center mb-5 flex-shrink-0">
+        <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
+      </div>
+      <div class="flex-grow">
+        <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その3. お気に入りのスポットを投稿・評価しよう</h2>
+        <p class="leading-relaxed text-base text-gray-500">　ユーザー登録を済ませたら、ページ下部の「投稿」ボタンから、あなたが見つけたお気に入りのスポットを投稿してみましょう。投稿後、スポット情報の詳細から、三段階の三つ星評価をすることができます。</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center pb-5">
+    <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post,class:"btn btn-outline-info mr-3" %>
+    <%= link_to "新規登録としてはじめる", new_user_registration_path,class:"btn btn-outline-info mr-3" %>
+    <%= link_to "ログインしてはじめる", new_user_session_path,class:"btn btn-outline-info" %>
+</div>

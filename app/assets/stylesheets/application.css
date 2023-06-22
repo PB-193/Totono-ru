@@ -15,9 +15,31 @@ footer {
   list-style: none;
 }
 
+.top {
+  position: relative;
+}
+
+.top-title {
+  position: absolute;
+  padding: 330px;
+  font-size: 50px;
+  z-index: 100;
+  font-family: 'Aoboshi One', serif;
+  display: none;
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 4px 3px rgb(61 70 70);
+}
+
+.top-image {
+  position: relative;
+}
+
+
+
 @keyframes steam01 {
   0% {
-    bottom: -600px;
+    bottom: -300px;
     filter: blur(16px);
     transform: rotateY(0deg);
     transform: scale(0.6, 1);
