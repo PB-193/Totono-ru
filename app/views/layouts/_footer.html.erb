@@ -5,16 +5,24 @@
         <% unless current_page?(root_path) %>
           <% if user_signed_in? %>
             <li class="list-inline-item">
-              <%= link_to "マイページ", mypage_path %>
+              <%= link_to mypage_path do %>
+                <%= image_tag 'mypage.png' , class:"footer-logo-img" %>
+              <% end %>
             </li>
             <li class="list-inline-item">
-              <%= link_to "投稿一覧", contents_path %>
+              <%= link_to contents_path do %>
+                <%= image_tag 'contents.png' , class:"footer-logo-img" %>
+              <% end %>
             </li>
             <li class="list-inline-item">
-              <%= link_to "投稿する", new_content_path %>
+              <%= link_to new_content_path do %>
+                <%= image_tag 'create.png' , class:"footer-logo-img" %>
+              <% end %>
             </li>
             <li class="list-inline-item">
-              <%= link_to "検索", find_searches_path %>
+              <%= link_to find_searches_path do %>
+                <%= image_tag 'search.png' , class:"footer-logo-img" %>
+              <% end %>
             </li>
           <% elsif admin_signed_in? %>
             <li class="list-inline-item">
