@@ -1,11 +1,7 @@
 <h3>検索結果</h3>
-<% @contents.each do |content| %>
-  <p><%= content.title %></p>
+<% if @tag.nil? %>
+  <h2>指定した投稿日の一覧を表示します</h2>
+<% else %>
+  <h2>タグが「<%= @tag.name %>」の投稿一覧を表示します</h2>
 <% end %>
-
-<h2>タグが<%= tag.name%>の投稿一覧</h2>
-<!--タグリスト-->
-<% tag_list.each do |list|%>
-    <%=link_to list.name,search_tag_path(workout_tag_id: list.id) %>
-    <%="(#{list.post_workouts.count})" %>
-<% end %>
+<%= render "user/contents/index", contents: @contents %>

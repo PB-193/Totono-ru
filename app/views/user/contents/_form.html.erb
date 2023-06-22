@@ -1,5 +1,4 @@
 <%= form_with model: content, local: true, class: "my-form" do |f| %>
-  <%= render 'layouts/alerm', obj: content %>
   <div class="form-group">
     <%= f.label :title, "レビュータイトル" %>
     <%= f.text_field :title, class: "form-control form-control-sm" %>
@@ -11,7 +10,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <%= f.label :visit_day, "訪問した日" %>
-      <%= f.date_field :visit_day, id: "visit-day-field", class: "form-control form-control-sm" %>
+      <%= f.date_field :visit_day ,class: "form-control form-control-sm" %>
     </div>
     <div class="form-group col-md-6">
       <%= f.label :name, "タグ(複数登録するには , で区切りましょう)" %>
@@ -24,7 +23,35 @@
     <%= f.label :review, "レビューをつけるところ（とりあえず値を数値をしている）" %>
     <%= f.number_field :review, class: "form-control form-control-sm" %>
   </div>
+   <!-- newとeditを区別するためのif文  -->
+  <% if content.id.nil? %>
+    <div class="form-group" id="star">
+      <%= f.label :rate %>
+      <%= f.hidden_field :rate, id: :review_star, class: 'form-control' %>
+      <div id="post_raty"></div>
+    </div>
+  <% else %>
+    <div class="form-group">
+      <%= render "static_rate", content: content %>
+    </div>
+  <% end %>
 
   <%= f.submit type, class: "btn btn-primary btn-sm" %>
   <%= link_to "戻る", contents_path, class: "btn btn-secondary btn-sm" %>
 <% end %>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    let elem = document.querySelector('#post_raty');
+    if (elem == null) return;
+
+    elem.innerHTML = ""
+    let opt = {  
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      scoreName: 'content[rate]',
+    };
+    raty(elem, opt);
+  });
+</script>

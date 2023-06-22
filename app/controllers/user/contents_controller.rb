@@ -1,8 +1,9 @@
 class User::ContentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :guest_check, only: [:new, :create]
 
   def index
-    @contents = Content.page(params[:content]).per(10)
+    @contents = Content.all.page(params[:page]).per(6)
     @tag_list=Tag.all
     @user = current_user
   end
@@ -20,13 +21,13 @@ class User::ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.user = current_user
-    # tag作成で受け取った値を,で区切って配列にする
     tag_list=params[:content][:name].split(',')
     if @content.save
       @content.save_tag(tag_list)
       flash[:notice] = "投稿しました"
       redirect_to contents_path
     else
+      flash[:alert] = "タイトルの入力は必須になります"
       render :new
     end
   end
@@ -39,9 +40,10 @@ class User::ContentsController < ApplicationController
   def update
     @content = Content.find(params[:id])
     if @content.update(content_params)
-      flash[:notice] ="更新が完了しました"
+      flash[:notice] ="編集が完了しました"
       redirect_to content_path
     else
+      flash[:alert] ="編集が失敗しました"
       render :edit
     end
   end
@@ -56,7 +58,14 @@ class User::ContentsController < ApplicationController
   private
   
   def content_params
-    params.require(:content).permit(:visit_day,:title, :spot, :text, :review)
+    params.require(:content).permit(:visit_day,:title, :spot, :text, :rate)
   end
+  
+  def guest_check
+    if current_user.email == 'guest@example.com'
+      redirect_to contents_path, alert: "投稿をするには会員登録が必要です。"
+    end
+  end
+
   
 end

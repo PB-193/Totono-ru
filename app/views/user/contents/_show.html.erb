@@ -1,10 +1,11 @@
-  <div class="col-md-8">
-    <div class="card">
-      <div class="card-header">
-        <h5 class="card-title">投稿情報</h5>
-      </div>
-      <div class="card-body">
-        <table class="table">
+<div class="col-md-8">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">投稿情報</h5>
+    </div>
+    <div class="card-body">
+      <table class="table pr-md">
+        <tbody>
           <tr>
             <th>投稿日</th>
             <td><%= @content.created_at.to_date %></td>
@@ -25,7 +26,7 @@
             <th>タグ一覧</th>
             <td>
               <% @content.tags.each do |tag| %>
-                <%= link_to tag.name, searches_path(tag), class: "badge badge-primary" %>
+                <%= link_to tag.name, searches_path(tag_id: tag.id), class: "badge badge-primary" %>
               <% end %>
             </td>
           </tr>
@@ -34,10 +35,19 @@
             <td><%= @content.spot%></td>
           </tr>
           <tr>
+            <th>レビュー</th>
+            <td><%= render "static_rate", content: content %></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-main">
+        <tbody>
+          <tr>
             <th>本文</th>
             <td><%= @content.text %></td>
           </tr>
-        </table>
-      </div>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>

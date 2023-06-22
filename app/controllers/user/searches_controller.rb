@@ -1,21 +1,34 @@
 class User::SearchesController < ApplicationController
   
   def find
-    # 検索フォームを表示するアクション
+    @tags = Tag.all
   end
 
   def index
-    start_year = params[:start_year]
-    end_year = params[:end_year]
+    @tag = Tag.find_by(id: params[:tag_id])
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
   
-    # start_year から end_year の範囲でコンテンツを絞り込む
-    @contents = Content.where(visit_day: start_year..end_year)
+    # 絞り込み条件に基づいてデータを取得するクエリを作成
+    query = Content.all
   
-    if params[:tag_id].present?
-      @tag = Tag.find(params[:tag_id])
-      @contents = @contents.joins(:tags).where(tags: { id: @tag.id })
+    if @start_date.present?
+      query = query.where("created_at >= ?", @start_date)
     end
+  
+    if @end_date.present?
+      query = query.where("created_at <= ?", @end_date)
+    end
+  
+    # タグが指定されている場合はタグに基づいて絞り込み
+    if @tag.present?
+      query = query.joins(:tags).where(tags: { id: @tag.id })
+    end
+  
+    # クエリを実行して結果を取得
+    @contents = query.order(created_at: :desc)
+    render "user/searches/index"
   end
 
-  # 検索結果を表示するアクション
+
 end

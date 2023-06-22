@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(version: 2023_06_14_062520) do
 
   create_table "contents", force: :cascade do |t|
     t.integer "user_id"
-    t.date "visit_day", null: false
-    t.string "spot", null: false
+    t.date "visit_day"
+    t.string "spot"
     t.string "title", null: false
-    t.text "text", null: false
-    t.float "review", null: false
+    t.text "text"
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

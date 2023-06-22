@@ -1,24 +1,74 @@
-body {
-  font-family: "Maru Antique Medium", sans-serif;
-}
-
-
-
 #body-main {
   background-color: rgb(255, 195, 161) ;
+  font-family: 'Kaisei HarunoUmi', serif;
 }
 
 main {
-  margin: 0 0 100px 0 ;
+  margin-bottom: 100px;
+}
+
+footer {
+  background-color: rgb(240, 153, 125);
 }
 
 .nav-item {
   list-style: none;
 }
 
+.top {
+  position: relative;
+}
+
+.top-title {
+  position: absolute;
+  padding: 330px;
+  font-size: 50px;
+  z-index: 100;
+  font-family: 'Aoboshi One', serif;
+  display: none;
+  color: #fff;
+  text-align: center;
+  text-shadow: 3px 4px 3px rgb(61 70 70);
+}
+
+.top-image {
+  position: relative;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+.footer-logo-img {
+  width: 50px;
+  height: 50px;
+  margin: 0 20px;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+
+
+/*トップ画面の湯気エフェクト */
 @keyframes steam01 {
   0% {
-    bottom: -600px;
+    bottom: -300px;
     filter: blur(16px);
     transform: rotateY(0deg);
     transform: scale(0.6, 1);
@@ -51,15 +101,16 @@ main {
     transform: scale(0.6, 0.6);
     opacity: 0
   }
-  11% { opacity: 0.1 }
+  11% { opacity: 0.5 }
   33% {
     transform: rotateY(40deg);
     transform: scale(0.8, 1);
-    opacity: 0.4
+    opacity: 0.9
   }
   66% {
     transform: rotateY(2deg);
-    transform: scaleY(1, 1.2)
+    transform: scaleY(1, 1.2);
+    opacity: 0.6
   }
   100% {
     bottom: 0;
@@ -69,31 +120,20 @@ main {
     opacity: 0
   }
 }
-.steamWrap {
-  width: 740px;
-  margin: 100px auto 0
-}
-.steamBox {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden
-}
-.steamBox > img {
-  width: 100%;
-  display: block
-}
+
 .steam01 {
   position: absolute;
   right: 0;
   animation: steam01 10s infinite linear;
-  opacity: 0
+  opacity: 0;
+  z-index:1000;
 }
 .steam02 {
   position: absolute;
   left: 0;
   animation: steam02 14s infinite linear;
-  opacity: 0
+  opacity: 0;
+  z-index:1000;
 }
 .steam03 {
   margin: auto;
@@ -102,7 +142,8 @@ main {
   left: 0;
   animation: steam02 12s infinite linear;
   animation-delay: 6s;
-  opacity: 0
+  opacity: 0;
+  z-index:1000;
 }
 .steam01 img, .steam03 img {
   width: 532px;

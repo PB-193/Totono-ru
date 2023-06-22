@@ -3,6 +3,8 @@ class Content < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :content_tags, dependent: :destroy
     has_many :tags, through: :content_tags
+    
+    validates :title,presence:true
 
     def save_tag(sent_tags)
       # タグが存在していれば、タグの名前を配列として全て取得

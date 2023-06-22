@@ -1,14 +1,62 @@
-<h3>絞り込み検索を行います</h3>
 
-<%= form_tag(searches_path, method: :get) do %>
-  <label>開始日:</label>
-  <%= date_field_tag :start_date %>
+<h3 class="pt-3">このページは様々な検索ができます</h3>
 
-  <label>終了日:</label>
-  <%= date_field_tag :end_date %>
-
-  <label>最低点数:</label>
-  <%= number_field_tag :min_review %>
-
-  <%= submit_tag "絞り込み" %>
-<% end %>
+<div class="row mt-5">
+  <div class="col-5">
+  <h6>絞り込み検索を行うことができます</h6>
+  ＜投稿日＞
+    <%= form_tag(searches_path, method: :get, class: "form-inline") do %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>開始日</th>
+            <th>終了日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="form-group">
+                <%= label_tag "content[start_date]", "ここから :" %>
+                <%= date_field_tag "content[start_date]", class: "form-control" %>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                <%= label_tag "content[end_date]", "ここまで　:" %>
+                <%= date_field_tag "content[end_date]", class: "form-control" %>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= submit_tag "絞り込む", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  
+  <div class="col-7">
+    <h6>タグの検索を行うことができます</h6>
+    <h6>タグのボタンをクリックすると、そのタグが付与された投稿一覧が表示されます</h6>
+    <div class="tag-list">
+      <%= form_tag delete_admin_tags_path, method: :delete do %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>タグ名</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @tags.each_slice(2) do |tags_row| %>
+              <tr>
+                <% tags_row.each do |tag| %>
+                  <td><%= link_to tag.name, searches_path(tag_id: tag.id), class: "btn btn-primary" %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

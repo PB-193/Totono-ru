@@ -1,34 +1,31 @@
 <h3>投稿の詳細をみよう</h3>
 <div class="row">
-<%= render 'show',content: @content %>
+  <%= render 'show',content: @content %>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">コメント欄</h5>
       </div>
       <div class="card-body">
-        <% @content.comments.each do |comment| %>
-          <div class="card mb-3">
-            <div class="card-body">
-              <p class="card-text"><%= comment.comment %></p>
-              <%= link_to '削除', content_comment_path(@content, comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
-            </div>
-          </div>
-        <% end %>
-        <%= form_with(model: @comment, url: content_comments_path(@content), local: true) do |f| %>
+        <div id="comments_list">
+          <%= render "comments_list",content: @content %>
+        </div>
+        <%= form_with(model: @comment, url: content_comments_path(@content), local: false) do |f| %>
           <div class="form-group">
-            <%= f.text_area :comment, class: "form-control" %>
+            <%= f.text_area :comment,placeholder: "コメントをする",class: "form-control comment-textarea" %>
           </div>
-          <%= f.submit "コメントする", class: "btn btn-primary" %>
+          <%= f.submit "コメント", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 <div class="text-center mt-3">
-  <%= link_to "編集する", edit_content_path(@content), class: "btn btn-primary" %>
-  <%= link_to "削除する", content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
-  <%= link_to "戻る", contents_path, class: "btn btn-secondary" %>
+  <% if @content.user == current_user %>
+    <%= link_to "編集する", edit_content_path(@content), class: "btn btn-primary" %>
+    <%= link_to "削除する", content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+  <% end %>
+  <%= link_to "投稿一覧に戻る", contents_path, class: "btn btn-secondary" %>
 </div>
 
 

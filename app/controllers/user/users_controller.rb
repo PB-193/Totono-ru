@@ -1,6 +1,7 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_current_user
+  before_action :guest_check
 
   def show
   end
@@ -36,4 +37,12 @@ class User::UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :profile_image )
   end
 
+  private
+  
+  def guest_check
+    if current_user.email == 'guest@example.com'
+      redirect_to contents_path, alert: "マイページの確認は会員登録が必要です。"
+    end
+  end
+  
 end
