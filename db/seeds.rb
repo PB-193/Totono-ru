@@ -8,10 +8,10 @@
 
 puts "-------------create start------------"
 
-    3.times do |n|
+    5.times do |n|
       User.create!(
         email: "test#{n + 1}@gmail.com",
-        name: "テスト#{n + 1}さん",
+        name: "テスト#{n + 1}",
         password: "ikmikm",
         password_confirmation: "ikmikm"
       )
@@ -19,13 +19,16 @@ puts "-------------create start------------"
 
 puts "-------------user create------------"
 
-    User.all.each do |user|
-      user.contents.create!(
-        visit_day: Date.new(2023, 6, 10),
-        spot: "レインボー",
-        title: "タイトル",
-        text: "ととのいました",
-      )
+    5.times do
+      User.all.each do |user|
+        user.contents.create!(
+          visit_day: Date.new(2023, 6, 10),
+          spot: "レインボー",
+          title: "タイトル",
+          text: "ととのいました",
+          rate: 4
+        )
+      end
     end
 
 puts "------------content create------------"

@@ -3,7 +3,7 @@ class User::ContentsController < ApplicationController
   before_action :guest_check, only: [:new, :create]
 
   def index
-    @contents = Content.page(params[:content]).per(10)
+    @contents = Content.all.page(params[:page]).per(6)
     @tag_list=Tag.all
     @user = current_user
   end

@@ -5,7 +5,7 @@
   <div class="col-5">
   <h6>絞り込み検索を行うことができます</h6>
   ＜投稿日＞
-    <%= search_form_for @content, url: searches_path, class: "form-inline" do |f| %> 
+    <%= form_tag(searches_path, method: :get, class: "form-inline") do %>
       <table class="table">
         <thead>
           <tr>
@@ -17,23 +17,22 @@
           <tr>
             <td>
               <div class="form-group">
-                <%= f.date_field :created_at_gteq%>
+                <%= label_tag "content[start_date]", "ここから :" %>
+                <%= date_field_tag "content[start_date]", class: "form-control" %>
               </div>
             </td>
-            <span>~</span>
             <td>
               <div class="form-group">
-                <%= f.date_field :created_at_lteq%>
+                <%= label_tag "content[end_date]", "ここまで　:" %>
+                <%= date_field_tag "content[end_date]", class: "form-control" %>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-      <%= submit_tag "絞り込み", class: "btn btn-primary" %>
+      <%= submit_tag "絞り込む", class: "btn btn-primary" %>
     <% end %>
   </div>
-
-  
   
   <div class="col-7">
     <h6>タグの検索を行うことができます</h6>
