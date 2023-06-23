@@ -3,7 +3,7 @@
     <div class="top-title">
       日々のサウナを<br>より楽しくしよう
     </div>
-    <div class="top-image">
+    <div class="top-image mx-auto">
       <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
     </div>
   </div>
@@ -53,7 +53,7 @@
     </div>
   </div>
 </div>
-<div class="text-center pb-5">
+<div class="enter-btn text-center pb-5 ">
     <%= link_to "ゲストログイン（閲覧用）", homes_guest_sign_in_path, method: :post,class:"btn btn-outline-secondary mr-3" %>
     <%= link_to "新規登録としてはじめる", new_user_registration_path,class:"btn btn-outline-secondary mr-3" %>
     <%= link_to "ログインしてはじめる", new_user_session_path,class:"btn btn-outline-secondary" %>

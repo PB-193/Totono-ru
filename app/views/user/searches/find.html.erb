@@ -2,10 +2,9 @@
 <h3 class="pt-3">このページは様々な検索ができます</h3>
 
 <div class="row mt-5">
-  <div class="col-5">
+  <div class="col-sm-5 ">
   <h6>絞り込み検索を行うことができます</h6>
   ＜投稿日＞
-    <%= search_form_for @content, url: searches_path, class: "form-inline" do |f| %> 
       <table class="table">
         <thead>
           <tr>
@@ -17,25 +16,22 @@
           <tr>
             <td>
               <div class="form-group">
-                <%= f.date_field :created_at_gteq%>
               </div>
             </td>
             <span>~</span>
             <td>
               <div class="form-group">
-                <%= f.date_field :created_at_lteq%>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-      <%= submit_tag "絞り込み", class: "btn btn-primary" %>
-    <% end %>
+      <%= submit_tag "絞り込み", class: "btn btn-primary " %>
   </div>
 
   
   
-  <div class="col-7">
+  <div class="col-sm-7">
     <h6>タグの検索を行うことができます</h6>
     <h6>タグのボタンをクリックすると、そのタグが付与された投稿一覧が表示されます</h6>
     <div class="tag-list">
