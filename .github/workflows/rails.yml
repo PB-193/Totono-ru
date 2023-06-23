@@ -3,7 +3,7 @@ name: Rails CI/CD
 on:
   pull_request:
     branches:
-      - main
+      - newmain
     types:
       - closed
 
