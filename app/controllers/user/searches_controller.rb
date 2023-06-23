@@ -5,6 +5,7 @@ class User::SearchesController < ApplicationController
   end
 
   def index
+    @contents = Content.all.page(params[:page]).per(6)
     @tag = Tag.find_by(id: params[:tag_id])
     @start_date = params[:start_date]
     @end_date = params[:end_date]
