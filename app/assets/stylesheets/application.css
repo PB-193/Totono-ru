@@ -5,10 +5,7 @@
 
 main {
   margin-bottom: 100px;
-}
-
-footer {
-  background-color: rgb(240, 153, 125);
+  height: auto;
 }
 
 .nav-item {
@@ -40,6 +37,15 @@ footer {
   height: 50px;
 }
 
+header {
+  background-color: rgb(240, 153, 125)
+}
+
+footer {
+  background-color: rgb(240, 153, 125);
+  position: absolute;
+}
+
 .footer-logo-img {
   width: 50px;
   height: 50px;
@@ -48,6 +54,7 @@ footer {
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {          
+
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
 }
