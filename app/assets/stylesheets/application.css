@@ -25,7 +25,6 @@ footer {
   font-size: 50px;
   z-index: 100;
   font-family: 'Aoboshi One', serif;
-  display: none;
   color: #fff;
   text-align: center;
   text-shadow: 3px 4px 3px rgb(61, 70, 70);
@@ -47,6 +46,38 @@ footer {
 }
 
 
+/*レスポンシブ対応*/
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .top-title {
+    position: absolute;
+    font-size: 15px;
+    padding: 120px;
+  }
+  .steam01 img, .steam03 img {
+  width: 2px;
+  height: 4px
+  }
+  .steam02 img {
+    width: 2px;
+    height: 3px
+  }
+  .logo-img {
+    width: 45px;
+    height: 45px;
+    margin: 0;
+  }
+  .footer-logo-img {
+    width: 45px;
+    height: 45px;
+    margin: 0;
+  }
+  
+}
+
+
+
+/*湯気エフェクト*/
 @keyframes steam01 {
   0% {
     bottom: -300px;
