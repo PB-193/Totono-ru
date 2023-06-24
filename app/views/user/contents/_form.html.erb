@@ -19,10 +19,6 @@
   </div>
   <%= render 'user/contents/spotform', f: f %>
   
-  <div class="form-group">
-    <%= f.label :review, "レビューをつけるところ（とりあえず値を数値をしている）" %>
-    <%= f.number_field :review, class: "form-control form-control-sm" %>
-  </div>
    <!-- newとeditを区別するためのif文  -->
   <% if content.id.nil? %>
     <div class="form-group" id="star">

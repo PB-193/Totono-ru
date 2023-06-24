@@ -8,7 +8,7 @@ ja:
       # timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "続けるにはログインが必要です。"
     registrations:
-      signed_up: "会員登録が完了しました。ようこそNaganoCakeへ！"
+      signed_up: "会員登録が完了しました。ようこそ「ととの〜る」へ！"
       updated: "パスワードの更新が完了しました。"
     sessions:
       signed_in: "ログインが完了しました。"
