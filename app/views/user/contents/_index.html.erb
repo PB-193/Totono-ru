@@ -11,8 +11,8 @@
           <% end %>
           <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-3 text-center">
-              <strong>ユーザー:</strong> <%= content.user.name if content.user %><br>
+            <div class="col-md-4 text-center">
+              <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
               <% if content.user.get_profile_image.present? %>
                 <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle' %>
               <% end %><br>
@@ -26,7 +26,7 @@
                     <%= tag.name %> 
                   <% end %>
                 <% end %>  <br>
-                <strong>施　設:</strong> <%= content.spot %>
+                <strong>サウナ施設:</strong> <%= content.spot %>
               </p>
             </div>
           </div>

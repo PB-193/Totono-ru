@@ -5,6 +5,7 @@
 
 main {
   margin-bottom: 100px;
+  padding-top: 50px;
 }
 
 footer {
@@ -15,6 +16,7 @@ footer {
   list-style: none;
 }
 
+/*トップ画面*/
 .top {
   position: relative;
 }
@@ -34,6 +36,7 @@ footer {
   position: relative;
 }
 
+/* 帰属表示 */
 .belonging {
   color: #000;
   text-decoration:none;
@@ -50,6 +53,7 @@ footer {
   font-size: 10px;
 }
 
+/*ロゴ関連*/
 .logo-img {
   width: 50px;
   height: 50px;
@@ -99,8 +103,6 @@ footer {
   }
   
 }
-
-
 
 /*湯気エフェクト*/
 @keyframes steam01 {
