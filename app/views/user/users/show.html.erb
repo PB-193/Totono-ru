@@ -1,5 +1,4 @@
-
-  <div class="row">
+<div class="row">
   <div class="col-md-8 offset-md-2">
     <div class="card mb-4">
       <div class="card-body">
@@ -34,8 +33,13 @@
             </ul>
           </div>
         </div>
-        <p><%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary" %>
-        <span><%= link_to "パスワードを変更する", edit_user_registration_path, class: "btn btn-primary" %></span></%></p>
+        <%= paginate @contents %>
+        <div class="row">
+          <div class="offset-2">
+            <p><%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary" %>
+            <span><%= link_to "パスワードの変更/退会", edit_user_registration_path, class: "btn btn-danger" %></span></%></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@ class User::UsersController < ApplicationController
   before_action :guest_check
 
   def show
+    @contents = @user.contents.page(params[:page])
   end
 
   def edit
@@ -36,8 +37,6 @@ class User::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :profile_image )
   end
-
-  private
   
   def guest_check
     if current_user.email == 'guest@example.com'

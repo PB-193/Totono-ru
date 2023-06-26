@@ -61,6 +61,15 @@ footer {
   margin: 0 20px;
 }
 
+/* マイページ画面など  */
+.infomation-edit {
+  padding-bottom: 200px;
+}
+
+.finalcheck-edit {
+  padding-top: 20px;
+  padding-bottom: 300px;
+}
 
 /*レスポンシブ対応*/
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */

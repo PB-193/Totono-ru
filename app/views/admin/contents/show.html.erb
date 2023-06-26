@@ -3,6 +3,6 @@
   <%= render 'user/contents/show',content: @content %>
 </div>
 <div class="text-center mt-3">
-  <%= link_to "管理者権限で削除する", content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+  <%= link_to "管理者権限で削除する", admin_content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
   <%= link_to "戻る", admin_homes_top_path, class: "btn btn-secondary" %>
 </div>

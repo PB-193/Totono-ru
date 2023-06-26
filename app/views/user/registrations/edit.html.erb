@@ -1,11 +1,11 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h3>パスワードを変更します</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "user/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-control form-control-sm" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -13,31 +13,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "new-password",class: "form-control form-control-sm" %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>※<%= @minimum_password_length %> 文字以上で入力してください</em>
     <% end %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control form-control-sm" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label :current_password %> <i>(パスワードを変更するには現在のパスワードの入力が必要で)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password",class: "form-control form-control-sm" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="actions mt-2">
+    <%= f.submit "変更する" , class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+<h3 class="mt-5">アカウントを削除します</h3>
+<p>削除した場合、投稿したレビューも削除されます。<br>投稿したレビューを残したまま、アカウントを停止したい場合は<%= link_to "こちら",edit_information_path%>からお願いします。</p>
+<div class="d-flex justify-content-between" >
+  <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "削除した場合、投稿したレビューも削除されますが本当に削除しますか？", turbo_confirm: "退会した場合、投稿したレビューも削除されますが本当に削除しますか？" }, method: :delete , class: "btn btn-danger" %>
+  <span>
+  <%= link_to "マイページに戻る", mypage_path , class:"btn btn-secondary" %>
+  </span>
+</div>

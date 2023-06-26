@@ -20,7 +20,7 @@
       <tr>
         <td>ステータス</td>
         <td><%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効", class: "text-active" %>
-        <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "退会済み", class: "text-invalid" %>
+        <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "停止済み", class: "text-invalid" %>
         <td colspan="3"><%= f.submit "ステータスを更新する", data: { confirm: '管理者権限で更新しますか？' }, class: "btn btn-primary" %></td>
       </tr>
     <% end %>
