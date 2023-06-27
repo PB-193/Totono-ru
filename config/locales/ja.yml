@@ -10,6 +10,8 @@ ja:
     registrations:
       signed_up: "会員登録が完了しました。ようこそ「ととの〜る」へ！"
       updated: "パスワードの更新が完了しました。"
+      user:
+        destroyed: "アカウントが削除されました。再度、利用するには新規登録を行ってください"
     sessions:
       signed_in: "ログインが完了しました。"
       signed_out: "ログアウトが完了しました。"
