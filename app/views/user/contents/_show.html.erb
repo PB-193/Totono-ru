@@ -48,7 +48,7 @@
         <tbody>
           <tr>
             <th>本文</th>
-            <td><%= @content.text %></td>
+            <td><%=safe_join(@content.text.split("\n"),tag(:br))%></td>
           </tr>
         </tbody>
       </table>
