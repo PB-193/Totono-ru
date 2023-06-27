@@ -1,9 +1,3 @@
 <%= render 'index', contents: @contents %>
 
-<div class="row">
-  <div class="offset-4">
-    <div class="paginate">
-      <%= paginate @contents %>
-    </div>
-  </div>
-</div>
+<%= render 'paginate', contents: @contents%>

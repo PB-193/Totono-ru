@@ -4,22 +4,33 @@
       <div class="card mb-4">
         <div class="card-body">
           <% if user_signed_in? %>
-            <h5 class="card-title mb-4"><%= link_to content.title, content_path(content) %></h5>
+            <h5 class="card-title mb-4">
+              <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span><br>
+              <%= link_to content.title, content_path(content) %>
+            </h5>
           <% end %>
           <% if admin_signed_in? %>
-            <h5 class="card-title mb-4"><%= link_to content.title, admin_content_path(content) %></h5>
+            <h5 class="card-title mb-4">
+              <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span><br>
+              <%= link_to content.title, admin_content_path(content) %>
+            </h5>
           <% end %>
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-4 text-center">
               <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
               <% if content.user.get_profile_image.present? %>
-                <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle' %>
+                <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
               <% end %><br>
             </div>
             <div class="col-md-7">
               <p class="card-text">
-                <strong>投稿日:</strong> <%= content.created_at.strftime("%Y年%m月%d日") %><br>
+                <strong>訪問日:</strong> 
+                  <% if content.visit_day.present? %>
+                    <%= content.visit_day.strftime("%Y年%m月%d日") %>
+                  <% else %>
+                    <td></td>
+                  <% end %><br>
                 <strong>タ　グ:</strong>
                 <% content.tags.each do |tag| %>
                   <%= link_to searches_path(tag_id: tag.id), class: "badge badge-primary", style: "opacity: 1;" do %>

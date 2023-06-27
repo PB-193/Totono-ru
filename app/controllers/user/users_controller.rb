@@ -40,7 +40,7 @@ class User::UsersController < ApplicationController
   
   def guest_check
     if current_user.email == 'guest@example.com'
-      redirect_to contents_path, alert: "マイページの確認は会員登録が必要です。"
+      redirect_to contents_path, alert: "マイページの確認はユーザ登録が必要です。"
     end
   end
   
