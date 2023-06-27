@@ -39,7 +39,7 @@ Rails.application.routes.draw do
         delete :delete
       end
     end
-    resources :contents, only: [:show, :destroy]
+    resources :contents, only: [:show, :update , :destroy]
     get 'homes/top'
     get 'tests/show'
   end
