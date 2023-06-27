@@ -1,5 +1,6 @@
 class User::CommentsController < ApplicationController
   
+  # 非同期通信で行う
   def create
     @content = Content.find(params[:content_id])
     comment = @content.comments.build(comment_params)
@@ -15,7 +16,7 @@ class User::CommentsController < ApplicationController
     end
   end
 
-
+  # 非同期通信で
   def destroy
     comment = Comment.find_by(id: params[:id], content_id: params[:content_id])
     @content = Content.find(params[:content_id])

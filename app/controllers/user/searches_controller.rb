@@ -16,7 +16,7 @@ class User::SearchesController < ApplicationController
                 .or(query.where("visit_day >= ? AND visit_day <= ?", @start_date, @end_date))
     end
 
-    # タグが指定されている場合はタグに基づいて絞り込み
+    # タグが指定されている場合はタグで絞り込み
     if @tag.present?
       query = query.joins(:tags).where(tags: { id: @tag.id })
     end
