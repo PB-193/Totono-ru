@@ -2,7 +2,7 @@ class Admin::HomesController < ApplicationController
   before_action :authenticate_admin!
 
   def top
-    @contents = Content.all
+    @contents = Content.page(params[:page]).order(created_at: :asc)
   end
   
 end
