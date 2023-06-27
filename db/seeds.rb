@@ -8,35 +8,35 @@
 
 puts "-------------create start------------"
 
-    3.times do |n|
-      User.create!(
-        email: "test#{n + 1}@gmail.com",
-        name: "テスト#{n + 1}さん",
-        password: "ikmikm",
-        password_confirmation: "ikmikm"
-      )
-    end
+#     3.times do |n|
+#       User.create!(
+#         email: "test#{n + 1}@gmail.com",
+#         name: "テスト#{n + 1}さん",
+#         password: "ikmikm",
+#         password_confirmation: "ikmikm"
+#       )
+#     end
 
-puts "-------------user create------------"
+# puts "-------------user create------------"
 
-    User.all.each do |user|
-      user.contents.create!(
-        visit_day: Date.new(2023, 6, 10),
-        spot: "レインボー",
-        title: "タイトル",
-        text: "ととのいました",
-      )
-    end
+#     User.all.each do |user|
+#       user.contents.create!(
+#         visit_day: Date.new(2023, 6, 10),
+#         spot: "レインボー",
+#         title: "タイトル",
+#         text: "ととのいました",
+#       )
+#     end
 
-puts "------------content create------------"
+# puts "------------content create------------"
 
-    Tag.create!(name: "サ活")
-    Tag.create!(name: "水風呂")
-    Tag.create!(name: "サウナ飯")
-    Tag.create!(name: "グッズ")
-    Tag.create!(name: "聖地巡礼")
+#     Tag.create!(name: "サ活")
+#     Tag.create!(name: "水風呂")
+#     Tag.create!(name: "サウナ飯")
+#     Tag.create!(name: "グッズ")
+#     Tag.create!(name: "聖地巡礼")
 
-puts "------------tag create------------"
+# puts "------------tag create------------"
 
     Admin.create!(
       email: "admin@com",
