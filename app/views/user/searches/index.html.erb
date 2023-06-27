@@ -1,7 +1,13 @@
-<h3>検索結果</h3>
-<% if @tag.nil? %>
-  <h2>指定した投稿日の一覧を表示します</h2>
-<% else %>
-  <h2>タグが「<%= @tag.name %>」の投稿一覧を表示します</h2>
-<% end %>
-<%= render "user/contents/index", contents: @contents %>
+<div class="row">
+  <div class="col">
+    <h3>検索結果を表示します</h3>
+    <% if @tag.nil? %>
+      <h2>指定した日付けの投稿一覧を表示しています</h2>
+    <% else %>
+      <h2>タグが「<%= @tag.name %>」の投稿一覧を表示しています</h2>
+    <% end %>
+    <%= render "user/contents/index", contents: @contents %>
+  </div>
+</div>
+
+<%= render 'user/contents/paginate', contents: @contents%>

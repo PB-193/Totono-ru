@@ -1,8 +1,14 @@
-<section>
-	<h2>本当に退会しますか？</h2>
-	<h3>退会すると、会員登録情報や<br>これまでの投稿履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h3>
-	<div>
-		<%= link_to "マイページに戻る", mypage_path %>
-		<%= link_to "退会する", withdraw_user_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？" %>
-	</div>
-</section>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <section class="finalcheck-edit">
+      <h3 class="mb-4">本当にアカウントを停止しますか？</h3>
+      <p>停止すると、会員登録情報やこれまでの投稿履歴が閲覧できなくなります。<br>ですが、投稿したレビューは保持されます。</p>
+      <p>完全にアカウントを削除する場合は、<a href="<%= edit_user_registration_path %>">こちら</a>からお願いします。</p>
+      <div class="d-flex justify-content-between mt-4">
+        <%= link_to "停止する", withdraw_user_path, method: :patch, "data-confirm" => "OKを押すと停止処理がされます。よろしいですか？" , class: "btn btn-danger" %>
+        <%= link_to "マイページに戻る", mypage_path , class: "btn btn-secondary" %>
+      </div>
+    </section>
+  </div>
+</div>
+

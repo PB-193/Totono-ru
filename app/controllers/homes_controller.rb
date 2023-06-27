@@ -8,7 +8,7 @@ class HomesController < ApplicationController
       user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
-    redirect_to contents_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to contents_path, notice: 'ゲストユーザとしてログインしました。'
   end
 
 end

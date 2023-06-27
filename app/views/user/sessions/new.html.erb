@@ -1,7 +1,7 @@
   <div class="row">
     <div class=col-10>
-      <h4>ログインをする</h4>
-      <p>会員の方はこちらからログイン</p>
+      <h4>ログインする</h4>
+      <p>ユーザ登録がお済みの方はこちらからログインができます</p>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render "user/shared/error_messages", resource: resource %>
         <div class="field">
@@ -19,8 +19,8 @@
         </div>
       <% end %>
 
-      <p class="mt-5">会員登録がお済みでない方</p>
-      <%= link_to "こちら",new_user_registration_path %> から会員登録を行ってください
+      <p class="mt-5">ユーザ登録がお済みでない方</p>
+      <%= link_to "こちら",new_user_registration_path %> から新規登録を行ってください。
 
     </div>
   </div>

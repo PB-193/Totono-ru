@@ -23,9 +23,21 @@ ja:
         one: "エラーが発生しました。以下ご確認お願いいたします。"
         other: "エラーが発生しました。以下ご確認お願いいたします。"
         
+        
   activerecord:
     attributes:
       user:
         name: "ユーザ名"
         email: "メールアドレス"
         password: "パスワード"
+        password_confirmation: "確認用のパスワード"
+        current_password: "現在のパスワード"
+        we_need_your_current_password_to_confirm_your_changes: "パスワードを変更するには現在のパスワードの入力が必要です"
+
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

@@ -3,7 +3,7 @@ class User::ContentsController < ApplicationController
   before_action :guest_check, only: [:new, :create]
 
   def index
-    @contents = Content.page(params[:content]).per(10)
+    @contents = Content.page(params[:page])
     @tag_list=Tag.all
     @user = current_user
   end
@@ -39,7 +39,9 @@ class User::ContentsController < ApplicationController
   
   def update
     @content = Content.find(params[:id])
+    tag_list=params[:content][:name].split(',')
     if @content.update(content_params)
+      @content.save_tag(tag_list)
       flash[:notice] ="編集が完了しました"
       redirect_to content_path
     else
@@ -63,7 +65,7 @@ class User::ContentsController < ApplicationController
   
   def guest_check
     if current_user.email == 'guest@example.com'
-      redirect_to contents_path, alert: "投稿をするには会員登録が必要です。"
+      redirect_to contents_path, alert: "投稿をするにはユーザ登録が必要です。"
     end
   end
 
