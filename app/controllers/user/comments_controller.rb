@@ -16,7 +16,7 @@ class User::CommentsController < ApplicationController
     end
   end
 
-  # 非同期通信で
+  # 非同期通信で行う
   def destroy
     comment = Comment.find_by(id: params[:id], content_id: params[:content_id])
     @content = Content.find(params[:content_id])

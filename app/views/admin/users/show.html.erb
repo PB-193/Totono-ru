@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <th scope="row">プロフィール画像</th>
-      <td><%= image_tag @user.get_profile_image %></td>
+      <td><%= image_tag @user.get_profile_image, size: "100x100" %></td>
     </tr>
     <%= form_with model:@user, url: admin_user_path(@user) do |f| %>
       <tr>

@@ -47,6 +47,7 @@
       <table class="table table-main">
         <tbody>
           <tr>
+            <!--本文を改行込みで表示-->
             <th>本文</th>
             <td><%=safe_join(@content.text.split("\n"),tag(:br))%></td>
           </tr>

@@ -76,10 +76,10 @@
             </tr>
           </thead>
           <tbody>
-            <% @tags.each_slice(2) do |tags_row| %>
+            <% @tags.group_by(&:name).each_slice(2) do |tags_row| %>
               <tr>
-                <% tags_row.each do |tag| %>
-                  <td><%= link_to tag.name, searches_path(tag_id: tag.id), class: "btn btn-primary" %></td>
+                <% tags_row.each do |tag_name, tags| %>
+                  <td><%= link_to tag_name, searches_path(tag_id: tags.first.id), class: "btn btn-primary" %></td>
                 <% end %>
               </tr>
             <% end %>

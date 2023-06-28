@@ -14,7 +14,6 @@ class Admin::TagsController < ApplicationController
     end
   end
   
-  
   def delete
     selected_tag_ids = params[:tag_ids] || []
     Tag.where(id: selected_tag_ids).destroy_all
