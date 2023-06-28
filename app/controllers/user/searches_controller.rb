@@ -1,4 +1,5 @@
 class User::SearchesController < ApplicationController
+  
   def find
     @tags = Tag.all
   end
