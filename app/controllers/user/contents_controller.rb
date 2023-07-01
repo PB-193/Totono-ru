@@ -21,7 +21,7 @@ class User::ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.user = current_user
-    tag_list=params[:content][:name].split(',')
+    tag_list=params[:content][:tag_name].split(',')
     if @content.save
       @content.save_tag(tag_list)
       flash[:notice] = "投稿しました"
@@ -35,12 +35,12 @@ class User::ContentsController < ApplicationController
   def edit
     @user = current_user
     @content = Content.find(params[:id])
-    @tag_list = @content.tags.pluck(:name).join(', ')
+    @tag_list = @content.tags.pluck(:name).join(',')
   end
   
   def update
     @content = Content.find(params[:id])
-    tag_list = params[:content][:name].split(',')
+    tag_list = params[:content][:tag_name].split(',')
     if @content.update(content_params)
       @content.save_tag(tag_list)
       flash[:notice] ="編集が完了しました"
