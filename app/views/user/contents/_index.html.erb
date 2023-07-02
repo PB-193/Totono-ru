@@ -20,7 +20,9 @@
             <div class="col-md-4 text-center">
               <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
               <% if content.user.get_profile_image.present? %>
-                <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                <%= link_to  do %>
+                  <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                <% end %>
               <% end %><br>
             </div>
             <div class="col-md-7">
