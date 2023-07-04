@@ -4,8 +4,8 @@ class User::ContentsController < ApplicationController
 
   def index
     @contents = Content.page(params[:page]).order(created_at: :asc)
-    @tag_list=Tag.all
-    @user = current_user
+    @tag_list = Tag.all
+    @user = User.find_by(id: params[:user_id])
   end
 
   def show

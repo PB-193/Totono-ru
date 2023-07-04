@@ -1,9 +1,14 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_current_user
   before_action :guest_check
-
+  
+  def myshow
+    @user = current_user
+    @contents = @user.contents.page(params[:page])
+  end
+  
   def show
+    @user = User.find(params[:id])
     @contents = @user.contents.page(params[:page])
   end
 
@@ -29,10 +34,6 @@ class User::UsersController < ApplicationController
   end
 
   private
-  
-  def set_current_user
-    @user = current_user
-  end
 
   def user_params
     params.require(:user).permit(:name, :email, :profile_image )
