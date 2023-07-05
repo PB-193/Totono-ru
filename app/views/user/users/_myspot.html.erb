@@ -1,7 +1,15 @@
-<div class="form-group">
-  <%= f.label :spot, "サウナ施設（入力すると候補が表示されます）" %>
-  <%= f.text_field :spot, class: "form-control form-control-sm", id: "address", type: "textbox", size: "50", autocomplete: "off" %>
-</div>
+<tr>
+    <td><%= f.label :myspot, "ホームサウナ" %></td>
+    <td>
+        <div class="form-group">
+            <% if @user.myspot.present? %>
+              <%= f.text_field :myspot, class: "form-control", autocomplete: "myspot", placeholder: user.myspot %>
+            <% else %>
+              <%= f.text_field :myspot, class: "form-control form-control-sm", id: "address", type: "textbox", size: "50", autocomplete: "off" %>
+            <% end %>
+        </div>
+    </td>
+</tr>
 
 <div id="map"></div>
 

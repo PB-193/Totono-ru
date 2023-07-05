@@ -20,7 +20,15 @@
             <div class="col-md-4 text-center">
               <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
               <% if content.user.get_profile_image.present? %>
-                <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                <% if content.user == current_user && content.user.get_profile_image.present? %>
+                  <%= link_to myshow_path do %>
+                    <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                  <% end %>
+                <% elsif content.user.get_profile_image.present? %>
+                  <%= link_to user_path(content.user.id) do %>
+                    <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                  <% end %>
+                <% end %>
               <% end %><br>
             </div>
             <div class="col-md-7">

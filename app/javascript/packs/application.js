@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "script.js"
 require('jquery')
+require('./preview')
 
 import Raty from "raty.js"
 window.raty = function(elem,opt) {

@@ -1,18 +1,25 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_current_user
   before_action :guest_check
-
+  
+  def myshow
+    @user = current_user
+    @contents = @user.contents.page(params[:page])
+  end
+  
   def show
+    @user = User.find(params[:id])
     @contents = @user.contents.page(params[:page])
   end
 
   def edit
+    @user = current_user
   end
   
   def update
+    @user = current_user
     if @user.update(user_params)
-      redirect_to mypage_path, notice: 'ユーザ情報の更新が完了しました。'
+      redirect_to myshow_path, notice: 'ユーザ情報の更新が完了しました。'
     else
       flash[:alert] = "更新が失敗しました"
       redirect_to edit_information_path
@@ -29,13 +36,9 @@ class User::UsersController < ApplicationController
   end
 
   private
-  
-  def set_current_user
-    @user = current_user
-  end
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile_image )
+    params.require(:user).permit(:name, :email, :profile_image, :myspot )
   end
   
   def guest_check

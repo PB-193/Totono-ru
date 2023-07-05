@@ -2,44 +2,9 @@
   <div class="col-md-8 offset-md-2">
     <div class="card mb-4">
       <div class="card-body">
-        <div class="d-flex align-items-center mb-3">
-          <div class="mr-3">
-            <%= image_tag current_user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
-          </div>
-          <div>
-            <h3 class="mb-0"><%= current_user.name %></h3>
-            <p class="mb-0"><%= current_user.email %></p>
-          </div>
-        </div>
-        <div class="row mb-3">
-          <div class="col">
-            <h5>投稿一覧</h5>
-            <ul class="list-group">
-              <% current_user.contents.each do |content| %>
-                <li class="list-group-item">
-                  <%= link_to content.title, content_path(content) %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="col">
-            <h5>コメントした投稿一覧</h5>
-            <ul class="list-group">
-              <% current_user.comments.each do |comment| %>
-                <li class="list-group-item">
-                  <%= link_to comment.content.title, content_path(comment.content) %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-        <%= paginate @contents %>
-        <div class="row">
-          <div class="offset-2">
-            <p><%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary" %>
-            <span><%= link_to "パスワードの変更/退会", edit_user_registration_path, class: "btn btn-danger" %></span></%></p>
-          </div>
-        </div>
+          
+          <%= render 'mypage' , contents: @contents,user: @user %>
+          
       </div>
     </div>
   </div>

@@ -17,7 +17,8 @@ Rails.application.routes.draw do
       get :find, on: :collection
     end
     # マイページ
-    get 'user/mypage' => 'users#show', as: 'mypage'
+    get 'user/myshow' => 'users#myshow', as: 'myshow'
+    get 'user/:id' => 'users#show' , as: 'user'
     get 'user/information/edit' => 'users#edit', as: 'edit_information'
     patch 'user/information' => 'users#update', as: 'update_information'
     get 'user/finalcheck' => 'users#finalcheck', as: 'finalcheck'

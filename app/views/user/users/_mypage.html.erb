@@ -1,0 +1,57 @@
+<div class="d-flex align-items-center mb-3">
+  <div class="mr-3">
+    <% if params[:id] %>
+      <%= image_tag user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
+    <% else %>
+      <%= image_tag current_user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
+    <% end %>
+  </div>
+  <div>
+    <h3 class="mb-0">
+      <% if params[:id] %>
+        <% user = User.find(params[:id]) %>
+        <%= @user.name %>
+      <% else %>
+        <%= current_user.name %>
+      <% end %>
+    </h3>
+    <p class="mb-0">
+      <% if params[:id] %>
+        <%= @user.email %>
+      <% else %>
+        <%= current_user.email %>
+      <% end %>
+    </p>
+    <p class="mb-0">
+      <% if params[:id] %>
+        <%= @user.myspot %>
+      <% else %>
+        <%= current_user.myspot %>
+      <% end %>
+    </p>
+  </div>
+</div>
+<div class="row mb-3">
+  <div class="col">
+    <h5>投稿一覧</h5>
+    <ul class="list-group">
+      <% current_user.contents.each do |content| %>
+        <li class="list-group-item">
+          <%= link_to content.title, content_path(content) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col">
+    <h5>コメントした投稿一覧</h5>
+    <ul class="list-group">
+      <% current_user.comments.each do |comment| %>
+        <li class="list-group-item">
+          <%= link_to comment.content.title, content_path(comment.content) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<%= paginate @contents %>
+
