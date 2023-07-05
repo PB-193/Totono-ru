@@ -1,6 +1,6 @@
 <%= form_with model: @user, url: update_information_path, method: :patch, class: "my-form", multipart: true do |f| %>
   <div class="infomation-edit">
-    <table class="table table-bordered">
+    <table class="table table-bordered" >
       <tr>
         <td>ユーザ名</td>
         <td>
@@ -18,6 +18,7 @@
           </div>
         </td>
       </tr>
+              <%= render 'myspot' , f: f , user: @user %>
       <tr>
         <td>プロフィール画像</td>
         <td>
@@ -31,7 +32,7 @@
         <td colspan="2">
           <div class="d-flex justify-content-between">
             <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
-            <%= link_to "マイページに戻る" , mypage_path , class: "btn btn-secondary" %>
+            <%= link_to "マイページに戻る" , myshow_path , class: "btn btn-secondary" %>
             <%= link_to "アカウントを停止する", finalcheck_path, class: "btn btn-danger" %>
           </div>
         </td>

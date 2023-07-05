@@ -19,7 +19,14 @@
       <% if params[:id] %>
         <%= @user.email %>
       <% else %>
-      <%= current_user.email %>
+        <%= current_user.email %>
+      <% end %>
+    </p>
+    <p class="mb-0">
+      <% if params[:id] %>
+        <%= @user.myspot %>
+      <% else %>
+        <%= current_user.myspot %>
       <% end %>
     </p>
   </div>

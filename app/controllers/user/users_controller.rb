@@ -13,11 +13,13 @@ class User::UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
   
   def update
+    @user = current_user
     if @user.update(user_params)
-      redirect_to mypage_path, notice: 'ユーザ情報の更新が完了しました。'
+      redirect_to myshow_path, notice: 'ユーザ情報の更新が完了しました。'
     else
       flash[:alert] = "更新が失敗しました"
       redirect_to edit_information_path
@@ -36,7 +38,7 @@ class User::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile_image )
+    params.require(:user).permit(:name, :email, :profile_image, :myspot )
   end
   
   def guest_check

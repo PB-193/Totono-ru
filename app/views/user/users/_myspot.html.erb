@@ -1,0 +1,44 @@
+<tr>
+    <td><%= f.label :myspot, "ホームサウナ" %></td>
+    <td>
+        <div class="form-group">
+            <% if @user.myspot.present? %>
+              <%= f.text_field :myspot, class: "form-control", autocomplete: "myspot", placeholder: user.myspot %>
+            <% else %>
+              <%= f.text_field :myspot, class: "form-control form-control-sm", id: "address", type: "textbox", size: "50", autocomplete: "off" %>
+            <% end %>
+        </div>
+    </td>
+</tr>
+
+<div id="map"></div>
+
+<script>
+  let map;
+  let geocoder;
+
+  function initMap() {
+    geocoder = new google.maps.Geocoder();
+
+    const input = document.getElementById('address');
+    const autocomplete = new google.maps.places.Autocomplete(input);
+    
+  }
+
+  function codeAddress() {
+    const inputAddress = document.getElementById('address').value;
+
+    geocoder.geocode({ 'address': inputAddress }, function (results, status) {
+      if (status === 'OK') {
+        map.setCenter(results[0].geometry.location);
+        const marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('該当する結果がありませんでした：' + status);
+      }
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&libraries=places&callback=initMap" async defer></script>
