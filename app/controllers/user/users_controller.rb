@@ -6,7 +6,7 @@ class User::UsersController < ApplicationController
     @user = current_user
     @contents = @user.contents.page(params[:page])
   end
-  
+
   def show
     @user = User.find(params[:id])
     @contents = @user.contents.page(params[:page])

@@ -23,7 +23,7 @@ footer {
 
 .top-title {
   position: absolute;
-  padding: 330px;
+  padding: 350px;
   font-size: 50px;
   z-index: 100;
   font-family: 'Aoboshi One', serif;
@@ -82,18 +82,11 @@ footer {
 @media screen and (max-width:425px) {
   .top-title {
     position: absolute;
-    font-size: 10px;
-    padding: 0;
-    width: auto;
-    display: inline-block;
+    font-size: 18px;
+    padding: 150px 0 0 125px;
   }
   .steam01 img, .steam03 img {
-    width: 2px;
-    height: 4px
-  }
-  .steam02 img {
-    width: 2px;
-    height: 3px
+    display: none;
   }
   
   .belonging {
