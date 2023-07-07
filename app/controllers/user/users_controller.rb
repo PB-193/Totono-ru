@@ -1,6 +1,6 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :guest_check
+  before_action :guest_check, except: [:show]
   
   def myshow
     @user = current_user
