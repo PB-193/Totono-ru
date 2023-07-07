@@ -3,7 +3,8 @@
     <div class="card mb-4">
       <div class="card-body">
         
-      <%= render 'mypage' , contents: @contents %>
+      <%= render 'mypage' , contents: @contents , user: @user %>
+      
       <div class="row">
         <div class="offset-2">
           <p><%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary" %>

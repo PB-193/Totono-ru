@@ -1,60 +1,82 @@
 <div class="d-flex align-items-center mb-3">
   <div class="mr-3">
     <% if params[:id] %>
-      <%= image_tag user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
+      <%= image_tag user.get_profile_image, size: '130x130', class: 'rounded-circle' %>
     <% else %>
-      <%= image_tag current_user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
+      <%= image_tag current_user.get_profile_image, size: '130x130', class: 'rounded-circle' %>
     <% end %>
   </div>
   <div>
     <h3 class="mb-0">
       <% if params[:id] %>
         <% user = User.find(params[:id]) %>
-        <%= @user.name %>
+        <%= user.name %>
       <% else %>
         <%= current_user.name %>
       <% end %>
     </h3>
     <p class="mb-0">
       <% if params[:id] %>
-        <%= @user.email %>
+        <%= user.email %>
       <% else %>
         <%= current_user.email %>
       <% end %>
     </p>
-    <p class="mb-0">
-      <% if params[:id] %>
-        <%= @user.myspot %>
+    <p class="mb-0 text-muted">私のホームサウナは</p>
+      <p> <% if params[:id] %>
+        <%= user.myspot %>
       <% else %>
         <%= current_user.myspot %>
       <% end %>
-    </p>
+    です。　</p>
   </div>
 </div>
+
 
 <div class="row mb-3">
   <div class="col">
     <h5>投稿一覧</h5>
     <ul class="list-group">
-      <% current_user.contents.each do |content| %>
-        <li class="list-group-item">
-          <%= link_to content.title, content_path(content) %>
-        </li>
+      <% if params[:id] %>
+        <% user.contents.each do |content| %>
+          <li class="list-group-item">
+            <%= link_to content.title, content_path(content) %>
+          </li>
+        <% end %>
+      <% else %>
+        <% current_user.contents.each do |content| %>
+          <li class="list-group-item">
+            <%= link_to content.title, content_path(content) %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   </div>
   <div class="col">
     <h5>コメントした投稿一覧</h5>
     <ul class="list-group">
-      <% current_user.comments.each do |comment| %>
-        <li class="list-group-item">
-          <%= link_to comment.content.title, content_path(comment.content) %>
-        </li>
-      <% end %>
+      <% displayed_content_ids = [] %>
+        <% if params[:id] %>
+          <% user.comments.each do |comment| %>
+            <% unless displayed_content_ids.include?(comment.content.id) %>
+              <li class="list-group-item">
+                <%= link_to comment.content.title, content_path(comment.content) %>
+              </li>
+              <% displayed_content_ids << comment.content.id %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% current_user.comments.each do |comment| %>
+            <% unless displayed_content_ids.include?(comment.content.id) %>
+              <li class="list-group-item">
+                <%= link_to comment.content.title, content_path(comment.content) %>
+              </li>
+              <% displayed_content_ids << comment.content.id %>
+            <% end %>
+          <% end %>
+        <% end %>
     </ul>
   </div>
 </div>
 
-<%= paginate @contents %>
-
-
+<%= paginate contents %>

@@ -2,8 +2,8 @@
   <td><%= f.label :myspot, "ホームサウナ" %></td>
   <td>
     <div class="form-group">
-      <% if @user.myspot.present? %>
-        <%= f.text_field :myspot, class: "form-control", autocomplete: "myspot", placeholder: @user.myspot %>
+      <% if user.myspot.present? %>
+        <%= f.text_field :myspot, class: "form-control", autocomplete: "myspot", placeholder: user.myspot %>
       <% else %>
         <%= f.text_field :myspot, class: "form-control form-control-sm", id: "address", type: "textbox", size: "50", autocomplete: "off" %>
       <% end %>
