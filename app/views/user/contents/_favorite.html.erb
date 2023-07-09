@@ -1,18 +1,18 @@
-  <div class="col-md-1">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title">いいね</h5>
-        </div>
-        <div class="card-body">
-          <% if content.favorited_by?(current_user) %>
-            <%= link_to content_favorites_path(content.id), method: :delete do %>
-              <span style="color:red;">♥<%= content.favorites.count %>︎</span>
-            <% end %>
-          <% else %>
-            <%= link_to content_favorites_path(content.id), method: :post do %>
-              ♡<%= @content.favorites.count %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+<div class="col-md-1 mb-3">
+  <div class="card">
+    <div class="card-header">
+      <h6 class="card-title">いいね</h6>
+    </div>
+    <div class="card-body">
+      <% if content.favorited_by?(current_user) %>
+        <%= link_to content_favorites_path(content.id), method: :delete, class: "text-danger" do %>
+          ♥<%= content.favorites.count %>
+        <% end %>
+      <% else %>
+        <%= link_to content_favorites_path(content.id), method: :post, class: "text-dark" do %>
+          ♡<%= content.favorites.count %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+</div>

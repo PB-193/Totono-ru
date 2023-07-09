@@ -3,14 +3,17 @@
     <div class="card mb-4">
       <div class="card-body">
         
-      <%= render 'mypage' , contents: @contents , user: @user %>
+        <%= render 'mypage' , contents: @contents , user: @user %>
       
-      <div class="row">
-        <div class="offset-2">
-          <p><%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary " %>
-          <span><%= link_to "パスワードの変更/退会", edit_user_registration_path, class: "btn btn-danger" %></span></%></p>
+        <div class="row justify-content-center mt-4">
+          <div class="col-6">
+            <p class="text-center">
+              <%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary" %>
+              <span class="mx-2"></span>
+              <%= link_to "パスワードの変更/退会", edit_user_registration_path, class: "btn btn-danger" %>
+            </p>
+          </div>
         </div>
-      </div>
           
       </div>
     </div>
