@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'favorites/create'
+    get 'favorites/destroy'
+  end
   # ユーザ用
   # 新規投稿とログイン
   devise_for :users, controllers: {
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
     resources :contents do
       resources :tags, only: [:new, :create, :destroy]
       resources :comments, only: [:create, :destroy]
+      resource :favorites,only:[:create,:destroy]
     end
     # 検索
     resources :searches, only: [:index] do

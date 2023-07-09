@@ -35,7 +35,7 @@
       <% else %>
         <p class="mb-0 text-primary" >
            <%= link_to edit_information_path do %>
-             編集画面でホームサウナの登録をしよう！
+             編集画面でホームサウナの登録をしましょう！
            <% end %>
         </p>
       <% end %>
@@ -45,7 +45,7 @@
 
 
 <div class="row mb-3">
-  <div class="col">
+  <div class="col-md-4">
     <h5>投稿一覧</h5>
     <ul class="list-group">
       <% if params[:id] %>
@@ -63,16 +63,39 @@
       <% end %>
     </ul>
   </div>
-  <div class="col">
+  
+  <div class="col-md-4">
+    <h5>いいね一覧</h5>
+    <ul class="list-group">
+      <% if params[:id] %>
+        <% user.favorites.each do |favorite| %>
+          <li class="list-group-item">
+            <%= link_to favorite.content.title, content_path(favorite.content) %>
+          </li>
+        <% end %>
+      <% else %>
+        <% current_user.favorites.each do |favorite| %>
+          <li class="list-group-item">
+            <%= link_to favorite.content.title, content_path(favorite.content) %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  
+  <div class="col-md-4">
     <h5>コメントした投稿一覧</h5>
     <ul class="list-group">
+      <!--重複した投稿を表示しないための配列を定義。[]は空の配列を作成するための表記-->
       <% displayed_content_ids = [] %>
         <% if params[:id] %>
           <% user.comments.each do |comment| %>
+          <!--unless displayed_content_ids.include?で重複した投稿を含んでいないものかをチェック-->
             <% unless displayed_content_ids.include?(comment.content.id) %>
               <li class="list-group-item">
                 <%= link_to comment.content.title, content_path(comment.content) %>
               </li>
+              <!--以下は、表示された投稿をdisplayed_content_ids配列に追加する処理。　<< はRubyの追加する演算子-->
               <% displayed_content_ids << comment.content.id %>
             <% end %>
           <% end %>
@@ -88,6 +111,7 @@
         <% end %>
     </ul>
   </div>
+  
 </div>
 
 <%= paginate contents %>
