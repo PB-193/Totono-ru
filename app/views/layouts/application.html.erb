@@ -10,8 +10,12 @@
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <% if current_page?(myshow_path) || (@user && current_page?(user_path(@user))) %>
-      <meta name="turbolinks-visit-control" content="reload">
+    <% unless admin_signed_in? %>
+      <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(user_registration_path) %>
+        <% if current_page?(myshow_path) %>
+          <meta name="turbolinks-visit-control" content="reload">
+        <% end %>
+      <% end %>
     <% end %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
