@@ -25,13 +25,13 @@
     <% if params[:id] %>
       <% if user.myspot.present? %>
         <p class="mb-0 text-muted">私のホームサウナは</p>
-        <p><%= user.myspot %> <span class="mb-0 text-muted" >です。</span> </p>
+        <p><%= user.myspot %> <span class="mb-0 text-muted" >です</span> </p>
       <% else %>
       <% end %>
     <% else %>
       <% if current_user.myspot.present? %>
         <p class="mb-0 text-muted">私のホームサウナは</p>
-        <p><%= current_user.myspot %> <span class="mb-0 text-muted" >です。</span> </p>
+        <p><%= current_user.myspot %> <span class="mb-0 text-muted" >です</span> </p>
       <% else %>
         <p class="mb-0 text-primary" >
            <%= link_to edit_information_path do %>

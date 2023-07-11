@@ -1,15 +1,3 @@
-<ul class="list-group">
-  <% if params[:id] %>
-    <% @user.contents.each do |content| %>
-      <li class="list-group-item">
-        <%= link_to content.title, content_path(content) %>
-      </li>
-    <% end %>
-  <% else %>
-    <% current_user.contents.each do |content| %>
-      <li class="list-group-item">
-        <%= link_to content.title, content_path(content) %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+<%= render 'user/contents/index', contents: @contents %>
+
+<%= render 'user/contents/paginate', contents: @contents%>
