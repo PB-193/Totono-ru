@@ -40,6 +40,6 @@
 <div class="d-flex justify-content-between" >
   <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "削除した場合、投稿したレビューも削除されますが本当に削除しますか？", turbo_confirm: "退会した場合、投稿したレビューも削除されますが本当に削除しますか？" }, method: :delete , class: "btn btn-danger" %>
   <span>
-  <%= link_to "マイページに戻る", mypage_path , class:"btn btn-secondary" %>
+  <%= link_to "マイページに戻る", myshow_path , class:"btn btn-secondary" %>
   </span>
 </div>

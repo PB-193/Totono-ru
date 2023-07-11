@@ -20,11 +20,16 @@
       </tr>
               <%= render 'myspot' , f: f , user: @user %>
       <tr>
-        <td>プロフィール画像</td>
+        <td>
+          プロフィール画像
+        </td>
         <td>
           <div class="form-group">
             <%= f.label :profile_image, "画像を選択する" %>
-            <%= f.file_field :profile_image, class: "form-control-file" %>
+            <%= f.file_field :profile_image, id: 'image_select_btn',class: "form-control-file" %>
+          </div>
+          <div>
+            <%= image_tag @user.get_profile_image, id: 'preview_image' , size: '130x130', class: 'rounded-circle' %>
           </div>
         </td>
       </tr>
@@ -40,3 +45,21 @@
     </table>
   </div>
 <% end %>
+
+<!--プレビュー機能のJS-->
+<script>
+  $(function () {
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          $('#preview_image').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $('#image_select_btn').change(function () {
+      readURL(this);
+    });
+  });
+</script>

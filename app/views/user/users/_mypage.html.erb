@@ -1,57 +1,98 @@
 <div class="d-flex align-items-center mb-3">
   <div class="mr-3">
     <% if params[:id] %>
-      <%= image_tag user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
+      <%= image_tag user.get_profile_image, size: '130x130', class: 'rounded-circle' %>
     <% else %>
-      <%= image_tag current_user.get_profile_image, size: '100x100', class: 'rounded-circle' %>
+      <%= image_tag current_user.get_profile_image, size: '130x130', class: 'rounded-circle' %>
     <% end %>
   </div>
   <div>
     <h3 class="mb-0">
       <% if params[:id] %>
         <% user = User.find(params[:id]) %>
-        <%= @user.name %>
+        <%= user.name %>
       <% else %>
         <%= current_user.name %>
       <% end %>
     </h3>
     <p class="mb-0">
       <% if params[:id] %>
-        <%= @user.email %>
+        <%= user.email %>
       <% else %>
         <%= current_user.email %>
       <% end %>
     </p>
-    <p class="mb-0">
-      <% if params[:id] %>
-        <%= @user.myspot %>
+    <% if params[:id] %>
+      <% if user.myspot.present? %>
+        <p class="mb-0 text-muted">私のホームサウナは</p>
+        <p><%= user.myspot %> <span class="mb-0 text-muted" >です</span> </p>
       <% else %>
-        <%= current_user.myspot %>
       <% end %>
-    </p>
+    <% else %>
+      <% if current_user.myspot.present? %>
+        <p class="mb-0 text-muted">私のホームサウナは</p>
+        <p><%= current_user.myspot %> <span class="mb-0 text-muted" >です</span> </p>
+      <% else %>
+        <p class="mb-0 text-primary" >
+           <%= link_to edit_information_path do %>
+             編集画面でホームサウナの登録をしましょう！
+           <% end %>
+        </p>
+      <% end %>
+    <% end %>
   </div>
 </div>
-<div class="row mb-3">
-  <div class="col">
-    <h5>投稿一覧</h5>
-    <ul class="list-group">
-      <% current_user.contents.each do |content| %>
-        <li class="list-group-item">
-          <%= link_to content.title, content_path(content) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col">
-    <h5>コメントした投稿一覧</h5>
-    <ul class="list-group">
-      <% current_user.comments.each do |comment| %>
-        <li class="list-group-item">
-          <%= link_to comment.content.title, content_path(comment.content) %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<%= paginate @contents %>
 
+<% if current_page?(myshow_path) %>
+  <div class="row justify-content-center mt-4">
+    <div class="col">
+      <p class="text-center">
+        <%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary btn-sm" %>
+        <span class="mx-2"></span>
+        <%= link_to "パスワードの変更/退会", edit_user_registration_path, class: "btn btn-danger btn-sm" %>
+      </p>
+    </div>
+  </div>
+<% end %>
+
+<div class="text-center">
+  <ul class="flex">
+    <li class="tab tab-content  is-active">
+      <%= t('views.user.users.content_index') %>
+    </li>
+    <li class="tab tab-favorite">
+      <%= t('views.user.users.favorite_index') %>
+    </li>
+    <li class="tab tab-comment">
+      <%= t('views.user.users.comment_index') %>
+    </li>
+  </ul>
+</div>
+
+<div class="panel tab-content_index is-show">
+  <% if contents.present? %>
+    <%= render 'content_index', contents: contents , remote: true %>
+  <% else %>
+    <div class="not-index">
+      <%= t('views.user.users.no_content_index') %>
+    </div>
+  <% end %>
+</div>
+<div class="panel tab-favorite_index">
+  <% if favorite_contents.present? %>
+    <%= render 'favorite_index' , contents: contents, remote: true %>
+  <% else %>
+    <div class="not-index">
+      <%= t('views.user.users.no_favarite_index') %>
+    </div>
+  <% end %>
+</div>
+<div class="panel tab-comment_index">
+  <% if comment_contents.present? %>
+    <%= render'comment_index', contents: contents, remote: true %>
+  <% else %>
+    <div class="not-index">
+      <%= t('views.user.users.no_comment_index') %>
+    </div>
+  <% end %>
+</div>

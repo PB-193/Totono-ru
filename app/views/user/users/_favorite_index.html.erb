@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <% @user.favorites.each do |content| %>
+      <div class="card mb-4">
+        <div class="card-body">
+          <% if user_signed_in? %>
+            <h5 class="card-title mb-4">
+              <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span><br>
+              <%= link_to content.content.title, content_path(content) %>
+            </h5>
+          <% end %>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4 text-center">
+              <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
+              <% if content.user.get_profile_image.present? %>
+                <% if content.user == current_user && content.user.get_profile_image.present? %>
+                  <%= link_to myshow_path do %>
+                    <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                  <% end %>
+                <% elsif content.user.get_profile_image.present? %>
+                  <%= link_to user_path(content.user.id) do %>
+                    <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                  <% end %>
+                <% end %>
+              <% end %><br>
+            </div>
+            <div class="col-md-7">
+              <p class="card-text">
+                <strong>訪問日:</strong> 
+                  <% if content.content.visit_day.present? %>
+                    <%= content.content.visit_day.strftime("%Y年%m月%d日") %>
+                  <% else %>
+                    <td></td>
+                  <% end %><br>
+                <strong>タ　グ:</strong>
+                <% content.content.tags.each do |tag| %>
+                  <%= link_to searches_path(tag_id: tag.id), class: "badge badge-primary", style: "opacity: 1;" do %>
+                    <%= tag.name %> 
+                  <% end %>
+                <% end %>  <br>
+                <strong>サウナ施設:</strong> <%= content.content.spot %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'user/contents/paginate', contents: @contents%>

@@ -1,7 +1,7 @@
 <% content.comments.each do |comment| %>
   <div class="card mb-3">
     <div class="card-body">
-      <span class="comment-day small"><%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+      <span class="comment-day small"><%= comment.how_long_ago %></span>
       <span class="comment-name small"><%= comment.user.name %></span>
       <span>
         <% if comment.user == current_user %>

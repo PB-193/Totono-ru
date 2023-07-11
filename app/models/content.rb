@@ -3,8 +3,14 @@ class Content < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :content_tags, dependent: :destroy
     has_many :tags, through: :content_tags
+    has_many :favorites, dependent: :destroy
     
     validates :title,presence:true
+
+    # 既にいいね済みであれば、複数回いいねはできない処理 
+    def favorited_by?(user)
+        favorites.where(user_id: user.id).exists?
+    end
 
     def save_tag(sent_tags)
       # タグが存在していれば、タグの名前を配列として全て取得

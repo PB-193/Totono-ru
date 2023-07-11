@@ -1,15 +1,19 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :guest_check
+  before_action :guest_check, except: [:show]
   
   def myshow
     @user = current_user
     @contents = @user.contents.page(params[:page])
+    @favorite_contents = @user.favorites.order(created_at: :desc)  
+    @comment_contents = @user.comments.order(created_at: :desc)  
   end
-  
+
   def show
     @user = User.find(params[:id])
     @contents = @user.contents.page(params[:page])
+    @favorite_contents = @user.favorites.order(created_at: :desc)  
+    @comment_contents = @user.comments.order(created_at: :desc)  
   end
 
   def edit

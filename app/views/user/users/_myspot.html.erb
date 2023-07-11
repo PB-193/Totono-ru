@@ -1,14 +1,14 @@
 <tr>
-    <td><%= f.label :myspot, "ホームサウナ" %></td>
-    <td>
-        <div class="form-group">
-            <% if @user.myspot.present? %>
-              <%= f.text_field :myspot, class: "form-control", autocomplete: "myspot", placeholder: user.myspot %>
-            <% else %>
-              <%= f.text_field :myspot, class: "form-control form-control-sm", id: "address", type: "textbox", size: "50", autocomplete: "off" %>
-            <% end %>
-        </div>
-    </td>
+  <td><%= f.label :myspot, "ホームサウナ" %></td>
+  <td>
+    <div class="form-group">
+      <% if user.myspot.present? %>
+        <%= f.text_field :myspot, class: "form-control", autocomplete: "myspot", placeholder: user.myspot %>
+      <% else %>
+        <%= f.text_field :myspot, class: "form-control form-control-sm", id: "address", type: "textbox", size: "50", autocomplete: "off" %>
+      <% end %>
+    </div>
+  </td>
 </tr>
 
 <div id="map"></div>
@@ -16,28 +16,32 @@
 <script>
   let map;
   let geocoder;
+  let autocomplete;
 
   function initMap() {
     geocoder = new google.maps.Geocoder();
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8
+    });
 
     const input = document.getElementById('address');
-    const autocomplete = new google.maps.places.Autocomplete(input);
-    
+    autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.setFields(['formatted_address', 'geometry']);
+    autocomplete.addListener('place_changed', codeAddress);
   }
 
   function codeAddress() {
-    const inputAddress = document.getElementById('address').value;
+    const place = autocomplete.getPlace();
+    if (!place.geometry) {
+      alert('該当する結果がありませんでした');
+      return;
+    }
 
-    geocoder.geocode({ 'address': inputAddress }, function (results, status) {
-      if (status === 'OK') {
-        map.setCenter(results[0].geometry.location);
-        const marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-        });
-      } else {
-        alert('該当する結果がありませんでした：' + status);
-      }
+    map.setCenter(place.geometry.location);
+    const marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
     });
   }
 </script>

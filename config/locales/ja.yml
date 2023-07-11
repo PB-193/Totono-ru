@@ -25,7 +25,6 @@ ja:
         one: "エラーが発生しました。以下ご確認お願いいたします。"
         other: "エラーが発生しました。以下ご確認お願いいたします。"
         
-        
   activerecord:
     attributes:
       user:
@@ -43,3 +42,12 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+    
+    user:
+      users:
+        content_index: "レビューした投稿一覧"
+        favorite_index: "いいねした投稿一覧"
+        comment_index: "コメントした投稿一覧"
+        no_content_index: "レビューした投稿はありません"
+        no_favarite_index: "いいねした投稿はありません"
+        no_comment_index: "コメントした投稿はありません"

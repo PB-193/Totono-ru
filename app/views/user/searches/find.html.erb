@@ -3,13 +3,12 @@
 
   <div class="row mt-5">
     <div class="col-sm-5">
-      <h6>絞り込み検索を行うことができます</h6>
       <h6>〜<strong>投稿日</strong>または<strong>訪問日</strong>で検索ができます〜</h6>
   
       <%= form_with(url: searches_path, method: :get, local: true) do |f| %>
         <div class="form-group">
           <%= f.label(:search_field, "検索タイプ") %>
-          <%= f.select(:search_field, { "訪問日" => "visit_day", "投稿日" => "created_at" }, {}, class: "form-control") %>
+          <%= f.select(:search_field, { "投稿日" => "created_at","訪問日" => "visit_day" }, {}, class: "form-control") %>
         </div>
   
         <table class="table">
