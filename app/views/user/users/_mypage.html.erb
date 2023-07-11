@@ -43,75 +43,56 @@
   </div>
 </div>
 
+<% if current_page?(myshow_path) %>
+  <div class="row justify-content-center mt-4">
+    <div class="col">
+      <p class="text-center">
+        <%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary btn-sm" %>
+        <span class="mx-2"></span>
+        <%= link_to "パスワードの変更/退会", edit_user_registration_path, class: "btn btn-danger btn-sm" %>
+      </p>
+    </div>
+  </div>
+<% end %>
 
-<div class="row mb-3">
-  <div class="col-md-4">
-    <h5>投稿一覧</h5>
-    <ul class="list-group">
-      <% if params[:id] %>
-        <% user.contents.each do |content| %>
-          <li class="list-group-item">
-            <%= link_to content.title, content_path(content) %>
-          </li>
-        <% end %>
-      <% else %>
-        <% current_user.contents.each do |content| %>
-          <li class="list-group-item">
-            <%= link_to content.title, content_path(content) %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-  
-  <div class="col-md-4">
-    <h5>いいね一覧</h5>
-    <ul class="list-group">
-      <% if params[:id] %>
-        <% user.favorites.each do |favorite| %>
-          <li class="list-group-item">
-            <%= link_to favorite.content.title, content_path(favorite.content) %>
-          </li>
-        <% end %>
-      <% else %>
-        <% current_user.favorites.each do |favorite| %>
-          <li class="list-group-item">
-            <%= link_to favorite.content.title, content_path(favorite.content) %>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-  
-  <div class="col-md-4">
-    <h5>コメントした投稿一覧</h5>
-    <ul class="list-group">
-      <!--重複した投稿を表示しないための配列を定義。[]は空の配列を作成するための表記-->
-      <% displayed_content_ids = [] %>
-        <% if params[:id] %>
-          <% user.comments.each do |comment| %>
-          <!--unless displayed_content_ids.include?で重複した投稿を含んでいないものかをチェック-->
-            <% unless displayed_content_ids.include?(comment.content.id) %>
-              <li class="list-group-item">
-                <%= link_to comment.content.title, content_path(comment.content) %>
-              </li>
-              <!--以下は、表示された投稿をdisplayed_content_ids配列に追加する処理。　<< はRubyの追加する演算子-->
-              <% displayed_content_ids << comment.content.id %>
-            <% end %>
-          <% end %>
-        <% else %>
-          <% current_user.comments.each do |comment| %>
-            <% unless displayed_content_ids.include?(comment.content.id) %>
-              <li class="list-group-item">
-                <%= link_to comment.content.title, content_path(comment.content) %>
-              </li>
-              <% displayed_content_ids << comment.content.id %>
-            <% end %>
-          <% end %>
-        <% end %>
-    </ul>
-  </div>
-  
+<div class="text-center">
+  <ul class="flex">
+    <li class="tab tab-content  is-active">
+      <%= t('views.user.users.content_index') %>
+    </li>
+    <li class="tab tab-favorite">
+      <%= t('views.user.users.favorite_index') %>
+    </li>
+    <li class="tab tab-comment">
+      <%= t('views.user.users.comment_index') %>
+    </li>
+  </ul>
 </div>
 
-<%= paginate contents %>
+<div class="panel tab-content_index is-show">
+  <% if contents.present? %>
+    <%= render 'content_index', contents: contents , remote: true %>
+  <% else %>
+    <div class="not-index">
+      <%= t('views.user.users.no_content_index') %>
+    </div>
+  <% end %>
+</div>
+<div class="panel tab-favorite_index">
+  <% if favorite_contents.present? %>
+    <%= render 'favorite_index' , contents: contents, remote: true %>
+  <% else %>
+    <div class="not-index">
+      <%= t('views.user.users.no_favarite_index') %>
+    </div>
+  <% end %>
+</div>
+<div class="panel tab-comment_index">
+  <% if comment_contents.present? %>
+    <%= render'comment_index', contents: contents, remote: true %>
+  <% else %>
+    <div class="not-index">
+      <%= t('views.user.users.no_comment_index') %>
+    </div>
+  <% end %>
+</div>

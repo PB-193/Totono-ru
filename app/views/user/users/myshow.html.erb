@@ -1,19 +1,9 @@
 <div class="row">
-  <div class="col-md-10 offset-md-1">
+  <div class="col-md-7 offset-md-2">
     <div class="card mb-4">
       <div class="card-body">
         
-        <%= render 'mypage' , contents: @contents , user: @user %>
-      
-        <div class="row justify-content-center mt-4">
-          <div class="col-6">
-            <p class="text-center">
-              <%= link_to "プロフィールを編集する", edit_information_path, class: "btn btn-primary" %>
-              <span class="mx-2"></span>
-              <%= link_to "パスワードの変更/退会", edit_user_registration_path, class: "btn btn-danger" %>
-            </p>
-          </div>
-        </div>
+        <%= render 'mypage', contents: @contents, user: @user,favorite_contents: @favorite_contents , comment_contents: @comment_contents %>
           
       </div>
     </div>

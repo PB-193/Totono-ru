@@ -29,7 +29,7 @@
             <%= f.file_field :profile_image, id: 'image_select_btn',class: "form-control-file" %>
           </div>
           <div>
-            <%= image_tag @user.get_profile_image, id: 'preview_image' , size: '130x130' %>
+            <%= image_tag @user.get_profile_image, id: 'preview_image' , size: '130x130', class: 'rounded-circle' %>
           </div>
         </td>
       </tr>
@@ -46,6 +46,7 @@
   </div>
 <% end %>
 
+<!--プレビュー機能のJS-->
 <script>
   $(function () {
     function readURL(input) {

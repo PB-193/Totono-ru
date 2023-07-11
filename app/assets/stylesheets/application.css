@@ -1,14 +1,14 @@
 #body-main {
-  background-color: rgb(255, 195, 161) ;
+  background-color: rgb(255, 195, 161);
   font-family: 'Kaisei HarunoUmi', serif;
 }
 
 main {
-  margin-bottom: 100px;
+  margin-bottom: 150px;
   padding-top: 50px;
 }
 
-footer {
+header, footer {
   background-color: rgb(240, 153, 125);
 }
 
@@ -196,4 +196,40 @@ footer {
 .steam02 img {
   width: 399px;
   height: 600px
+}
+
+
+/* マイページの投稿一覧表示の切り替えタブ  */
+.panel {
+  display: none;
+}
+
+.tab {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-width: 2px;
+  border-color: transparent;
+  list-style: none;
+  display: inline-block;
+  padding: 16px 8px;
+  border-bottom:3px solid;
+}
+
+
+
+.tab:hover {
+  border-color: rgb(209, 213, 219);
+}
+
+.tab.is-active {
+  border-color: rgb(255, 195, 161);
+  transition: all 0.2s ease-out;
+}
+
+.panel.is-show {
+  display: block;
+}
+
+.not-index {
+  text-align: center;
 }

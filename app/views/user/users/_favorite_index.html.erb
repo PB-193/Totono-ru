@@ -1,0 +1,15 @@
+<ul class="list-group">
+  <% if params[:id] %>
+    <% @user.favorites.each do |favorite| %>
+      <li class="list-group-item">
+        <%= link_to favorite.content.title, content_path(favorite.content) %>
+      </li>
+    <% end %>
+  <% else %>
+    <% current_user.favorites.each do |favorite| %>
+      <li class="list-group-item">
+        <%= link_to favorite.content.title, content_path(favorite.content) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
