@@ -11,9 +11,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <% unless admin_signed_in? %>
-      <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(user_registration_path) %>
-        <% if current_page?(myshow_path) %>
+      <% if current_page?(myshow_path) %>
+        <meta name="turbolinks-visit-control" content="reload">
+      <% else %>
+        <% if request.path =~ /\/user\/\d+/ %>
           <meta name="turbolinks-visit-control" content="reload">
+        <% else %>
         <% end %>
       <% end %>
     <% end %>

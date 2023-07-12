@@ -205,23 +205,24 @@ header, footer {
 }
 
 .tab {
+  border-bottom:3px solid;
+  border-color: rgb(211,211,211);
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   border-bottom-width: 2px;
-  border-color: transparent;
   list-style: none;
   display: inline-block;
   padding: 16px 8px;
-  border-bottom:3px solid;
 }
 
 
 
 .tab:hover {
-  border-color: rgb(209, 213, 219);
+  border-color: rgb(0,0,0);
 }
 
 .tab.is-active {
+  border-bottom:3px solid;
   border-color: rgb(255, 195, 161);
   transition: all 0.2s ease-out;
 }

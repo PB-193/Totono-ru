@@ -80,7 +80,7 @@
 </div>
 <div class="panel tab-favorite_index">
   <% if favorite_contents.present? %>
-    <%= render 'favorite_index' , contents: contents, remote: true %>
+    <%= render 'favorite_index' , contents: contents, user: user ,remote: true %>
   <% else %>
     <div class="not-index">
       <%= t('views.user.users.no_favarite_index') %>
@@ -89,7 +89,7 @@
 </div>
 <div class="panel tab-comment_index">
   <% if comment_contents.present? %>
-    <%= render'comment_index', contents: contents, remote: true %>
+    <%= render'comment_index', contents: contents, user: user , remote: true %>
   <% else %>
     <div class="not-index">
       <%= t('views.user.users.no_comment_index') %>

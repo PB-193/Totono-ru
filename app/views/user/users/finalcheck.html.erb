@@ -6,7 +6,7 @@
       <p>完全にアカウントを削除する場合は、<a href="<%= edit_user_registration_path %>">こちら</a>からお願いします。</p>
       <div class="d-flex justify-content-between mt-4">
         <%= link_to "停止する", withdraw_user_path, method: :patch, "data-confirm" => "OKを押すと停止処理がされます。よろしいですか？" , class: "btn btn-danger" %>
-        <%= link_to "マイページに戻る", mypage_path , class: "btn btn-secondary" %>
+        <%= link_to "マイページに戻る", myshow_path , class: "btn btn-secondary" %>
       </div>
     </section>
   </div>
