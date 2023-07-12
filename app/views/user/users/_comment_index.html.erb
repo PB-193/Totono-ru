@@ -1,28 +1,28 @@
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <% displayed_content_ids = [] %>
-    <% @user.comments.each do |content| %>
+    <% user.comments.each do |content| %>
       <% unless displayed_content_ids.include?(content.content.id) %>
         <div class="card mb-4">
           <div class="card-body">
             <% if user_signed_in? %>
               <h5 class="card-title mb-4">
-                <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span><br>
-                <%= link_to content.content.title, content_path(content) %>
+                <span class="text-muted"><%= content.content.created_at.strftime("%Y年%m月%d日") %></span><br>
+                <%= link_to content.content.title, content_path(content.content) %>
               </h5>
             <% end %>
             <div class="row">
               <div class="col-md-1"></div>
               <div class="col-md-4 text-center">
-                <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
-                <% if content.user.get_profile_image.present? %>
-                  <% if content.user == current_user && content.user.get_profile_image.present? %>
+                <strong>ユーザ名:</strong> <br><%= content.content.user.name %><br>
+                <% if content.content.user.get_profile_image.present? %>
+                  <% if content.content.user == current_user && content.content.user.get_profile_image.present? %>
                     <%= link_to myshow_path do %>
-                      <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                      <%= image_tag content.content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
                     <% end %>
-                  <% elsif content.user.get_profile_image.present? %>
-                    <%= link_to user_path(content.user.id) do %>
-                      <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                  <% elsif content.content.user.get_profile_image.present? %>
+                    <%= link_to user_path(content.content.user.id) do %>
+                      <%= image_tag content.content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
                     <% end %>
                   <% end %>
                 <% end %><br>
@@ -53,5 +53,5 @@
   </div>
 </div>
 
-<%= render 'user/contents/paginate', contents: @contents%>
+<%= render 'user/contents/paginate', contents: contents%>
 

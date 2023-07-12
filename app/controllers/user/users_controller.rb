@@ -34,9 +34,10 @@ class User::UsersController < ApplicationController
   end
   
   def withdraw
+    @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    redirect_to root_path
+    redirect_to root_path, notice: 'アカウントが停止しました。ご利用頂きありがとうございました。再度、同じアカウントでご利用したい場合はお問い合わせフォームからお問い合わせください。'
   end
 
   private
