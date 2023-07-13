@@ -2,7 +2,11 @@
   <div class="col-md-8 offset-md-2">
     <div class="card mb-4">
       <div class="card-body">
-          
+        <div class ="delete_check text-center text-danger">
+          <% if @user.is_deleted %>
+            <p>このユーザのアカウントは現在、停止中となります</p>
+          <% end %>
+        </div>
         <%= render 'mypage', contents: @contents, user: @user,favorite_contents: @favorite_contents , comment_contents: @comment_contents %>
           
       </div>
