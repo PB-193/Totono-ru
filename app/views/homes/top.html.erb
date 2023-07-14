@@ -6,7 +6,7 @@
     <div class="top-image mx-auto">
       <%= image_tag 'Sauna-bro.png', class: "img-fluid" %>
     </div>
-    <a class="belonging" href="https://storyset.com/people">People illustrations by Storyset</a>
+    <a class="belonging" href="https://storyset.com/people" target="_blank" >People illustrations by Storyset</a>
   </div>
 </div>
 <div class="text-center border-dotted border-t-2 border-fitting-pink py-20 mt-5">
@@ -24,7 +24,7 @@
     <div class="mb-6 p-4 flex flex-col text-center items-center">
       <div class="inline-flex items-center justify-center justify-center mb-5 flex-shrink-0">
         <%= image_tag 'Mobile inbox-bro.png', class: "img-fluid" %>
-        <a class="sub-belonging" href="https://storyset.com/internet">Internet illustrations by Storyset</a>
+        <a class="sub-belonging" href="https://storyset.com/internet" target="_blank" >Internet illustrations by Storyset</a>
       </div>
       <div class="flex-grow">
         <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その１. <br>みんなのサ活を<br>見てみよう</h2>
@@ -36,7 +36,7 @@
     <div class="mb-6 p-4 flex flex-col text-center items-center">
       <div class="inline-flex items-center justify-center mb-5 flex-shrink-0">
         <%= image_tag 'Social update-bro.png', class: "img-fluid" %>
-        <a class="sub-belonging" href="https://storyset.com/social-media">Social media illustrations by Storyset</a>
+        <a class="sub-belonging" href="https://storyset.com/social-media" target="_blank" >Social media illustrations by Storyset</a>
       </div>
       <div class="flex-grow">
         <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その２. <br>日々のサ活を<br>レビューしよう</h2>
@@ -48,7 +48,7 @@
     <div class="mb-6 p-4 flex flex-col text-center items-center">
       <div class="inline-flex items-center justify-center mb-5 flex-shrink-0">
         <%= image_tag 'Online popularity-bro.png', class: "img-fluid" %>
-        <a class="sub-belonging" href="https://storyset.com/online">Online illustrations by Storyset</a>
+        <a class="sub-belonging" href="https://storyset.com/online" target="_blank" >Online illustrations by Storyset</a>
       </div>
       <div class="flex-grow">
         <h2 class="font-kaisei text-gray-900 text-lg title-font font-medium mb-3">その３. <br>レビューにいいねやコメントをしよう</h2>
@@ -61,4 +61,11 @@
     <%= link_to "ゲストでログインする", homes_guest_sign_in_path, method: :post,class:"btn btn-outline-secondary md-mr-3" %>
     <%= link_to "新規登録してはじめる", new_user_registration_path,class:"btn btn-outline-secondary md-mr-3" %>
     <%= link_to "ログインしてはじめる", new_user_session_path,class:"btn btn-outline-secondary" %>
+</div>
+
+<hr class="my-2 border-b-1 border-bg-mitsuboshi-gray mt-5" />
+<div class="enter-btn text-center pb-8">
+    <%= link_to "お問い合わせフォーム" , "https://forms.gle/odVjkTS2C3XXzyA79", target: :_blank, class: "text-dark" %>
+    <%= link_to "利用規約" , "https://forms.gle/odVjkTS2C3XXzyA79", target: :_blank, class: "text-dark" %>
+    <%= link_to "プライバシーポリシー" , "https://forms.gle/odVjkTS2C3XXzyA79", target: :_blank, class: "text-dark" %>
 </div>
