@@ -1,6 +1,12 @@
 class HomesController < ApplicationController
   def top
   end
+
+  def terms_of_use 
+  end
+
+  def privacy_policy
+  end
   
   def guest_sign_in
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|

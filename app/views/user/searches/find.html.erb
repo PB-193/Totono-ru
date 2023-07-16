@@ -2,7 +2,7 @@
 <h3 class="pt-3">このページでは様々な検索ができます</h3>
 
   <div class="row mt-5">
-    <div class="col-sm-5">
+    <div class="col-md-5">
       <h6>〜<strong>投稿日</strong>または<strong>訪問日</strong>で検索ができます〜</h6>
   
       <%= form_with(url: searches_path, method: :get, local: true) do |f| %>
@@ -35,7 +35,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mb-5">
           <%= f.submit "検索する", class: "btn btn-info mb-2" %>
           <%= button_tag "入力クリア", type: "reset", class: "btn btn-light mb-2" %>
         </div>
@@ -43,7 +43,7 @@
     </div>
 
   
-  <div class="col-sm-7">
+  <div class="col-md-7">
     <h6>タグの検索を行うことができます</h6>
     <h6>タグのボタンをクリックすると、そのタグが付与された投稿一覧が表示されます</h6>
     <div class="tag-list">
@@ -53,10 +53,11 @@
             <tr>
               <th>タグ名</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            <% @tags.group_by(&:name).each_slice(2) do |tags_row| %>
+            <% @tags.group_by(&:name).each_slice(3) do |tags_row| %>
               <tr>
                 <% tags_row.each do |tag_name, tags| %>
                   <td><%= link_to tag_name, searches_path(tag_id: tags.first.id), class: "btn btn-primary" %></td>

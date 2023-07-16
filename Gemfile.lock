@@ -101,6 +101,7 @@ GEM
       activesupport (>= 5.0)
     google_places (2.0.0)
       httparty (>= 0.13.1)
+    high_voltage (3.1.2)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -279,6 +280,7 @@ DEPENDENCIES
   enum_help
   faker
   google_places
+  high_voltage
   jbuilder (~> 2.7)
   kaminari (~> 1.2.1)
   listen (~> 3.3)

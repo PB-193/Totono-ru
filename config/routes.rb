@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  get 'terms_of_use', to: 'homes#terms_of_use'
+  get 'privacy_policy', to: 'homes#privacy_policy'
 
   namespace :user do
     get 'favorites/create'
