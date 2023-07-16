@@ -1,5 +1,5 @@
 class User::FavoritesController < ApplicationController
-  before_action :guest_check, only: [:new, :create]
+  before_action :guest_check, only: [:create]
   
   def create
     @content = Content.find(params[:content_id])
@@ -12,6 +12,9 @@ class User::FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(content_id: @content.id)
     favorite.destroy
   end
+  
+  
+  private
   
   def guest_check
     if current_user.email == 'guest@example.com'

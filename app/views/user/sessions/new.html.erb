@@ -1,5 +1,5 @@
   <div class="row">
-    <div class=col-10>
+    <div class="col-10 pt-5 pb-5">
       <h4>ログインする</h4>
       <p>ユーザ登録がお済みの方はこちらからログインができます</p>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,7 +19,7 @@
         </div>
       <% end %>
 
-      <p class="mt-5">ユーザ登録がお済みでない方</p>
+      <p class="pt-3 mt-5">ユーザ登録がお済みでない方</p>
       <%= link_to "こちら",new_user_registration_path %> から新規登録を行ってください。
 
     </div>

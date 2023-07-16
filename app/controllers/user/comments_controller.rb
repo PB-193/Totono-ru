@@ -1,4 +1,5 @@
 class User::CommentsController < ApplicationController
+  before_action :guest_check, only: [:create]
   
   # 非同期通信で行う
   def create
@@ -27,6 +28,15 @@ class User::CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:comment)
+  end
+  
+  
+  private
+  
+  def guest_check
+    if current_user.email == 'guest@example.com'
+      redirect_to request.referer, alert: "コメントをするにはユーザ登録が必要です。"
+    end
   end
   
 end
