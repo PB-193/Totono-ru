@@ -1,11 +1,11 @@
 #body-main {
   background-color: rgb(255, 195, 161);
   font-family: 'Kaisei HarunoUmi', serif;
+  padding-bottom: 100px;
 }
 
 main {
-  margin-bottom: 150px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 header, footer {
@@ -233,4 +233,8 @@ header, footer {
 
 .not-index {
   text-align: center;
+}
+
+.not-index{
+  padding-bottom: 100px
 }

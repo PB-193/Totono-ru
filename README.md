@@ -37,7 +37,6 @@
 - [ワイヤーフレーム1](https://docs.google.com/presentation/d/1kbvXwflN5p0b9C4XKG9W_ZoHWhKQDei39NQKzoQE_44/edit#slide=id.g24f3c547109_0_68)
 - [ワイヤーフレーム2](https://docs.google.com/presentation/d/1FT91bwEb00Zv6w_fzyPimTGmuJT27n1wkMfBGb0p16E/edit#slide=id.p)
 - [ER図](https://app.diagrams.net/?libs=general;er#G1x2Dq3auqa3nNXlcGS-znj1qaFetSGdHG)
-- [APP詳細設計書]()
 
 ## 開発環境 🖥
 - OS：Linux(CentOS)
