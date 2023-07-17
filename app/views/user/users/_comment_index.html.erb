@@ -50,5 +50,8 @@
         <% displayed_content_ids << content.content.id %>
       <% end %>
     <% end %>
+    
+      <%= paginate @contents %>
+
   </div>
 </div>

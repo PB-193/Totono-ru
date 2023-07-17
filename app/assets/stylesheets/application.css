@@ -79,39 +79,6 @@ header, footer {
   padding-bottom: 300px;
 }
 
-
-/*レスポンシブ対応*/
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
-  .top-title {
-    position: absolute;
-    font-size: 18px;
-    padding: 150px 0 0 125px;
-  }
-  .steam01 img, .steam03 img {
-    display: none;
-  }
-  
-  .belonging {
-    font-size: 8px;
-    margin: 0 ;
-    padding: 0 0 0 130px;
-  }  
-  .logo-img {
-    width: 40px;
-    height: 40px;
-    margin: 0;
-  }
-  .footer-logo-img {
-    width: 45px;
-    height: 45px;
-    margin: 0;
-  }
-  .navbar-text {
-    font-size: 8px;
-  }
-}
-
 /*湯気エフェクト*/
 @keyframes steam01 {
   0% {
@@ -241,3 +208,9 @@ header, footer {
 .not-index{
   padding-bottom: 100px
 }
+
+
+
+/*
+ *= require responsive
+ */

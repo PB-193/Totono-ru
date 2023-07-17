@@ -57,11 +57,20 @@
     </div>
   </div>
 </div>
-<div class="enter-btn text-center pb-5 ">
-    <%= link_to "ゲストでログインする", homes_guest_sign_in_path, method: :post,class:"btn btn-outline-secondary md-mr-3" %>
-    <%= link_to "新規登録してはじめる", new_user_registration_path,class:"btn btn-outline-secondary md-mr-3" %>
-    <%= link_to "ログインしてはじめる", new_user_session_path,class:"btn btn-outline-secondary" %>
+
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="btn-group d-flex" role="group">
+      <%= link_to "ゲストでログインする", homes_guest_sign_in_path, method: :post, class: "btn btn-outline-secondary mr-2" %>
+      <%= link_to "新規登録してはじめる", new_user_registration_path, class: "btn btn-outline-secondary mr-2" %>
+      <%= link_to "ログインしてはじめる", new_user_session_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
 </div>
+
+
+
+
 
 <hr class="my-2 border-b-1 border-bg-mitsuboshi-gray mt-5" />
 <div class="enter-btn text-center pb-8">
