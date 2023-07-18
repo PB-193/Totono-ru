@@ -1,8 +1,6 @@
 # 『　ととの〜る　』<日々のサ活をレビューしよう> 🧖
 
-<div align="center">
-  ![lecture_top](https://github.com/PB-193/Totono-ru/assets/127069516/19df7361-7cfd-4de0-ae86-e4b5c3ebc315)
-</div>
+![lecture_top](https://github.com/PB-193/Totono-ru/assets/127069516/72ba6754-99d0-4617-b9d5-c6698969d4d8)
 
 ## サイト概要
 ### サイトテーマ ♨
