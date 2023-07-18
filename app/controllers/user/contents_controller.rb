@@ -27,7 +27,7 @@ class User::ContentsController < ApplicationController
       flash[:notice] = "投稿しました"
       redirect_to contents_path
     else
-      flash[:alert] = "タイトルの入力は必須になります"
+      flash[:alert] = "タイトルの入力は必須になります。"
       render :new
     end
   end

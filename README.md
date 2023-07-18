@@ -1,5 +1,7 @@
 # 『　ととの〜る　』<日々のサ活をレビューしよう> 🧖
 
+<img src="lecture_top.">
+
 ## サイト概要
 ### サイトテーマ ♨
 サウナーが作る、サウナが好きな人のためのサ活（サウナ活動）レビューサイトです。
@@ -47,3 +49,5 @@
 
 ## ポートフォリオURL
 https://totono-ru.com
+<p><a href="https://totono-ru.com" target="_blank">https://totono-ru.com</a></p>
+
