@@ -1,0 +1,90 @@
+/*レスポンシブ対応*/
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width: 425px) {
+  .top-title {
+    position: absolute;
+    font-size: 18px;
+    padding: 150px 0 0 125px;
+  }
+  .steam03 img {
+    display: none;
+  }
+  .steam01 img ,
+  .steam02 img {
+    width: 250px;
+    height: 400px;
+  }
+
+  .belonging {
+    font-size: 8px;
+    margin: 0;
+    padding: 0 0 0 130px;
+  }
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+  }
+  .footer-logo-img {
+    width: 45px;
+    height: 45px;
+    margin: 0;
+  }
+  .navbar-text {
+    font-size: 8px;
+  }
+
+    @keyframes steam01 {
+      0% {
+        bottom: 200px;
+        filter: blur(16px);
+        transform: rotateY(0deg);
+        transform: scale(0.6, 1);
+        opacity: 0
+      }
+      11% { opacity: 0.1 }
+      33% {
+        transform: rotateY(40deg);
+        transform: scale(1, 1.4);
+        opacity: 0.5
+      }
+      66% {
+        transform: rotateY(10deg);
+        transform: scaleY(1.8, 1);
+        opacity: 0.4
+      }
+      100% {
+        bottom: 0;
+        filter: blur(20px);
+        transform: rotateY(60deg);
+        transform: scaleY(2, 1.8);
+        opacity: 0
+      }
+    }
+
+  @keyframes steam02 {
+    0% {
+      bottom: 250px;
+      filter: blur(16px);
+      transform: rotateY(0deg) scale(0.6);
+      opacity: 0;
+    }
+    11% {
+      opacity: 0.5;
+    }
+    33% {
+      transform: rotateY(40deg) scale(0.8, 1);
+      opacity: 0.9;
+    }
+    66% {
+      transform: rotateY(2deg) scaleY(1, 1.2);
+      opacity: 0.6;
+    }
+    100% {
+      bottom: 0;
+      filter: blur(20px);
+      transform: rotateY(50deg) scaleY(1.2, 1.4);
+      opacity: 0;
+    }
+  }
+}
