@@ -1,6 +1,8 @@
 # 『　ととの〜る　』<日々のサ活をレビューしよう> 🧖
 
-![lecture_top](https://github.com/PB-193/Totono-ru/assets/127069516/19df7361-7cfd-4de0-ae86-e4b5c3ebc315)
+<div align="center">
+  ![lecture_top](https://github.com/PB-193/Totono-ru/assets/127069516/19df7361-7cfd-4de0-ae86-e4b5c3ebc315)
+</div>
 
 ## サイト概要
 ### サイトテーマ ♨
@@ -48,6 +50,5 @@
 - IDE：Cloud9
 
 ## ポートフォリオURL
-https://totono-ru.com
 <p><a href="https://totono-ru.com" target="_blank">https://totono-ru.com</a></p>
 
