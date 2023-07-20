@@ -5,7 +5,8 @@ class Content < ApplicationRecord
     has_many :tags, through: :content_tags
     has_many :favorites, dependent: :destroy
     
-    validates :title,presence:true
+    validates :title,presence:true, length: { minimum: 3, maximum: 35 }
+    validates :text ,presence:true
 
     # 既にいいね済みであれば、複数回いいねはできない処理 
     def favorited_by?(user)

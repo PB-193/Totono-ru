@@ -1,2 +1,5 @@
 <h3>投稿したレビューを編集できます</h3>
+
+<%= render 'user/shared/error_messages', resource: @content %>
+
 <%= render partial: "user/contents/form", locals: {type:"変更を保存する",content: @content,method: nil} %>

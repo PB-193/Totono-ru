@@ -4,21 +4,25 @@
   .top-title {
     position: absolute;
     font-size: 18px;
-    padding: 150px 0 0 125px;
+    padding:  0;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
   }
   .steam03 img {
     display: none;
   }
   .steam01 img ,
   .steam02 img {
-    width: 250px;
-    height: 400px;
+    width: 200px;
+    height: 300px;
   }
 
   .belonging {
     font-size: 8px;
     margin: 0;
-    padding: 0 0 0 130px;
+    padding: 0 0 0 100px;
   }
   .logo-img {
     width: 40px;
@@ -36,7 +40,7 @@
 
     @keyframes steam01 {
       0% {
-        bottom: 200px;
+        bottom: 350px;
         filter: blur(16px);
         transform: rotateY(0deg);
         transform: scale(0.6, 1);
@@ -54,7 +58,7 @@
         opacity: 0.4
       }
       100% {
-        bottom: 0;
+        bottom: 500px;
         filter: blur(20px);
         transform: rotateY(60deg);
         transform: scaleY(2, 1.8);
@@ -81,7 +85,7 @@
       opacity: 0.6;
     }
     100% {
-      bottom: 0;
+      bottom: 500px;
       filter: blur(20px);
       transform: rotateY(50deg) scaleY(1.2, 1.4);
       opacity: 0;
