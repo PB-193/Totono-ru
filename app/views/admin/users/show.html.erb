@@ -1,31 +1,34 @@
-<table class="table">
-  <tbody>
-    <tr>
-      <th scope="row">会員No.</th>
-      <td><%= @user.id %></td>
-    </tr>
-    <tr>
-      <th scope="row">ユーザ名</th>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <th scope="row">メールアドレス</th>
-      <td><%= @user.email %></td>
-    </tr>
-    <tr>
-      <th scope="row">プロフィール画像</th>
-      <td><%= image_tag @user.get_profile_image, size: "100x100" %></td>
-    </tr>
-    <%= form_with model:@user, url: admin_user_path(@user) do |f| %>
+<%= form_with model: @user, url: admin_user_path , method: :patch do |f| %>
+  <table class="table">
+    <tbody>
       <tr>
-        <td>ステータス</td>
-        <td><%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効", class: "text-active" %>
-        <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "停止済み", class: "text-invalid" %>
-        <td colspan="3"><%= f.submit "ステータスを更新する", data: { confirm: '管理者権限で更新しますか？' }, class: "btn btn-primary" %></td>
+        <th scope="row">会員No.</th>
+        <td><%= @user.id %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tr>
+        <th scope="row">ユーザ名</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th scope="row">メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th scope="row">プロフィール画像</th>
+        <td><%= image_tag @user.get_profile_image, size: "100x100" %></td>
+      </tr>
+        <tr>
+          <th>ステータス</th>
+          <td>
+            <%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効", class: "text-active" %>
+            <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "停止済み", class: "text-invalid" %>
+            <%= f.submit "更新する", data: { confirm: '管理者権限で更新しますか？' }, class: "btn btn-primary btn-sm" %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+<% end %>
+
 <div class="text-center mt-3">
   <%= link_to "ユーザ一覧に戻る", admin_users_path, class: "btn btn-secondary" %>
 </div>
