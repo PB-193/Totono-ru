@@ -1,5 +1,5 @@
 class User::UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user_or_admin!
   before_action :guest_check, except: [:show]
   
   def myshow
@@ -50,6 +50,10 @@ class User::UsersController < ApplicationController
     if current_user.email == 'guest@example.com'
       redirect_to contents_path, alert: "マイページの確認はユーザ登録が必要です。"
     end
+  end
+  
+  def authenticate_user_or_admin!
+    authenticate_user! unless admin_signed_in?
   end
   
 end
