@@ -22,8 +22,8 @@ ja:
       # not_found: "not found"
       # not_locked: "was not locked"
       not_saved: 
-        one: "エラーが発生しました。以下ご確認お願いいたします。"
-        other: "エラーが発生しました。以下ご確認お願いいたします。"
+        one: "エラーが発生しました。以下ご確認お願いします。"
+        other: "エラーが発生しました。以下ご確認お願いします。"
         
   activerecord:
     attributes:
@@ -34,6 +34,9 @@ ja:
         password_confirmation: "確認用のパスワード"
         current_password: "現在のパスワード"
         we_need_your_current_password_to_confirm_your_changes: "パスワードを変更するには現在のパスワードの入力が必要です"
+      content:
+        title: "レビュータイトル"
+        text: "投稿内容"
 
   views:
     pagination:

@@ -1,5 +1,7 @@
 # 『　ととの〜る　』<日々のサ活をレビューしよう> 🧖
 
+![Jul-18-2023 19-12-33](https://github.com/PB-193/Totono-ru/assets/127069516/bd832b33-08b9-49d9-836c-a312e8281a60)
+
 ## サイト概要
 ### サイトテーマ ♨
 サウナーが作る、サウナが好きな人のためのサ活（サウナ活動）レビューサイトです。
@@ -46,4 +48,5 @@
 - IDE：Cloud9
 
 ## ポートフォリオURL
-https://totono-ru.com
+<p><a href="https://totono-ru.com" target="_blank">https://totono-ru.com</a></p>
+

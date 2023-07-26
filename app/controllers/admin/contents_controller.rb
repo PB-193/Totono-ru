@@ -1,4 +1,6 @@
 class Admin::ContentsController < ApplicationController
+  before_action :authenticate_admin!
+
   def show
     @content = Content.find(params[:id])
   end

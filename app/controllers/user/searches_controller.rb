@@ -1,4 +1,5 @@
 class User::SearchesController < ApplicationController
+  before_action :authenticate_user!
   
   def find
     @tags = Tag.all

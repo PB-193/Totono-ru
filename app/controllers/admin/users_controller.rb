@@ -8,9 +8,14 @@ class Admin::UsersController < ApplicationController
 
   def show
   end
-
+  
   def update
-    @user.update(user_params) ? (redirect_to admin_users_path(@user)) : (render :index)
+    if @user.update(user_params)
+      redirect_to admin_user_path(@user), notice: "更新しました"
+    else
+      flash[:alert] = "更新に失敗しました"
+      render :show
+    end
   end
   
   private

@@ -2,6 +2,8 @@
   <div class="col">
     <% if @tag.nil? %>
       <h2>指定した日付けの投稿一覧を表示しています</h2>
+    <% elsif @tag.present? && @tag.contents.empty? %>
+      <h2 class="text-danger text-center mt-md-5">現在、指定のタグが付与されたレビューはありません</h2>
     <% else %>
       <h2>タグが「<%= @tag.name %>」の投稿一覧を表示しています</h2>
     <% end %>

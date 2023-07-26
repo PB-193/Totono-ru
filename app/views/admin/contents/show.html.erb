@@ -1,18 +1,25 @@
 <div class="row">
   <%= render 'user/contents/show', content: @content %>
     <div class="col-md-4">
-    <%= form_with url: admin_content_path, method: :patch, local: true, class: "my-form" do |f| %>
-      <div class="field">
-        <%= f.label :created_at, "投稿日の編集" %>
-        <%= f.datetime_select :created_at, { ampm: true }, { class: "form-control" } %>
+      <div class="card">
+        <%= form_with url: admin_content_path, method: :patch, local: true, class: "my-form" do |f| %>
+          <div class="field">
+            <div class="card-header">
+              <%= f.label :created_at, "投稿日の編集", class: "card-title" %>
+            </div>
+            <div class="card-body">
+              <%= f.datetime_select :created_at, { ampm: true }, { class: "form-control" } %>
+            </div>
+          </div>
+          <%= f.submit "更新", class: "btn btn-primary" %>
+        <% end %>
       </div>
-    
-      <%= f.submit "更新", class: "btn btn-primary" %>
-    <% end %>
     </div>
-    
-    <div class="text-center mt-3">
-      <%= link_to "管理者権限で削除する", admin_content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
-      <%= link_to "戻る", admin_homes_top_path, class: "btn btn-secondary" %>
-    </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 offset-md-4 mt-3">
+    <%= link_to "管理者権限で削除する", admin_content_path(@content), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+    <%= link_to "戻る", admin_homes_top_path, class: "btn btn-secondary" %>
+  </div>
 </div>
