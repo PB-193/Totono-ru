@@ -40,7 +40,7 @@
 
     @keyframes steam01 {
       0% {
-        bottom: 350px;
+        bottom: 150px;
         filter: blur(16px);
         transform: rotateY(0deg);
         transform: scale(0.6, 1);
@@ -58,7 +58,7 @@
         opacity: 0.4
       }
       100% {
-        bottom: 500px;
+        bottom: 270px;
         filter: blur(20px);
         transform: rotateY(60deg);
         transform: scaleY(2, 1.8);
@@ -68,7 +68,7 @@
 
   @keyframes steam02 {
     0% {
-      bottom: 350px;
+      bottom: 130px;
       filter: blur(16px);
       transform: rotateY(0deg) scale(0.6);
       opacity: 0;
@@ -85,7 +85,7 @@
       opacity: 0.6;
     }
     100% {
-      bottom: 500px;
+      bottom: 250px;
       filter: blur(20px);
       transform: rotateY(50deg) scaleY(1.2, 1.4);
       opacity: 0;
