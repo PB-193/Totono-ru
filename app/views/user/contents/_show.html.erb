@@ -36,8 +36,9 @@
           </tr>
           <tr>
             <th>サウナ施設</th>
-            <td><%= @content.spot%></td>
-          </tr>
+            <td>
+              <%= link_to @content.spot, "https://www.google.com/maps/search/?api=1&query=#{CGI.escape(@content.spot)}", target: "_blank" %>
+            </td>
           <tr>
             <th>ととのい度</th>
             <td><%= render "user/contents/static_rate", content: content %></td>

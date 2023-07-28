@@ -70,13 +70,9 @@ header, footer {
 }
 
 /* マイページ画面など  */
-.infomation-edit {
-  padding-bottom: 200px;
-}
 
 .finalcheck-edit {
-  padding-top: 20px;
-  padding-bottom: 300px;
+  padding-top: 120px;
 }
 
 /*湯気エフェクト*/
