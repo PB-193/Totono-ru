@@ -91,4 +91,11 @@
       opacity: 0;
     }
   }
+  
+  /*投稿一覧のレスポンシブ対応（スマホ）*/
+  .index-username {
+    text-align: left;
+  }
+  
 }
+

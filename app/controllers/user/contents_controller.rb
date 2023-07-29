@@ -3,10 +3,22 @@ class User::ContentsController < ApplicationController
   before_action :guest_check, only: [:new, :create]
 
   def index
-    @contents = Content.page(params[:page]).order(created_at: :asc)
     @tag_list = Tag.all
     @user = User.find_by(id: params[:user_id])
+    
+    if params[:sort] == 'newest'
+      @contents = Content.page(params[:page]).order(created_at: :desc)
+    elsif params[:sort] == 'oldest'
+      @contents = Content.page(params[:page]).order(created_at: :asc)
+    elsif params[:sort] == 'rate_desc'
+      @contents = Content.page(params[:page]).order(rate: :desc)
+    elsif params[:sort] == 'rate_asc'
+      @contents = Content.page(params[:page]).order(rate: :asc)
+    else 
+      @contents = Content.page(params[:page]).order(created_at: :asc)
+    end
   end
+
 
   def show
     @content = Content.find(params[:id])

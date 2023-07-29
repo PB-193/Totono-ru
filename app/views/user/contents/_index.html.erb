@@ -1,5 +1,31 @@
 <div class="row">
-  <div class="col-md-8 offset-md-2">
+  
+  <div class="col-md-3">
+    <div class="card mb-4">
+      <div class="card-header">
+        <% if params[:sort] == 'newest' %>
+          「新しい順」で表示中
+        <% elsif params[:sort] == 'oldest' %>
+          「古い順」で表示中
+        <% elsif params[:sort] == 'rate_desc' %>
+          「ととのい度が高い順」で表示中        
+        <% elsif params[:sort] == 'rate_asc' %>
+          「ととのい度が低い順」で表示中
+        <% else %>
+          「古い順」で表示中
+        <% end %>
+      </div>
+      <div class="card-body">
+        <%= link_to "新しい順", contents_path(sort: 'newest'), class: "btn btn-primary mb-2" %><br>
+        <%= link_to "古い順", contents_path(sort: 'oldest'), class: "btn btn-primary mb-2" %><br>
+        <%= link_to "ととのい度が高い順", contents_path(sort: 'rate_desc'), class: "btn btn-primary mb-2 " %><br>
+        <%= link_to "ととのい度が低い順", contents_path(sort: 'rate_asc'), class: "btn btn-primary mb-2 " %><br>
+      </div>
+    </div>
+  </div>
+    
+  <div class="col-md-8">
+    <% if contents %>
     <% contents.each do |content| %>
       <div class="card mb-4">
         <div class="card-body">
@@ -14,22 +40,24 @@
           <% end %>
           <% if admin_signed_in? %>
             <h5 class="card-title mb-4">
-              <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span><br>
+              <div class="d-flex justify-content-between">
+                <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span>
+                ❤️ <%= content.favorites.count %> ️💬 <%= content.comments.count %>  <br>  
+              </div>
               <%= link_to content.title, admin_content_path(content) %>
             </h5>
           <% end %>
           <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-4 text-center">
+            <div class="index-username col-md-5">
               <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
               <% if content.user.get_profile_image.present? %>
                 <% if content.user == current_user && content.user.get_profile_image.present? %>
                   <%= link_to myshow_path do %>
-                    <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle' %>
                   <% end %>
                 <% elsif content.user.get_profile_image.present? %>
                   <%= link_to user_path(content.user.id) do %>
-                    <%= image_tag content.user.get_profile_image, size: "50x50", class: 'rounded-circle' %>
+                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle' %>
                   <% end %>
                 <% end %>
               <% end %><br>
@@ -54,6 +82,7 @@
           </div>
         </div>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>

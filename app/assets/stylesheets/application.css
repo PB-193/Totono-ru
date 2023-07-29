@@ -75,6 +75,12 @@ header, footer {
   padding-top: 120px;
 }
 
+
+/*投稿一覧*/
+  .index-username {
+    text-align: center;
+  }
+
 /*湯気エフェクト*/
 @keyframes steam01 {
   0% {
