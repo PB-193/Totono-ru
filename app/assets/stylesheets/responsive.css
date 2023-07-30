@@ -97,5 +97,11 @@
     text-align: left;
   }
   
+  .user_profile {
+    white-space: nowrap; /* 改行を抑制 */
+    overflow: hidden; /* 内容をはみ出た部分を非表示 */
+    text-overflow: ellipsis; /* 省略記号で表示 */
+  }
+  
 }
 

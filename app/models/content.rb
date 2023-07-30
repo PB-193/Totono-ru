@@ -7,6 +7,14 @@ class Content < ApplicationRecord
     
     validates :title,presence:true, length: { minimum: 3, maximum: 35 }
     validates :text ,presence:true
+    
+    # 
+    scope :ordered_by_favorite_count, -> {
+      left_joins(:favorites)
+        .select('contents.*, COUNT(favorites.id) AS favorite_count')
+        .group('contents.id')
+        .order('favorite_count DESC')
+    }
 
     # 既にいいね済みであれば、複数回いいねはできない処理 
     def favorited_by?(user)

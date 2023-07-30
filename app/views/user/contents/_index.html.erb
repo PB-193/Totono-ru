@@ -4,22 +4,28 @@
     <div class="card mb-4">
       <div class="card-header">
         <% if params[:sort] == 'newest' %>
-          「新しい順」で表示中
+          <small>「投稿が新しい順」で表示中</small>
         <% elsif params[:sort] == 'oldest' %>
-          「古い順」で表示中
+          <small>「投稿が古い順」で表示中</small>
         <% elsif params[:sort] == 'rate_desc' %>
-          「ととのい度が高い順」で表示中        
+          <small>「ととのい度が高い順」で表示中</small>
         <% elsif params[:sort] == 'rate_asc' %>
-          「ととのい度が低い順」で表示中
+          <small>「ととのい度が低い順」で表示中</small>
+        <% elsif params[:sort] == 'favorite_desc' %>
+          <small>「いいねが多い順」で表示中</small>
+        <% elsif params[:sort] == 'comment_desc' %>
+          <small>「コメントが多い順」で表示中</small>
         <% else %>
-          「古い順」で表示中
+          <small>「投稿が古い順」で表示中</small>
         <% end %>
       </div>
       <div class="card-body">
-        <%= link_to "新しい順", contents_path(sort: 'newest'), class: "btn btn-primary mb-2" %><br>
-        <%= link_to "古い順", contents_path(sort: 'oldest'), class: "btn btn-primary mb-2" %><br>
-        <%= link_to "ととのい度が高い順", contents_path(sort: 'rate_desc'), class: "btn btn-primary mb-2 " %><br>
-        <%= link_to "ととのい度が低い順", contents_path(sort: 'rate_asc'), class: "btn btn-primary mb-2 " %><br>
+        <%= link_to "投稿が新しい順", contents_path(sort: 'newest'), class: "btn btn-link mb-2" %><br>
+        <%= link_to "投稿が古い順", contents_path(sort: 'oldest'), class: "btn btn-link mb-2" %><br>
+        <%= link_to "ととのい度が高い順", contents_path(sort: 'rate_desc'), class: "btn btn-link mb-2 " %><br>
+        <%= link_to "ととのい度が低い順", contents_path(sort: 'rate_asc'), class: "btn btn-link mb-2 " %><br>
+        <%= link_to "いいねが多い順", contents_path(sort: 'favorite_desc'), class: "btn btn-link mb-2 " %><br>
+        <%= link_to "コメントが多い順", contents_path(sort: 'comment_desc'), class: "btn btn-link mb-2 " %><br>
       </div>
     </div>
   </div>
@@ -53,11 +59,11 @@
               <% if content.user.get_profile_image.present? %>
                 <% if content.user == current_user && content.user.get_profile_image.present? %>
                   <%= link_to myshow_path do %>
-                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle' %>
+                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle user_profile' %>
                   <% end %>
                 <% elsif content.user.get_profile_image.present? %>
                   <%= link_to user_path(content.user.id) do %>
-                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle' %>
+                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle user_profile' %>
                   <% end %>
                 <% end %>
               <% end %><br>
