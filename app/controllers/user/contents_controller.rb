@@ -5,23 +5,30 @@ class User::ContentsController < ApplicationController
   def index
     @tag_list = Tag.all
     @user = User.find_by(id: params[:user_id])
-    
-    if params[:sort] == 'newest'
-      @contents = Content.page(params[:page]).order(created_at: :desc)
-    elsif params[:sort] == 'oldest'
-      @contents = Content.page(params[:page]).order(created_at: :asc)
-    elsif params[:sort] == 'rate_desc'
-      @contents = Content.page(params[:page]).order(rate: :desc)
-    elsif params[:sort] == 'rate_asc'
-      @contents = Content.page(params[:page]).order(rate: :asc)
-    elsif params[:sort] == 'favorite_desc'
-      @contents = Content.page(params[:page]).ordered_by_favorite_count
-    elsif params[:sort] == 'comment_desc'
-      @contents = Content.page(params[:page]).ordered_by_comment_count
-    else 
-      @contents = Content.page(params[:page]).order(created_at: :asc)
-    end
+  
+    # Contentモデルに対してクエリを実行するActiveRecord_Relationを用意
+    contents_relation = if params[:sort] == 'newest'
+                          Content.order(created_at: :desc)
+                        elsif params[:sort] == 'oldest'
+                          Content.order(created_at: :asc)
+                        elsif params[:sort] == 'rate_desc'
+                          Content.order(rate: :desc)
+                        elsif params[:sort] == 'rate_asc'
+                          Content.order(rate: :asc)
+                        elsif params[:sort] == 'favorite_desc'
+                          Content.ordered_by_favorite_count
+                        elsif params[:sort] == 'comment_desc'
+                          Content.ordered_by_comment_count
+                        elsif params[:sort] == 'random_list'
+                          Content.order('RANDOM()')
+                        else
+                          Content.order(created_at: :asc)
+                        end
+  
+    # ページネーションを適用してデータを取得
+    @contents = contents_relation.page(params[:page])
   end
+  
 
 
   def show
