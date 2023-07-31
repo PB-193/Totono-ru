@@ -3,10 +3,10 @@
   <div class="col-md-3">
     <div class="card mb-4">
       <div class="card-header">
-        <% if params[:sort] == 'newest' %>
-          <small>「投稿が新しい順」で表示中</small>
-        <% elsif params[:sort] == 'oldest' %>
+        <% if params[:sort] == 'oldest' %>
           <small>「投稿が古い順」で表示中</small>
+        <% elsif params[:sort] == 'newest' %>
+          <small>「投稿が新しい順」で表示中</small>
         <% elsif params[:sort] == 'rate_desc' %>
           <small>「ととのい度が高い順」で表示中</small>
         <% elsif params[:sort] == 'rate_asc' %>
@@ -20,8 +20,8 @@
         <% end %>
       </div>
       <div class="card-body">
-        <%= link_to "投稿が新しい順", contents_path(sort: 'newest'), class: "btn btn-link mb-2" %><br>
         <%= link_to "投稿が古い順", contents_path(sort: 'oldest'), class: "btn btn-link mb-2" %><br>
+        <%= link_to "投稿が新しい順", contents_path(sort: 'newest'), class: "btn btn-link mb-2" %><br>
         <%= link_to "ととのい度が高い順", contents_path(sort: 'rate_desc'), class: "btn btn-link mb-2 " %><br>
         <%= link_to "ととのい度が低い順", contents_path(sort: 'rate_asc'), class: "btn btn-link mb-2 " %><br>
         <%= link_to "いいねが多い順", contents_path(sort: 'favorite_desc'), class: "btn btn-link mb-2 " %><br>

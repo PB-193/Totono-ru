@@ -17,7 +17,7 @@ class User::ContentsController < ApplicationController
     elsif params[:sort] == 'favorite_desc'
       @contents = Content.page(params[:page]).ordered_by_favorite_count
     elsif params[:sort] == 'comment_desc'
-      @contents = Content.page(params[:page]).order(commnet_count: :desc)
+      @contents = Content.page(params[:page]).ordered_by_comment_count
     else 
       @contents = Content.page(params[:page]).order(created_at: :asc)
     end
