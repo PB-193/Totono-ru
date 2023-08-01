@@ -24,10 +24,16 @@ class User::SearchesController < ApplicationController
     if @tag.present?
       query = query.joins(:tags).where(tags: { id: @tag.id })
     end
-
-    @contents = query.order(created_at: :asc).page(params[:page])
-
-    render "user/searches/index"
+    
+    # 日付を指定しないで実行した時の処理
+    if @start_date.blank? || @end_date.blank?
+      flash[:alert] = "日付けを指定してください。"
+      redirect_back fallback_location: root_path
+    else
+      @contents = query.order(created_at: :asc).page(params[:page])
+      render "user/searches/index"
+    end
+    
   end
 end
 

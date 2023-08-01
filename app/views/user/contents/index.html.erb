@@ -1,3 +1,11 @@
-<%= render 'index', contents: @contents %>
+<div class="row">
 
-<%= render 'paginate', contents: @contents%>
+    <%= render 'sort_list' %>
+    
+    <div class="col-md-8">
+       <%= render 'index', contents: @contents %>
+    </div>
+  
+    <%= render 'paginate', contents: @contents%>
+
+</div>

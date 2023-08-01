@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col">
+  <div class="col-md-8 offset-md-2">
+    
     <% if @tag.nil? %>
       <h2><%= @start_date.strftime("%Y年%m月%d日") %>から<%= @end_date.strftime("%Y年%m月%d日") %>の投稿一覧を表示しています</h2>    
     <% elsif @tag.present? && @tag.contents.empty? %>

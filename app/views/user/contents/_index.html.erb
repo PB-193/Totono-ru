@@ -1,97 +1,57 @@
-<div class="row">
-  
-  <div class="col-md-3">
+  <% contents.each do |content| %>
     <div class="card mb-4">
-      <div class="card-header">
-        <% if params[:sort] == 'oldest' %>
-          <small>「投稿が古い順」で表示中</small>
-        <% elsif params[:sort] == 'newest' %>
-          <small>「投稿が新しい順」で表示中</small>
-        <% elsif params[:sort] == 'rate_desc' %>
-          <small>「ととのい度が高い順」で表示中</small>
-        <% elsif params[:sort] == 'rate_asc' %>
-          <small>「ととのい度が低い順」で表示中</small>
-        <% elsif params[:sort] == 'favorite_desc' %>
-          <small>「いいねが多い順」で表示中</small>
-        <% elsif params[:sort] == 'comment_desc' %>
-          <small>「コメントが多い順」で表示中</small>
-        <% elsif params[:sort] == 'random_list' %>
-          <small>「順不同」で表示中</small>
-        <% else %>
-          <small>「投稿が古い順」で表示中</small>
-        <% end %>
-      </div>
       <div class="card-body">
-        <%= link_to "投稿が古い順", contents_path(sort: 'oldest'), class: "btn btn-link mb-2" %><br>
-        <%= link_to "投稿が新しい順", contents_path(sort: 'newest'), class: "btn btn-link mb-2" %><br>
-        <%= link_to "ととのい度が高い順", contents_path(sort: 'rate_desc'), class: "btn btn-link mb-2 " %><br>
-        <%= link_to "ととのい度が低い順", contents_path(sort: 'rate_asc'), class: "btn btn-link mb-2 " %><br>
-        <%= link_to "いいねが多い順", contents_path(sort: 'favorite_desc'), class: "btn btn-link mb-2 " %><br>
-        <%= link_to "コメントが多い順", contents_path(sort: 'comment_desc'), class: "btn btn-link mb-2 " %><br>
-        <%= link_to "順不同", contents_path(sort: 'random_list'), class: "btn btn-link mb-2 " %><br>
-      </div>
-    </div>
-  </div>
-    
-  <div class="col-md-8">
-    <% if contents %>
-    <% contents.each do |content| %>
-      <div class="card mb-4">
-        <div class="card-body">
-          <% if user_signed_in? %>
-            <h5 class="card-title mb-4">
-                <div class="d-flex justify-content-between">
-                  <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span>
-                  ❤️ <%= content.favorites.count %> ️💬 <%= content.comments.count %>  <br>  
-                </div>
-              <%= link_to content.title, content_path(content) %>
-            </h5>
-          <% end %>
-          <% if admin_signed_in? %>
-            <h5 class="card-title mb-4">
+        <% if user_signed_in? %>
+          <h5 class="card-title mb-4">
               <div class="d-flex justify-content-between">
                 <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span>
                 ❤️ <%= content.favorites.count %> ️💬 <%= content.comments.count %>  <br>  
               </div>
-              <%= link_to content.title, admin_content_path(content) %>
-            </h5>
-          <% end %>
-          <div class="row">
-            <div class="index-username col-md-5">
-              <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
-              <% if content.user.get_profile_image.present? %>
-                <% if content.user == current_user && content.user.get_profile_image.present? %>
-                  <%= link_to myshow_path do %>
-                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle user_profile' %>
-                  <% end %>
-                <% elsif content.user.get_profile_image.present? %>
-                  <%= link_to user_path(content.user.id) do %>
-                    <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle user_profile' %>
-                  <% end %>
+            <%= link_to content.title, content_path(content) %>
+          </h5>
+        <% end %>
+        <% if admin_signed_in? %>
+          <h5 class="card-title mb-4">
+            <div class="d-flex justify-content-between">
+              <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span>
+              ❤️ <%= content.favorites.count %> ️💬 <%= content.comments.count %>  <br>  
+            </div>
+            <%= link_to content.title, admin_content_path(content) %>
+          </h5>
+        <% end %>
+        <div class="row">
+          <div class="index-username col-md-5">
+            <strong>ユーザ名:</strong> <br><%= content.user.name if content.user %><br>
+            <% if content.user.get_profile_image.present? %>
+              <% if content.user == current_user && content.user.get_profile_image.present? %>
+                <%= link_to myshow_path do %>
+                  <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle user_profile' %>
                 <% end %>
-              <% end %><br>
-            </div>
-            <div class="col-md-7">
-              <p class="card-text">
-                <strong>訪問日:</strong> 
-                  <% if content.visit_day.present? %>
-                    <%= content.visit_day.strftime("%Y年%m月%d日") %>
-                  <% else %>
-                    <td></td>
-                  <% end %><br>
-                <strong>タ　グ:</strong>
-                <% content.tags.each do |tag| %>
-                  <%= link_to searches_path(tag_id: tag.id), class: "badge badge-primary", style: "opacity: 1;" do %>
-                    <%= tag.name %> 
-                  <% end %>
-                <% end %>  <br>
-                <strong>サウナ施設:</strong> <%= content.spot %>
-              </p>
-            </div>
+              <% elsif content.user.get_profile_image.present? %>
+                <%= link_to user_path(content.user.id) do %>
+                  <%= image_tag content.user.get_profile_image, size: "70x70", class: 'rounded-circle user_profile' %>
+                <% end %>
+              <% end %>
+            <% end %><br>
+          </div>
+          <div class="col-md-7">
+            <p class="card-text">
+              <strong>訪問日:</strong> 
+                <% if content.visit_day.present? %>
+                  <%= content.visit_day.strftime("%Y年%m月%d日") %>
+                <% else %>
+                  <td></td>
+                <% end %><br>
+              <strong>タ　グ:</strong>
+              <% content.tags.each do |tag| %>
+                <%= link_to searches_path(tag_id: tag.id), class: "badge badge-primary", style: "opacity: 1;" do %>
+                  <%= tag.name %> 
+                <% end %>
+              <% end %>  <br>
+              <strong>サウナ施設:</strong> <%= content.spot %>
+            </p>
           </div>
         </div>
       </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
+    </div>
+  <% end %>
