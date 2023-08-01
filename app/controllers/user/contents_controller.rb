@@ -28,8 +28,6 @@ class User::ContentsController < ApplicationController
     # ページネーションを適用してデータを取得
     @contents = contents_relation.page(params[:page])
   end
-  
-
 
   def show
     @content = Content.find(params[:id])
@@ -48,7 +46,7 @@ class User::ContentsController < ApplicationController
     if @content.save
       @content.save_tag(tag_list)
       flash[:notice] = "投稿しました"
-      redirect_to contents_path
+      redirect_to contents_path(page: @content.total_pages)
     else
       render :new
     end
