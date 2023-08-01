@@ -10,6 +10,10 @@
         <td><%= @user.name %></td>
       </tr>
       <tr>
+        <th scope="row">新規登録日</th>
+        <td><%= @user.created_at.strftime("%Y年%m月%d日") %></td>
+      </tr>
+      <tr>
         <th scope="row">メールアドレス</th>
         <td><%= @user.email %></td>
       </tr>
