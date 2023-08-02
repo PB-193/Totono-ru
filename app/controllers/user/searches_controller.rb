@@ -30,7 +30,7 @@ class User::SearchesController < ApplicationController
       @contents = query.order(created_at: :asc).page(params[:page])
       render "user/searches/index"
     else
-      flash[:alert] = "検索条件を指定してください。"
+      flash[:alert] = "日付けを指定してください。"
       redirect_back fallback_location: root_path
     end
     

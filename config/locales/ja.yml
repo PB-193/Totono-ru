@@ -48,9 +48,16 @@ ja:
     
     user:
       users:
+      # パソコンサイズ
         content_index: "レビューした投稿一覧"
         favorite_index: "いいねした投稿一覧"
         comment_index: "コメントした投稿一覧"
+      # スマホサイズ
+        mobile_content_index: "レビュー"
+        mobile_favorite_index: "いいね"
+        mobile_comment_index: "コメント"
+     
+      
         no_content_index: "レビューした投稿はありません"
         no_favarite_index: "いいねした投稿はありません"
         no_comment_index: "コメントした投稿はありません"

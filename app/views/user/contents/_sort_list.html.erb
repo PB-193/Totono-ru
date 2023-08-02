@@ -22,6 +22,7 @@
           </div>
           
           <div class="card-body">
+            <!-- スマホサイズ場合はセレクトタグを表示 -->
             <%= form_with(url: contents_path, method: :get, class: "form-inline") do %>
               <%= select_tag "sort", options_for_select({
                 "投稿が古い順" => "oldest",
@@ -35,7 +36,7 @@
               <%= submit_tag "ソート", class: "btn btn-primary d-sm-none" %>
             <% end %>
             
-            <!-- スマホサイズ以外の場合はリンクを表示 -->
+            <!-- パソコンサイズの場合はリンクを表示 -->
             <div class="d-none d-sm-block">
               <%= link_to "投稿が古い順", contents_path(sort: 'oldest'), class: "btn btn-link mb-2" %><br>
               <%= link_to "投稿が新しい順", contents_path(sort: 'newest'), class: "btn btn-link mb-2" %><br>

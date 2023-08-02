@@ -51,7 +51,23 @@
   </div>
 <% end %>
 
-<div class="text-center">
+<!-- スマホサイズ -->
+<div class="text-center d-sm-none">
+  <ul class="flex" style="padding-right: 40px;">
+    <li class="tab tab-content  is-active">
+      <%= t('views.user.users.mobile_content_index') %>
+    </li>
+    <li class="tab tab-favorite">
+      <%= t('views.user.users.mobile_favorite_index') %>
+    </li>
+    <li class="tab tab-comment">
+      <%= t('views.user.users.mobile_comment_index') %>
+    </li>
+  </ul>
+</div>
+
+<!-- パソコンサイズ -->
+<div class="text-center d-none d-sm-block">
   <ul class="flex" style="padding-right: 40px;">
     <li class="tab tab-content  is-active">
       <%= t('views.user.users.content_index') %>
