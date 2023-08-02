@@ -25,13 +25,13 @@ class User::SearchesController < ApplicationController
       query = query.joins(:tags).where(tags: { id: @tag.id })
     end
     
-    # 日付を指定しないで実行した時の処理
-    if @start_date.blank? || @end_date.blank?
-      flash[:alert] = "日付けを指定してください。"
-      redirect_back fallback_location: root_path
-    else
+    # タグが選択していないとき、または開始日と終了日を選択しないときにエラーメッセージを表示する処理
+    if @tag.present? || (@start_date.present? && @end_date.present?)
       @contents = query.order(created_at: :asc).page(params[:page])
       render "user/searches/index"
+    else
+      flash[:alert] = "検索条件を指定してください。"
+      redirect_back fallback_location: root_path
     end
     
   end

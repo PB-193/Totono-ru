@@ -1,5 +1,5 @@
 class User::ContentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user_or_admin!
   before_action :guest_check, only: [:new, :create]
 
   def index
@@ -91,5 +91,8 @@ end
     end
   end
 
+  def authenticate_user_or_admin!
+    authenticate_user! unless admin_signed_in?
+  end
   
 end

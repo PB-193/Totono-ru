@@ -2,13 +2,13 @@
   <div class="col-md-8 offset-md-2">
     
     <% if @tag.nil? %>
-      <h2><%= @start_date.strftime("%Y年%m月%d日") %>から<%= @end_date.strftime("%Y年%m月%d日") %>の投稿一覧を表示しています</h2>    
+      <h2><%= @start_date.strftime("%Y年%m月%d日") %>から<%= @end_date.strftime("%Y年%m月%d日") %>の投稿一覧を表示しています</h2>
     <% elsif @tag.present? && @tag.contents.empty? %>
-      <h2 class="text-danger text-center mt-md-5">現在、指定のタグが付与されたレビューはありません</h2>
+      <h3 class="text-danger text-center mt-md-5">現在、指定のタグが付与されたレビューはありません</h3>
     <% else %>
       <h2>タグが「<%= @tag.name %>」の投稿一覧を表示しています</h2>
     <% end %>
-    
+
     <%= render "user/contents/index", contents: @contents %>
     
   </div>
