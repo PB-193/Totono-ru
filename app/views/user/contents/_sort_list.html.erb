@@ -22,14 +22,32 @@
           </div>
           
           <div class="card-body">
-            <%= link_to "投稿が古い順", contents_path(sort: 'oldest'), class: "btn btn-link mb-2" %><br>
-            <%= link_to "投稿が新しい順", contents_path(sort: 'newest'), class: "btn btn-link mb-2" %><br>
-            <%= link_to "ととのい度が高い順", contents_path(sort: 'rate_desc'), class: "btn btn-link mb-2 " %><br>
-            <%= link_to "ととのい度が低い順", contents_path(sort: 'rate_asc'), class: "btn btn-link mb-2 " %><br>
-            <%= link_to "いいねが多い順", contents_path(sort: 'favorite_desc'), class: "btn btn-link mb-2 " %><br>
-            <%= link_to "コメントが多い順", contents_path(sort: 'comment_desc'), class: "btn btn-link mb-2 " %><br>
-            <%= link_to "順不同", contents_path(sort: 'random_list'), class: "btn btn-link mb-2 " %><br>
+            <%= form_with(url: contents_path, method: :get, class: "form-inline") do %>
+              <%= select_tag "sort", options_for_select({
+                "投稿が古い順" => "oldest",
+                "投稿が新しい順" => "newest",
+                "ととのい度が高い順" => "rate_desc",
+                "ととのい度が低い順" => "rate_asc",
+                "いいねが多い順" => "favorite_desc",
+                "コメントが多い順" => "comment_desc",
+                "順不同" => "random_list"
+              }), class: "form-control d-sm-none mr-2", style: "width: 70%;"  %>
+              <%= submit_tag "ソート", class: "btn btn-primary d-sm-none" %>
+            <% end %>
+            
+            <!-- スマホサイズ以外の場合はリンクを表示 -->
+            <div class="d-none d-sm-block">
+              <%= link_to "投稿が古い順", contents_path(sort: 'oldest'), class: "btn btn-link mb-2" %><br>
+              <%= link_to "投稿が新しい順", contents_path(sort: 'newest'), class: "btn btn-link mb-2" %><br>
+              <%= link_to "ととのい度が高い順", contents_path(sort: 'rate_desc'), class: "btn btn-link mb-2 " %><br>
+              <%= link_to "ととのい度が低い順", contents_path(sort: 'rate_asc'), class: "btn btn-link mb-2 " %><br>
+              <%= link_to "いいねが多い順", contents_path(sort: 'favorite_desc'), class: "btn btn-link mb-2 " %><br>
+              <%= link_to "コメントが多い順", contents_path(sort: 'comment_desc'), class: "btn btn-link mb-2 " %><br>
+              <%= link_to "順不同", contents_path(sort: 'random_list'), class: "btn btn-link mb-2 " %><br>
+            </div>
           </div>
+
+
       
     </div>
 </div>
