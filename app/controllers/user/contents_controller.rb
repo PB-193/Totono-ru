@@ -39,18 +39,20 @@ class User::ContentsController < ApplicationController
     @content = Content.new
   end
   
-  def create
-    @content = Content.new(content_params)
-    @content.user = current_user
-    tag_list=params[:content][:tag_name].split(',')
-    if @content.save
-      @content.save_tag(tag_list)
-      flash[:notice] = "投稿しました"
-      redirect_to contents_path(page: @content.total_pages)
-    else
-      render :new
-    end
+def create
+  @content = Content.new(content_params)
+  @content.user = current_user
+  tag_list = params[:content][:tag_name].split(',')
+
+  if @content.save
+    @content.save_tag(tag_list)
+    flash[:notice] = "投稿しました"
+    redirect_to contents_path(sort: 'newest')
+  else
+    render :new
   end
+end
+
 
   def edit
     @user = current_user
