@@ -1,11 +1,32 @@
 class User::ContentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user_or_admin!
   before_action :guest_check, only: [:new, :create]
 
   def index
-    @contents = Content.page(params[:page]).order(created_at: :asc)
     @tag_list = Tag.all
     @user = User.find_by(id: params[:user_id])
+  
+    # Contentモデルに対してクエリを実行するActiveRecord_Relationを用意
+    contents_relation = if params[:sort] == 'newest'
+                          Content.order(created_at: :desc)
+                        elsif params[:sort] == 'oldest'
+                          Content.order(created_at: :asc)
+                        elsif params[:sort] == 'rate_desc'
+                          Content.order(rate: :desc)
+                        elsif params[:sort] == 'rate_asc'
+                          Content.order(rate: :asc)
+                        elsif params[:sort] == 'favorite_desc'
+                          Content.ordered_by_favorite_count
+                        elsif params[:sort] == 'comment_desc'
+                          Content.ordered_by_comment_count
+                        elsif params[:sort] == 'random_list'
+                          Content.order('RANDOM()')
+                        else
+                          Content.order(created_at: :asc)
+                        end
+  
+    # ページネーションを適用してデータを取得
+    @contents = contents_relation.page(params[:page])
   end
 
   def show
@@ -18,18 +39,20 @@ class User::ContentsController < ApplicationController
     @content = Content.new
   end
   
-  def create
-    @content = Content.new(content_params)
-    @content.user = current_user
-    tag_list=params[:content][:tag_name].split(',')
-    if @content.save
-      @content.save_tag(tag_list)
-      flash[:notice] = "投稿しました"
-      redirect_to contents_path
-    else
-      render :new
-    end
+def create
+  @content = Content.new(content_params)
+  @content.user = current_user
+  tag_list = params[:content][:tag_name].split(',')
+
+  if @content.save
+    @content.save_tag(tag_list)
+    flash[:notice] = "投稿しました"
+    redirect_to contents_path(sort: 'newest')
+  else
+    render :new
   end
+end
+
 
   def edit
     @user = current_user
@@ -68,5 +91,8 @@ class User::ContentsController < ApplicationController
     end
   end
 
+  def authenticate_user_or_admin!
+    authenticate_user! unless admin_signed_in?
+  end
   
 end

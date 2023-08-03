@@ -70,14 +70,20 @@ header, footer {
 }
 
 /* マイページ画面など  */
-.infomation-edit {
-  padding-bottom: 200px;
+
+.MobileSize_mypage {
+  display: none;
 }
 
 .finalcheck-edit {
-  padding-top: 20px;
-  padding-bottom: 300px;
+  padding-top: 120px;
 }
+
+
+/*投稿一覧*/
+  .index-username {
+    text-align: center;
+  }
 
 /*湯気エフェクト*/
 @keyframes steam01 {

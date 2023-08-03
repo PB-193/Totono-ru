@@ -7,6 +7,22 @@ class Content < ApplicationRecord
     
     validates :title,presence:true, length: { minimum: 3, maximum: 35 }
     validates :text ,presence:true
+    
+    # お気に入りの多い順にソートする'スコープ'を定義
+    scope :ordered_by_favorite_count, -> {
+      left_joins(:favorites)
+        .select('contents.*, COUNT(favorites.id) AS favorite_count')
+        .group('contents.id')
+        .order('favorite_count DESC')
+    }
+    
+    # コメントが多い順にソートする'スコープ'を定義
+    scope :ordered_by_comment_count, -> {
+      left_joins(:comments)
+        .select('contents.*, COUNT(comments.id) AS comment_count')
+        .group('contents.id')
+        .order('comment_count DESC')
+    }
 
     # 既にいいね済みであれば、複数回いいねはできない処理 
     def favorited_by?(user)

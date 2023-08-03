@@ -51,17 +51,31 @@
   </div>
 <% end %>
 
+<!--パソコンサイズとスマホサイズで表示文字を変更する-->
 <div class="text-center">
   <ul class="flex" style="padding-right: 40px;">
     <li class="tab tab-content  is-active">
-      <%= t('views.user.users.content_index') %>
+      <div class="PCSize_mypage">
+        <%= t('views.user.users.content_index') %>
+      </div>
+      <div class="MobileSize_mypage">
+        <%= t('views.user.users.mobile_content_index') %>
+      </div>
     </li>
     <li class="tab tab-favorite">
-      <%= t('views.user.users.favorite_index') %>
-    </li>
+      <div class="PCSize_mypage">
+        <%= t('views.user.users.favorite_index') %>
+      </div>
+      <div class="MobileSize_mypage">
+        <%= t('views.user.users.mobile_favorite_index') %>
+      </div>    </li>
     <li class="tab tab-comment">
-      <%= t('views.user.users.comment_index') %>
-    </li>
+      <div class="PCSize_mypage">
+        <%= t('views.user.users.comment_index') %>
+      </div>
+      <div class="MobileSize_mypage">
+        <%= t('views.user.users.mobile_comment_index') %>
+      </div>    </li>
   </ul>
 </div>
 

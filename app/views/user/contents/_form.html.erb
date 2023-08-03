@@ -1,42 +1,35 @@
 <%= form_with model: content, local: true, class: "my-form" do |f| %>
-  <div class="form-group">
-    <%= f.label :title, "レビュータイトル" %>
-    <%= f.text_field :title, class: "form-control form-control-sm" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :text, "投稿内容" %>
-    <%= f.text_area :text, class: "form-control form-control-sm", rows: 5 %>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <%= f.label :visit_day, "訪問した日(フォーム欄のカレンダーマークから入力してください)" %>
-      <%= f.date_field :visit_day ,class: "form-control form-control-sm" %>
+    <div class="form-group">
+      <%= f.label :title, "レビュータイトル" %>
+      <%= f.text_field :title, class: "form-control form-control-sm" %>
     </div>
-    <div class="form-group col-md-6">
-      <%= f.label :Tag, "タグ(複数登録するには , で区切りましょう)" %>
-      <%= f.text_field :tag_name, value: @tag_list, class: "form-control form-control-sm" %>
+    <div class="form-group">
+      <%= f.label :text, "投稿内容" %>
+      <%= f.text_area :text, class: "form-control form-control-sm", rows: 5 %>
     </div>
-  </div>
-  
-  <%= render 'user/contents/spotform', f: f %>
-  
-   <!-- newとeditを区別するためのif文  -->
-  <% if content.id.nil? %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= f.label :visit_day, "訪問した日(フォーム欄のカレンダーマークから入力してください)" %>
+        <%= f.date_field :visit_day ,class: "form-control form-control-sm" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.label :Tag, "タグ(複数登録するには , で区切りましょう)" %>
+        <%= f.text_field :tag_name, value: @tag_list, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+    
+    <%= render 'user/contents/spotform', f: f %>
+    
     <div class="form-group" id="star">
       <%= f.label :rate, "ととのい度(５段階で評価をつけることができます)" %>
       <%= f.hidden_field :rate, id: :review_star, class: 'form-control' %>
       <div id="post_raty"></div>
     </div>
-  <% else %>
-    <div class="form-group">
-      <%= render "static_rate", content: content %>
+    
+    <div class="d-flex justify-content-between mt-3">
+      <%= f.submit type, class: "btn btn-primary" %>
+      <%= link_to "投稿一覧に戻る", contents_path, class: "btn btn-secondary" %>
     </div>
-  <% end %>
-  
-  <div class="d-flex justify-content-between mt-3">
-    <%= f.submit type, class: "btn btn-primary btn-sm" %>
-    <%= link_to "投稿一覧に戻る", contents_path, class: "btn btn-secondary btn-sm" %>
-  </div>
 <% end %>
 
 <script>
@@ -53,6 +46,4 @@
     };
     raty(elem, opt);
   });
-  
-  
 </script>
