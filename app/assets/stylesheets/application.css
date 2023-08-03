@@ -71,6 +71,10 @@ header, footer {
 
 /* マイページ画面など  */
 
+.MobileSize_mypage {
+  display: none;
+}
+
 .finalcheck-edit {
   padding-top: 120px;
 }

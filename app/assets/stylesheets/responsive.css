@@ -103,5 +103,13 @@
     text-overflow: ellipsis; /* 省略記号で表示 */
   }
   
+  /*マイページ*/
+  .PCSize_mypage {
+    display: none;
+  }
+  
+  .MobileSize_mypage {
+    display: inline;
+  }
 }
 
