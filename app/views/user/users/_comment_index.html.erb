@@ -1,7 +1,8 @@
 <div class="row">
   <div class="col-md-10 offset-md-1">
+    
     <% displayed_content_ids = [] %>
-    <% user.comments.each do |content| %>
+    <% comment_contents.each do |content| %>
       <% unless displayed_content_ids.include?(content.content.id) %>
         <div class="card mb-4">
           <div class="card-body">
@@ -50,8 +51,8 @@
         <% displayed_content_ids << content.content.id %>
       <% end %>
     <% end %>
-    
-      <%= paginate @contents %>
 
   </div>
 </div>
+
+  <%= render 'user/contents/paginate', contents: comment_contents %>

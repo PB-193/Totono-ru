@@ -4,16 +4,17 @@ class User::UsersController < ApplicationController
   
   def myshow
     @user = current_user
-    @contents = @user.contents.page(params[:page]).order(created_at: :asc)
-    @favorite_contents = @user.favorites.order(created_at: :asc)  
-    @comment_contents = @user.comments.order(created_at: :asc)  
+    @contents = @user.contents.order(created_at: :asc).page(params[:page])
+    @favorite_contents = @user.favorites.order(created_at: :asc).page(params[:page])
+    @comment_contents = @user.comments.order(created_at: :asc).page(params[:page])
   end
+
 
   def show
     @user = User.find(params[:id])
     @contents = @user.contents.page(params[:page]).order(created_at: :asc)
-    @favorite_contents = @user.favorites.order(created_at: :asc)  
-    @comment_contents = @user.comments.order(created_at: :asc)  
+    @favorite_contents = @user.favorites.order(created_at: :asc).page(params[:page])
+    @comment_contents = @user.comments.order(created_at: :asc).page(params[:page])
   end
 
   def edit

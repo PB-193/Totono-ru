@@ -62,7 +62,7 @@
         <%= t('views.user.users.mobile_content_index') %>
       </div>
     </li>
-    <li class="tab tab-favorite">
+    <li class="tab tab-favorite <%= 'is-active' if @active_tab == 'favorite_index' %>">
       <div class="PCSize_mypage">
         <%= t('views.user.users.favorite_index') %>
       </div>
@@ -90,7 +90,7 @@
 </div>
 <div class="panel tab-favorite_index">
   <% if favorite_contents.present? %>
-    <%= render 'favorite_index' , contents: contents, user: user ,remote: true %>
+    <%= render 'favorite_index' , contents: contents, user: user ,favorite_contents: favorite_contents,remote: true %>
   <% else %>
     <div class="not-index">
       <%= t('views.user.users.no_favarite_index') %>
@@ -99,7 +99,7 @@
 </div>
 <div class="panel tab-comment_index">
   <% if comment_contents.present? %>
-    <%= render'comment_index', contents: contents, user: user , remote: true %>
+    <%= render'comment_index', contents: contents, user: user ,comment_contents: comment_contents, remote: true %>
   <% else %>
     <div class="not-index">
       <%= t('views.user.users.no_comment_index') %>
