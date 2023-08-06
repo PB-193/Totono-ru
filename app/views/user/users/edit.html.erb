@@ -1,3 +1,6 @@
+<%= render 'user/shared/error_messages', resource: @user %>
+
+
 <%= form_with model: @user, url: update_information_path, method: :patch, class: "my-form", multipart: true do |f| %>
   <div class="infomation-edit">
     <table class="table table-bordered" >
@@ -5,7 +8,6 @@
         <td>ユーザ名</td>
         <td>
           <div class="form-group">
-            <%= f.label :name %>
             <%= f.text_field :name, class: "form-control", placeholder: @user.name %>
           </div>
         </td>

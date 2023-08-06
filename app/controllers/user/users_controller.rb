@@ -26,7 +26,7 @@ class User::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to myshow_path, notice: 'ユーザ情報の更新が完了しました。'
     else
-      flash[:alert] = "更新が失敗しました"
+      flash[:alert] = "更新が失敗しました。ユーザ名とメールアドレスの入力は必須です。"
       redirect_to edit_information_path
     end
   end
