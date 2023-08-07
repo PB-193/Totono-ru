@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :ensure_user, only: [:show, :update]
+  before_action :ensure_user, only: [:show, :update, :destroy]
 
   def index
     @users = User.all
@@ -18,6 +18,11 @@ class Admin::UsersController < ApplicationController
     end
   end
   
+    def destroy
+      @user.destroy
+      redirect_to admin_users_path, notice: '管理者権限でユーザ情報を抹消しました'
+    end
+  
   private
 
   def user_params
@@ -27,4 +32,5 @@ class Admin::UsersController < ApplicationController
   def ensure_user
     @user = User.find(params[:id])
   end
+  
 end
