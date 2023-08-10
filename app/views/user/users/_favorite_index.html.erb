@@ -6,7 +6,10 @@
         <div class="card-body">
           <% if user_signed_in? %>
             <h5 class="card-title mb-4">
-              <span class="text-muted"><%= content.content.created_at.strftime("%Y年%m月%d日") %></span><br>
+              <div class="d-flex justify-content-between">
+                <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span>
+                ❤️ <%= content.content.favorites.count %> ️💬 <%= content.content.comments.count %>  <br>  
+              </div>              
               <%= link_to content.content.title, content_path(content.content) %>
             </h5>
           <% end %>
