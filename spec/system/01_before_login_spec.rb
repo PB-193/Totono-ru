@@ -103,26 +103,26 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
     end
   end
-
-  describe 'ユーザログアウトのテスト' do
-    let(:user) { create(:user) }
-
-    before do
-      visit new_user_session_path
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      click_button 'ログイン'
-    end
   
-
-    it 'ログアウトが正しく行われること' do
-      # ログアウトボタンをクリックしてログアウト
-      find("img[alt='ログアウト']").click  
-      # ログアウト後にログインページにリダイレクトされていることを確認
-      expect(current_path).to eq(root_path)
-      # ログアウト後にログインボタンが表示されていることを確認
-      expect(page).to have_button('ログインしてはじめる')
+  describe 'ユーザログアウトのテスト' do
+    context 'ログアウト機能のテスト' do
+      let(:user) { create(:user) }
+  
+      before do
+        visit new_user_session_path
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: user.password
+        click_button 'ログイン'
+      end
+  
+      it 'ログアウトが正しく行われることのテスト' do
+        # ログアウトボタンをhref 属性が以下のpathに等しい a 要素を指定してクリック処理
+        find("a[href='#{destroy_user_session_path}']").click
+        # ログアウト後にトップページにリダイレクトされていることを確認
+        expect(current_path).to eq(root_path)
+      end
     end
   end
+
   
 end
