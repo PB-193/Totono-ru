@@ -1,14 +1,18 @@
 <div class="row">
   <div class="col-md-10 offset-md-1">
+    
     <% displayed_content_ids = [] %>
-    <% user.comments.each do |content| %>
+    <% comment_contents.each do |content| %>
       <% unless displayed_content_ids.include?(content.content.id) %>
         <div class="card mb-4">
           <div class="card-body">
             <% if user_signed_in? %>
               <h5 class="card-title mb-4">
-                <span class="text-muted"><%= content.content.created_at.strftime("%Y年%m月%d日") %></span><br>
-                <%= link_to content.content.title, content_path(content.content) %>
+              <div class="d-flex justify-content-between">
+                <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span>
+                ❤️ <%= content.content.favorites.count %> ️💬 <%= content.content.comments.count %>  <br>  
+              </div>                
+              <%= link_to content.content.title, content_path(content.content) %>
               </h5>
             <% end %>
             <div class="row">
@@ -50,8 +54,8 @@
         <% displayed_content_ids << content.content.id %>
       <% end %>
     <% end %>
-    
-      <%= paginate @contents %>
 
   </div>
 </div>
+
+  <%= render 'user/contents/paginate', contents: comment_contents %>

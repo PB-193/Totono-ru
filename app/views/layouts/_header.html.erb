@@ -5,7 +5,7 @@
     <% end %>
     <% unless current_page?(root_path) %>
       <% if user_signed_in? %>
-        <div class="navbar-text">
+        <div class="navbar-text text-light">
           ようこそ、<%= current_user.name %>さん
         </div>
         <div class="nav-item">
@@ -16,7 +16,7 @@
       <% end %>
     <% end %>
     <% if admin_signed_in? %>
-      <div class="navbar-text">
+      <div class="navbar-text text-light">
         お疲れ様です！
       </div>
       <div class="nav-item">

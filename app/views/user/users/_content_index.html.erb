@@ -1,11 +1,15 @@
 <div class="row">
   <div class="col-md-10 offset-md-1">
+    
     <% contents.each do |content| %>
       <div class="card mb-4">
         <div class="card-body">
           <% if user_signed_in? %>
             <h5 class="card-title mb-4">
-              <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span><br>
+              <div class="d-flex justify-content-between">
+                <span class="text-muted"><%= content.created_at.strftime("%Y年%m月%d日") %></span>
+                ❤️ <%= content.favorites.count %> ️💬 <%= content.comments.count %>  <br>  
+              </div>
               <%= link_to content.title, content_path(content) %>
             </h5>
           <% end %>
@@ -52,8 +56,9 @@
         </div>
       </div>
     <% end %>
-    
-      <%= paginate @contents %>
 
   </div>
 </div>
+
+  <%= render 'user/contents/paginate', contents: contents %>
+

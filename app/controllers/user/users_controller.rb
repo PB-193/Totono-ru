@@ -4,16 +4,17 @@ class User::UsersController < ApplicationController
   
   def myshow
     @user = current_user
-    @contents = @user.contents.page(params[:page]).order(created_at: :asc)
-    @favorite_contents = @user.favorites.order(created_at: :asc)  
-    @comment_contents = @user.comments.order(created_at: :asc)  
+    @contents = @user.contents.order(created_at: :asc).page(params[:page])
+    @favorite_contents = @user.favorites.order(created_at: :asc).page(params[:page])
+    @comment_contents = @user.comments.order(created_at: :asc).page(params[:page])
   end
+
 
   def show
     @user = User.find(params[:id])
     @contents = @user.contents.page(params[:page]).order(created_at: :asc)
-    @favorite_contents = @user.favorites.order(created_at: :asc)  
-    @comment_contents = @user.comments.order(created_at: :asc)  
+    @favorite_contents = @user.favorites.order(created_at: :asc).page(params[:page])
+    @comment_contents = @user.comments.order(created_at: :asc).page(params[:page])
   end
 
   def edit
@@ -25,7 +26,7 @@ class User::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to myshow_path, notice: 'ユーザ情報の更新が完了しました。'
     else
-      flash[:alert] = "更新が失敗しました"
+      flash[:alert] = "更新が失敗しました。ユーザ名とメールアドレスの入力は必須です。"
       redirect_to edit_information_path
     end
   end
