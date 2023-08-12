@@ -67,6 +67,11 @@ describe '[STEP2] ユーザログイン後のテスト' do
               expect(page).to have_content "❤️ #{content.favorites.count} ️💬 #{content.comments.count}"
               expect(page).to have_content "❤️ #{other_content.favorites.count} ️💬 #{other_content.comments.count}"
             end
+            
+            it '自分と他人のユーザ画像のリンク先が正しい' do
+              expect(page).to have_link(nil, href: myshow_path)
+              expect(page).to have_link(nil, href: user_path(other_content.user))
+            end
         end
     end
 
@@ -77,7 +82,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
         fill_in 'content[text]', with: Faker::Lorem.characters(number: 20)
         fill_in 'content[visit_day]', with: Faker::Date.between(from: 1.month.ago, to: Date.today)
         # fill_in 'content[tag]', with: Faker::Lorem.word
-        # fill_in 'content[rate]', with: rand(1.0..5.0)      
+        # fill_in 'content[rate]', with: rand(1.0..5.0)
       end
 
       it '自分の新しい投稿が正しく保存される' do
@@ -90,34 +95,74 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
     
 
-#   describe '自分の投稿詳細画面のテスト' do
-#     before do
-#       visit book_path(book)
-#     end
+  describe '投稿詳細画面のテスト' do
+    before do
+      visit content_path(content)
+    end
 
-#     context '表示内容の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/books/' + book.id.to_s
-#       end
-#       it '「Book detail」と表示される' do
-#         expect(page).to have_content 'Book detail'
-#       end
-#       it 'ユーザ画像・名前のリンク先が正しい' do
-#         expect(page).to have_link book.user.name, href: user_path(book.user)
-#       end
-#       it '投稿のtitleが表示される' do
-#         expect(page).to have_content book.title
-#       end
-#       it '投稿のopinionが表示される' do
-#         expect(page).to have_content book.body
-#       end
-#       it '投稿の編集リンクが表示される' do
-#         expect(page).to have_link 'Edit', href: edit_book_path(book)
-#       end
-#       it '投稿の削除リンクが表示される' do
-#         expect(page).to have_link 'Destroy', href: book_path(book)
-#       end
-#     end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/contents/' + content.id.to_s
+      end
+      it 'ユーザ名が表示される' do
+        expect(page).to have_content content.user.name
+      end
+      it '投稿の投稿日と訪問日が表示される' do
+        expect(page).to have_content content.created_at.strftime("%Y年%m月%d日")
+        expect(page).to have_content content.visit_day.strftime("%Y年%m月%d日")
+      end
+      it '投稿のtitleが表示される' do
+        expect(page).to have_content content.title
+      end
+      # it '投稿のタグ一覧が表示される' do
+      #   expect(page).to have_content tag.name
+      # end
+      it '投稿のサウナ施設が表示される、またリンク先が表示される' do
+        expect(page).to have_content content.spot
+        expect(page).to have_link content.spot, href: "https://www.google.com/maps/search/?api=1&query=#{CGI.escape(content.spot)}"
+      end
+      # it '投稿のととのい度が表示される' do
+      #   expect(page).to have_content content.rate
+      # end
+      it '投稿の本文が表示される' do
+        expect(page).to have_content content.text
+      end
+      it '投稿の削除リンクが表示される（自分の投稿のみ）' do
+        expect(page).to have_link '削除する', href: content_path(content)
+      end
+      
+      
+      # it '投稿のいいねができるか' do
+      #   find("a[href='#{content_favorites_path(content.id)}']") # いいねボタンをクリック
+      #   visit current_path # ページを再読み込みして変更を反映
+      #   sleep 1 # 一時的な遅延（必要に応じて調整）
+      #   expect(page).to have_content "❤️ #{content.favorites.count}"   
+      # end
+      it '投稿のコメント一覧が表示される' do
+        content.comments.each do |comment|
+          expect(page).to have_content comment.text
+        end
+      end
+      it 'コメントフォームが表示される' do
+        expect(page).to have_selector 'textarea[name="comment[comment]"]'
+        expect(page).to have_button 'コメント'
+      end
+      it 'コメントができるか' do
+        comment_text = Faker::Lorem.sentence
+        fill_in 'comment[comment]', with: comment_text
+        click_button 'コメント'
+        expect(page).to have_content comment_text
+      end
+      it '自分がコメントしたコメントを削除ができるか' do
+        comment = create(:comment, user: user, content: content)
+        visit content_path(content)
+          within "#comment_#{comment.id}" do
+            click_link '削除'
+          end
+        expect(page).not_to have_content comment.text # 削除されたコメントは表示されないことを確認する処理
+      end
+    end
+  
 
 #     context '投稿成功のテスト' do
 #       before do
@@ -149,7 +194,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
 #         expect(current_path).to eq '/books'
 #       end
 #     end
-#   end
+    end
 
 #   describe '自分の投稿編集画面のテスト' do
 #     before do
