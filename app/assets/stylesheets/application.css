@@ -88,8 +88,8 @@ header, footer {
 /*投稿詳細*/
 /* 通常の画像サイズ */
 .review_image {
-  width: 500px;
-  height: 500px;
+  width: 100px;
+  height: 100px;
 }
 
 /*湯気エフェクト*/
