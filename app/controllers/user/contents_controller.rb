@@ -39,20 +39,19 @@ class User::ContentsController < ApplicationController
     @content = Content.new
   end
   
-def create
-  @content = Content.new(content_params)
-  @content.user = current_user
-  tag_list = params[:content][:tag_name].split(',')
-
-  if @content.save
-    @content.save_tag(tag_list)
-    flash[:notice] = "投稿しました"
-    redirect_to contents_path(sort: 'newest')
-  else
-    render :new
+  def create
+    @content = Content.new(content_params)
+    @content.user = current_user
+    tag_list = params[:content][:tag_name].split(',')
+  
+    if @content.save
+      @content.save_tag(tag_list)
+      flash[:notice] = "投稿しました"
+      redirect_to contents_path(sort: 'newest')
+    else
+      render :new
+    end
   end
-end
-
 
   def edit
     @user = current_user
@@ -82,7 +81,7 @@ end
   private
   
   def content_params
-    params.require(:content).permit(:visit_day,:title, :spot, :text, :rate)
+    params.require(:content).permit(:visit_day,:title, :spot, :text, :rate, :review_image)
   end
   
   def guest_check

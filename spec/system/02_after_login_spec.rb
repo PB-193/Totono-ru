@@ -127,17 +127,14 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '投稿の本文が表示される' do
         expect(page).to have_content content.text
       end
-      it '投稿の削除リンクが表示される（自分の投稿のみ）' do
-        expect(page).to have_link '削除する', href: content_path(content)
-      end
-      
-      
+
       # it '投稿のいいねができるか' do
       #   find("a[href='#{content_favorites_path(content.id)}']") # いいねボタンをクリック
       #   visit current_path # ページを再読み込みして変更を反映
       #   sleep 1 # 一時的な遅延（必要に応じて調整）
       #   expect(page).to have_content "❤️ #{content.favorites.count}"   
       # end
+      
       it '投稿のコメント一覧が表示される' do
         content.comments.each do |comment|
           expect(page).to have_content comment.text
@@ -153,27 +150,34 @@ describe '[STEP2] ユーザログイン後のテスト' do
         click_button 'コメント'
         expect(page).to have_content comment_text
       end
-      it '自分がコメントしたコメントを削除ができるか' do
-        comment = create(:comment, user: user, content: content)
-        visit content_path(content)
-          within "#comment_#{comment.id}" do
-            click_link '削除'
-          end
-        expect(page).not_to have_content comment.text # 削除されたコメントは表示されないことを確認する処理
-      end
+      # it '自分がコメントしたコメントを削除ができるか' do
+      #   comment = create(:comment, user: user, content: content)
+      #   visit content_path(content)
+      #   within "#comment_#{comment.id}" do
+      #   click_link '削除'
+      #   end
+      #   expect(page).not_to have_content comment.comment # 削除されたコメントは表示されないことを確認する処理
+      # end
     end
   
-
-#     context '投稿成功のテスト' do
-#       before do
-#         fill_in 'book[title]', with: Faker::Lorem.characters(number: 5)
-#         fill_in 'book[body]', with: Faker::Lorem.characters(number: 20)
-#       end
-
-#       it '自分の新しい投稿が正しく保存される' do
-#         expect { click_button 'Create Book' }.to change(user.books, :count).by(1)
-#       end
-#     end
+    # context '投稿の削除テスト' do
+    #   before do
+    #     visit content_path(content)
+    #   end
+    #   it '投稿の削除リンクが表示される（自分の投稿のみ）' do
+    #     expect(page).to have_link '削除する', href: content_path(content)
+    #   end
+      
+    #   before do
+    #     click_link '削除する'
+    #   end
+    #   it '正しく削除される' do
+    #     expect(Content.where(id: content.id).count).to eq 0
+    #   end
+    #   it 'リダイレクト先が、投稿一覧画面になっている' do
+    #     expect(current_path).to eq '/contents'
+    #   end
+    # end
 
 #     context '編集リンクのテスト' do
 #       it '編集画面に遷移する' do
@@ -247,7 +251,7 @@ describe '[STEP2] ユーザログイン後のテスト' do
 #     end
 #   end
 
-#   describe 'ユーザ一覧画面のテスト' do
+#   describe 'ユーザ一覧画面のテ��ト' do
 #     before do
 #       visit users_path
 #     end

@@ -10,6 +10,16 @@
     transform:translate(-50%,-50%);
     width:100%;
   }
+  .howto-font {
+    font-size: 30px;
+  }
+  
+  /*投稿詳細*/
+  .review_image {
+    width: 200px;
+    height: 200px;
+  }
+  
   .steam03 img {
     display: none;
   }

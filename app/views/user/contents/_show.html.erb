@@ -60,6 +60,14 @@
           </tr>
         </tbody>
       </table>
+        <div class="review_image_form">
+          <p>~フォト~</p>
+            <% if content.review_image.attached? %>
+              <%= image_tag content.review_image, class: "review_image" %>
+            <% else %>
+              <p>フォトはありません</p>
+            <% end %>
+          </div>
     </div>
   </div>
 </div>
