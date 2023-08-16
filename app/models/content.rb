@@ -55,6 +55,22 @@ class Content < ApplicationRecord
           self.tags << content_tag
        end
     end
-
+    
+    # 新しいレビューがデータベースに保存された後に以下のメソッドが実行する。（コールバック）
+    after_create :send_message_to_favorited_users
+    
+    private
+    
+    # いいねしたユーザのIDリストを取得するメソッド
+    def send_message_to_favorited_users
+      favorited_users = Favorite.where(content_id: self.user.contents.pluck(:id)).pluck(:user_id)
+      favorited_users.each do |user_id|
+        user = User.find(user_id)
+        # 投稿した本人にメールを送信しない
+        unless user_id == self.user.id
+          FavoritedUserMailer.new_content_message_email(user, self).deliver_now
+        end
+      end
+    end
 
 end
