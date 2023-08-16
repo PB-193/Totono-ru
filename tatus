@@ -1,0 +1,829 @@
+[33mcommit 4c6cf0533517a59b4ae9f4e084b85c38f3fed0fc[m[33m ([m[1;36mHEAD -> [m[1;32mnewdevelop[m[33m, [m[1;31morigin/newdevelop[m[33m)[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Aug 16 14:59:30 2023 +0000
+
+    過去にいいねしたユーザに新規レビューをメール通知する機能を追加
+
+[33mcommit 691628d4eb17f12f681ae99fe1ae1694c95fdd23[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Aug 14 09:04:42 2023 +0000
+
+    投稿写真機能の追加②
+
+[33mcommit 2af158f022db72251ca203fb7d9e884fdc46ed8f[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Aug 14 04:04:26 2023 +0000
+
+    投稿写真機能の追加①
+
+[33mcommit aabda0346d34fe372cd011ddb21fd65425a025b9[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Aug 14 01:49:53 2023 +0000
+
+    テストコードの作成④
+
+[33mcommit 4dcb227e64b7f0cd57856a24be044435007ec307[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Aug 12 16:09:24 2023 +0000
+
+    ホームサウナの文字をgooglemapのリンク先とする
+
+[33mcommit f048bc977d055d33d277eb8d57dc799d5cb86d1c[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Aug 12 15:58:29 2023 +0000
+
+    テストコードの作成③
+
+[33mcommit f0c85dfe2171a6a24b0912c868f08cc890410d56[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Aug 11 16:30:27 2023 +0000
+
+    軽微な修正とデプロイ修正
+
+[33mcommit 10e383756481a1eb393229a8e8136d0664716e31[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Aug 11 16:25:41 2023 +0000
+
+    テストコードの作成②
+
+[33mcommit dab1b3b41969b508db8f262c17e299561975bd58[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Aug 10 05:03:37 2023 +0000
+
+    テストコードの作成①
+
+[33mcommit a72032f4412b9a80ee1a909c5eb855e3d3fa19d2[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Aug 10 04:03:33 2023 +0000
+
+    マイページ一覧にいいねとコメントの数を表示
+
+[33mcommit 7121394befe9946d29612f99daf3693022d68481[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Aug 9 13:26:24 2023 +0000
+
+    軽微な修正
+
+[33mcommit 627b071ccdf40a04b3c0ba24b7accc4499be3c80[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Aug 7 13:02:42 2023 +0000
+
+    管理者権限でアカウント抹消の機能追加
+
+[33mcommit 28f00e4fd61b83888a160417da5d58725f020bcd[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Aug 6 13:23:09 2023 +0000
+
+    ユーザ内容の編集時のエラーメッセージを修正
+
+[33mcommit 653d90d15f230e810bf78f26b2e4f4419903999a[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Aug 6 12:38:56 2023 +0000
+
+    マイページのページネーションを修正
+
+[33mcommit 9e8a3f6df7892ce1307d7fb8a16fc958aee2e56e[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Aug 4 14:48:48 2023 +0000
+
+    検索のエラーメッセージを修正
+
+[33mcommit 1ff8a0b8050bffb9cc9a13de0f8d9b2d148c6b38[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Aug 3 02:14:44 2023 +0000
+
+    マイページのレスポンシブを再調整
+
+[33mcommit b416af3ae1a71d043e90be0721273b2e12e72f78[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Aug 2 14:38:54 2023 +0000
+
+    マイページのレスポンシブを調整
+
+[33mcommit 943e0d7c85e802998af7cac19837bd163ff25251[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Aug 2 13:48:04 2023 +0000
+
+    検索でタグを選択した時のエラー修正
+
+[33mcommit 97f6ecf12b3433e0b19834564c613f723a9c36aa[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Aug 2 10:18:10 2023 +0000
+
+    新規投稿後にソートを「新しい順」で一覧画面にリダイレクトする
+
+[33mcommit f82d7a88654fea6c5e8bfa7c151f5a2f572186f6[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Aug 2 09:52:16 2023 +0000
+
+    ソート機能をレスポンシブ対応
+
+[33mcommit 1e2aca068965b0d789d8df620470fb5a33575194[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Aug 1 08:58:47 2023 +0000
+
+    日付検索で日付けを指定せずに実行した時の処理を修正
+
+[33mcommit f9089e308a3717acddea9d8aba28c94cddee30c1[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Aug 1 08:14:25 2023 +0000
+
+    日付検索時に、指定日を結果で表示する
+
+[33mcommit 7feed5532a7fc69e457b6f53c4bdf4c96bb05c62[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Aug 1 07:34:56 2023 +0000
+
+    管理者画面で各ユーザの新規登録日を追加
+
+[33mcommit 6b504ecb70906008317a562732993bd91cf7e28b[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Aug 1 06:50:16 2023 +0000
+
+    いいねとコメントができないエラーを修正
+
+[33mcommit 3398caa6aa97ed1687da06946ee89293a0561dfb[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jul 31 07:00:56 2023 +0000
+
+    投稿一覧をランダムで表示する
+
+[33mcommit 730834911c2e86bf6cd3bd592d77d85d2571aecc[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jul 31 06:38:36 2023 +0000
+
+    コメントが多い順のソートを追加
+
+[33mcommit 4ae2fc330c3fb28e85f4c1063fdcec2135cc68b0[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 30 16:43:52 2023 +0000
+
+    いいねが多い順のソート機能を追加
+
+[33mcommit ef7597394d289e0d8b709033fd5fcfe40fabf0b7[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jul 29 13:44:47 2023 +0000
+
+    ソート機能を追加
+
+[33mcommit f18856add1924cec2044ee7ba7a08118c9fc8015[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 28 14:17:29 2023 +0000
+
+    詳細画面でサウナ施設をリンク先として表示
+
+[33mcommit 966674de7d17c0da593433dfb0fd7747fdcd9bad[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jul 27 13:48:56 2023 +0000
+
+    投稿一覧にいいね数とコメント数を表示
+
+[33mcommit a229a27f762121f8f4e9d88281477397a532ab56[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jul 24 13:56:40 2023 +0000
+
+    error_fix
+
+[33mcommit 47cc8b11ff8a9204826d4d7c4ae10296799b0504[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jul 22 14:24:47 2023 +0000
+
+    管理者ページのレイアウト修正
+
+[33mcommit fe3bb277c177db67261ef5a52bbd3e47a957405b[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 21 08:56:47 2023 +0000
+
+    管理者側からでもユーザごとのマイページを確認できるようにする
+
+[33mcommit 5970de5de3be495fb9e11d58b77a6e476115cadf[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 21 08:27:17 2023 +0000
+
+    adminのuser_updateのエラー修正
+
+[33mcommit 593705738cdee11ad9721f1987b8a19d77e175c0[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 21 07:45:10 2023 +0000
+
+    未ログインで管理者側の投稿一覧にログインできてしまうエラーを修正
+
+[33mcommit 1f4d09c303f35b7c33ff08a4a36fd0534174899c[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 21 07:27:23 2023 +0000
+
+    検索欄で選択したタグを付与したレビューがない場合のif文を追加
+
+[33mcommit 9643e09eec23660e6c74b7b1cf7eaa331acf29cf[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jul 20 08:29:53 2023 +0000
+
+    textにバリデーションを追加とエラーメッセージの修正
+
+[33mcommit 59dba6aa93f1a2389c33e0505320772707cacb40[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 18 10:13:42 2023 +0000
+
+    READMEにgif画像を追加しました　6
+
+[33mcommit 6c03b85198f2dff58ed259da28410f101a4a6f90[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 18 10:06:58 2023 +0000
+
+    READMEにgif画像を追加しました　⑤
+
+[33mcommit 9589e3ee55f0f809ec806d5c263345b6da95a952[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 18 09:26:27 2023 +0000
+
+    READMEにgif画像を追加しました　④
+
+[33mcommit 82bc5dad58754d5340299abb2e47479ed1da6e4d[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 18 09:22:27 2023 +0000
+
+    READMEにgif画像を追加しました③
+
+[33mcommit bb7262106809c7516bfdfa0cea0cb6cbf7e54cf2[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 18 08:56:59 2023 +0000
+
+    READMEにgif画像を追加しました②
+
+[33mcommit 3f9094f15e210dc18c81671190ff2933156ace8a[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 18 08:47:08 2023 +0000
+
+    READMEにgif画像を追加しました
+
+[33mcommit d89d81c8f1af426362b603d1c5c7128ebd9362c3[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jul 17 09:04:47 2023 +0000
+
+    レスポンシブを調整しました
+
+[33mcommit 75a80a462db4dbf82e89e0462aeeb9ad8af2e8e0[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 16 13:04:04 2023 +0000
+
+    軽微な修正を行いました
+
+[33mcommit 8312e6eb3333a29c4396ee8bf4c84356c6ace5e4[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 16 08:54:55 2023 +0000
+
+    ゲスト機能の制限「コメント機能」
+
+[33mcommit 41bce67ae82e67ad4e9425a62da2b1fa5532c5b7[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 16 08:37:15 2023 +0000
+
+    検索画面の一部を修正
+
+[33mcommit 73618d8e34f500520664fd3f365a055cb4aa04b4[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 16 08:36:43 2023 +0000
+
+    レビューマークを温泉マークに変更
+
+[33mcommit f8b85c0ce0022df4a6de729b5cb6a5e58e03d4bb[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jul 15 09:14:48 2023 +0000
+
+    ゲストログイン中のいいねを制限しました
+
+[33mcommit b36ef3cbdacab0fa93eaa8f4b98f3d2b58dfbeff[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jul 15 08:59:36 2023 +0000
+
+    利用規約とプライバシーポリシーの作成
+
+[33mcommit 1b23783e04fc1be6748d5e9188562016fb97c541[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 14 09:56:43 2023 +0000
+
+    お問い合わせフォームを作成
+
+[33mcommit a71597e30a2ef02c80d0a00a00370c14ee35126c[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jul 13 09:49:26 2023 +0000
+
+    アカウント停止中かどうかを視認する処理を追加
+
+[33mcommit f683fb43ffabc5d0bc2c7b203fb5fbeadc9f8bd2[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jul 12 13:53:07 2023 +0000
+
+    チェックが漏れていたエラーを修正しました
+
+[33mcommit 470449c6cf3637eb2376065d3c93eca6211c3942[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 11 15:40:22 2023 +0000
+
+    エラーを修正しました
+
+[33mcommit 64fb9c00185db21ff7d1512b732aa643a23c27a8[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 11 14:04:43 2023 +0000
+
+    マイページのindexタブのアップデート
+
+[33mcommit 18dcf42b5a10654c9c4b954914036aa3859f46c4[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 11 08:01:43 2023 +0000
+
+    トップ画面のイラストを変更しました
+
+[33mcommit 6d723cc30c20248ab0b30e990c9d605dc256f04a[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 11 07:32:58 2023 +0000
+
+    いいね機能を非同期通信化
+
+[33mcommit 01fc80e7e0439c9ac6d83e1f97ab601b0c497ba8[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 11 06:45:26 2023 +0000
+
+    マイページのレビュー一覧をJSで切り替えできるようにする
+
+[33mcommit 713b159693e5bc832cdcabbf6d874ca35ed45ffb[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 9 07:17:37 2023 +0000
+
+    プロフィール画像のプレビュー機能を追加
+
+[33mcommit 1832314a06b5e3a02a00da9e39771c751d009db6[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 9 06:27:05 2023 +0000
+
+    コメント日時表示をアップデート
+
+[33mcommit e0baf2b7067d78d0f63f27bc64393e696c77d2f2[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 9 06:26:27 2023 +0000
+
+    やり直し
+
+[33mcommit d9daa6709f747e459b02308357270933da93d144[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 9 06:24:47 2023 +0000
+
+    いいね機能の実装
+
+[33mcommit d6effbb9aed6c52d49b409276d8f4184f579a73f[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 9 06:22:22 2023 +0000
+
+    いいね機能の実装
+
+[33mcommit e4d15b9d678ad53596a5f8c7a16f8643ccb8101c[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 7 08:32:20 2023 +0000
+
+    ホームサウナの表示を変更,ゲストログインでの権限を修正
+
+[33mcommit f6a78c09f9265e8e81cbd2ed5dc61f44f2b6ef6a[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jul 7 08:15:22 2023 +0000
+
+    コメントの重複を解消
+
+[33mcommit a8d404de4b2abd215107e5926771712489530daf[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jul 6 14:44:28 2023 +0000
+
+    feefix
+
+[33mcommit 5be080cf89fcb0c27a5d9b67c41293c2199c4ae0[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jul 5 14:07:38 2023 +0000
+
+    ホームサウナ登録機能の追加
+
+[33mcommit b8af26516213e36cfdad49d42060a25b32614365[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jul 4 12:15:43 2023 +0000
+
+    ユーザ各々のマイページを作成
+
+[33mcommit a4e10ef1222a66aa4f0dbd1b4017b548b55111d5[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jul 2 03:20:46 2023 +0000
+
+    fix
+
+[33mcommit 477ecf2f29168dadaffb5057081f2777a8127ebd[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jul 1 08:53:51 2023 +0000
+
+    タグのエラー修正
+
+[33mcommit 83ad319ca27f3b3ad7280603aaa5bc50edec6f90[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jun 28 04:28:17 2023 +0000
+
+    検索フォームのエラー修正
+
+[33mcommit a7bb9fc6b507a2bc4398d3513e05c89d1f48f455[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jun 28 03:08:55 2023 +0000
+
+    コメントのエラー解消その他諸々
+
+[33mcommit 08e25b7e71f15a14b7a671ff1ef559c9486a4108[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 27 07:38:59 2023 +0000
+
+    本文の改行を修正
+
+[33mcommit 4f1f443db9afb16dc21195e444be887c7b737c71[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 27 06:16:36 2023 +0000
+
+    タグのエラーを解消しました
+
+[33mcommit c178ef1152ab6c715a5ac88dc8c2f1b2c417ac7e[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 27 05:10:02 2023 +0000
+
+    seedの修正
+
+[33mcommit 7f37549e00ed1ab4e3689b9d68091ddef9d4a8e1[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 27 04:58:52 2023 +0000
+
+    一覧を昇順にする、管理者で投稿日を変える
+
+[33mcommit 7caaff4c90c12e3a6704a38c3d19045452b483c5[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 27 02:53:14 2023 +0000
+
+    インデントを修正
+
+[33mcommit 1747a5bb9dcdcae7548f09c7c10dc5a1c59810ad[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 27 02:36:57 2023 +0000
+
+    レスポンシブの調整
+
+[33mcommit 09dee01494d14c01ff498283d3a78b0a35bd2c81[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 26 10:52:04 2023 +0000
+
+    軽微なレイアウト修正をしました
+
+[33mcommit dc692069eedc12d07a34590dd890ef1b2a58b5fb[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 26 07:28:12 2023 +0000
+
+    レイアウトや軽微なエラーを修正しました
+
+[33mcommit a9a5a0daa98c83fab03123b4ef904cfe86cfcafe[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jun 25 16:12:58 2023 +0000
+
+    TOP画面を修正
+
+[33mcommit 6c6e99891ec4a75428d94d92db290d4acaa442f5[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 24 15:32:15 2023 +0000
+
+    show画面のエラー確認
+
+[33mcommit 2cc76022df3b565e1a080b89186fed410bd8d557[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 23 16:06:17 2023 +0000
+
+    レスポンシブ対応
+
+[33mcommit 881289a7804383cad8401c269512d418edef3946[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 23 13:24:59 2023 +0000
+
+    レイアウトのエラー解消
+
+[33mcommit abaac88305cd4e9ac32db25b4cf1fcfd7d316c0d[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 23 13:13:54 2023 +0000
+
+    新しいブランチでスタート２
+
+[33mcommit 4046338df180153741763c30f73bc0f47cdad2b8[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 23 13:10:02 2023 +0000
+
+    新しいブランチでスタート1
+
+[33mcommit b26ef7745c8e64fa26cf2b13094afbb1e7fa10a8[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 23 13:07:31 2023 +0000
+
+    新しいブランチでスタート
+
+[33mcommit cb079f913c8036317dd43fa1860ff8cf97aff607[m[33m ([m[1;32mcb079f9[m[33m)[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 23 12:31:11 2023 +0000
+
+    過去のコミットに戻す
+
+[33mcommit 32ca2218c5ae1aa9cc302cb5ec77c852e81fb5e5[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 22 08:26:33 2023 +0000
+
+    アイコンを追加
+
+[33mcommit 5c0bc1647dbb181cffc680c3635313e9ec44316f[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 22 06:05:22 2023 +0000
+
+    トップのレイアウトを修正
+
+[33mcommit 2ab8208ef616a318292d1da6fe7f6ab8b3b9a94d[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jun 21 15:27:21 2023 +0000
+
+    湯気のエフェクトを作成
+
+[33mcommit 244a57364a0cd22420708b2732f913e072c114bc[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jun 21 10:44:35 2023 +0000
+
+    検索の修正
+
+[33mcommit 982a643a4b31d5210e83b44a82287f4984f61ed2[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 20 15:48:41 2023 +0000
+
+    レビュスコアの修正
+
+[33mcommit a03e6d6aaa69ddf07aa6883652a312d727f231f5[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 20 06:52:38 2023 +0000
+
+    タグ検索を作成
+
+[33mcommit 7ab1aa4f5595a760a774f78615a5722c604da3d8[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 20 03:31:56 2023 +0000
+
+    ゲストログインの制限を修正
+
+[33mcommit 064cb0f26c5bc92064d8e70e94b37fe43a6b1c5e[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 19 16:52:05 2023 +0000
+
+    タグの作成方法の修正
+
+[33mcommit 99e9bfb3da64839155b745bc19ead6b8153b489d[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 19 14:38:08 2023 +0000
+
+    コメントの非同期を実装
+
+[33mcommit fd076229f246b81a8fd21ae705531bd737019c5c[m
+Merge: 5fcb55b ee98d6b
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jun 18 16:28:57 2023 +0000
+
+    Merge branch 'develop' into your-branch-name
+
+[33mcommit 5fcb55b7036f944deb5c6ee3ce015276a9038699[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jun 18 16:22:20 2023 +0000
+
+    新規とログインのレイアウト修正
+
+[33mcommit ee98d6b2dd5ec4806b858039743f34066fb62ad4[m
+Author: PB <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 19 00:50:19 2023 +0900
+
+    Update README.md
+
+[33mcommit 56bbf6c6265b8cfa627c19000eeb23d0bcf44c14[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jun 18 11:40:08 2023 +0000
+
+    トップの修正
+
+[33mcommit 2be60e35d13cbed9a0457e03c046002cde17588d[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jun 18 08:53:20 2023 +0000
+
+    管理者側のタグ作成とTOPの修正
+
+[33mcommit 24ee9d6faa1a53fa0e71fd796b85bc118ce3757e[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 17:22:07 2023 +0000
+
+    管理者のユーザ情報の作成
+
+[33mcommit 7b3a633fac5fcf86790487fbabd0d5d97f999b92[m[33m ([m[1;32mmain[m[33m)[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 08:21:04 2023 +0000
+
+    Gitの確認③
+
+[33mcommit 2571f1aa780125c5d13497e51db5a396d139f5f9[m
+Merge: 7f9200c 02843bf
+Author: PB <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 17:17:56 2023 +0900
+
+    Merge pull request #3 from PB-193/develop
+    
+    Gitの確認②
+
+[33mcommit 02843bf63a1ee41780b4f1b33c36229fd3654ae6[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 08:16:35 2023 +0000
+
+    Gitの確認②
+
+[33mcommit 7f9200c614add679bf6c1ddef17764109ca11b54[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 08:14:27 2023 +0000
+
+    Gitの確認
+
+[33mcommit 6590fc234222b39c5199e6aa89f587286c438827[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 08:12:16 2023 +0000
+
+    プルリク時に修正
+
+[33mcommit 30f8826bdf6c35a229273891b94eae87ae4c9422[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 07:58:30 2023 +0000
+
+    トップを修正②
+
+[33mcommit 57422805ac80f089c081bca1f97ed7d79217b7ec[m
+Merge: ecf5cf2 ed4adca
+Author: PB <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 16:55:37 2023 +0900
+
+    Merge pull request #2 from PB-193/develop
+    
+    トップを修正
+
+[33mcommit ed4adcae36ec094ec26d98f001ebe29dfc1a9122[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 07:11:38 2023 +0000
+
+    トップを修正
+
+[33mcommit ecf5cf202ba93ba201bed2e257d3d9fbd7f931ec[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 17 06:21:35 2023 +0000
+
+    管理者側の修正
+
+[33mcommit 0bab16a96426de4f28b38967d9cb672d07dd1a78[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 16 05:00:12 2023 +0000
+
+    gemfileを修正
+
+[33mcommit b9f552225afb391836245f473f120a4465599efa[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 15 15:47:48 2023 +0000
+
+    deploy setting
+
+[33mcommit 891273b6efb4815e9d85d3ddee36bdb0e81938eb[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 15 10:33:28 2023 +0000
+
+    プロフィール画像の修正
+
+[33mcommit c35106526479fb1dca95082741fd9cfdc30ac330[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 15 08:24:14 2023 +0000
+
+    投稿の編集削除を修正しました
+
+[33mcommit 2f94b5777d532d24144d42ea3d3fcdd3b5a2a3f6[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 15 04:03:57 2023 +0000
+
+    スポット入力の予測候補の機能作成
+
+[33mcommit a61dee5928178e71323d6eca95a58821153661e6[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jun 14 15:02:53 2023 +0000
+
+    レイアウトを調整
+
+[33mcommit e030403dcf69e8ea7680e22b48e193d68dfe6330[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jun 14 11:19:18 2023 +0000
+
+    Bootstrap導入
+
+[33mcommit e9734591992bcab797ae77413855b578784df6b7[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 13 11:53:58 2023 +0000
+
+    退会機能を作成
+
+[33mcommit 93065f25418a56bdfaf8c1c177a7d45afb554052[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Tue Jun 13 05:31:07 2023 +0000
+
+    マイページを作成　
+
+[33mcommit 99ec4029db350046b9a5b466c4d781c4e221f39b[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 12 12:46:57 2023 +0000
+
+    コメント削除を作成しました
+
+[33mcommit d010bfafaca47726aecd0e24cfa02d15f98ca28f[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 12 12:00:56 2023 +0000
+
+    コメント機能を作成
+
+[33mcommit bfd14531130184d10b78ea658656ddbc099dc7a8[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 12 11:24:49 2023 +0000
+
+    タグを作成
+
+[33mcommit 607bb1fa85274e49ededb5770b32fe8d0052cb44[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jun 11 12:18:32 2023 +0000
+
+    絞り込み検索を作成（仮）
+
+[33mcommit 805686227061e405213491ac0608d9dff2970ca1[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sun Jun 11 09:33:51 2023 +0000
+
+    投稿詳細の作成
+
+[33mcommit 2438abde9735f741b219862efc8d9600b6222a49[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 10 14:22:27 2023 +0000
+
+    投稿機能を作成②
+
+[33mcommit 3d73913d922e7faab7ac4e2ef4a84fa87f785068[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 10 10:38:53 2023 +0000
+
+    投稿機能を作成しました①
+
+[33mcommit 0c5639cbd961bc2b30c0fe90af1b6f438e7416e2[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 10 06:34:39 2023 +0000
+
+    ヘッダフッダのリンク先を作成
+
+[33mcommit c3038a10f99d3491577a47661125592a4b37a79c[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Sat Jun 10 05:18:31 2023 +0000
+
+    ルーティングの作成
+
+[33mcommit ad36f5425c7589a691defcada69e0983819650e1[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 9 15:28:26 2023 +0000
+
+    Controllerの作成
+
+[33mcommit 5bdf801afebf702eb086a2fd1f135bbf4294f142[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Fri Jun 9 14:49:31 2023 +0000
+
+    Model作成、Gemの導入
+
+[33mcommit a71240412057ded2c22c125957bee25ff957c2f6[m
+Merge: 698940b 55d2ccf
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 8 10:38:31 2023 +0000
+
+    r
+
+[33mcommit 698940bf58915088137e8b0e39aa273be02f5ac1[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 8 10:33:23 2023 +0000
+
+    初期設定完了
+
+[33mcommit 56cad19d48814fb767978ff1671ce13d02ac5682[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Thu Jun 8 10:23:13 2023 +0000
+
+    初期設定
+
+[33mcommit 55d2ccf5f73d1963f4d937fc7cfbcbdc0b22b9a7[m
+Author: PB <bigbamboopbo@yahoo.co.jp>
+Date:   Wed Jun 7 22:41:38 2023 +0900
+
+    Update README.md
+
+[33mcommit 4af924543e38e68b01064e28f2c2e39897759c74[m
+Author: pb-193 <bigbamboopbo@yahoo.co.jp>
+Date:   Mon Jun 5 14:51:28 2023 +0000
+
+    firstCommit

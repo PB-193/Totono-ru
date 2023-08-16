@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1> <%= @user.name %> 様</h1>
+    <h3>いつも「ととの〜る」をご利用いただきありがとうございます。</h3>
+    <p><%= @content.user.name %> さんが新しいレビューを投稿しました！</p>
+    <p>詳細な内容を見るには以下のリンクをクリックしてください。</p>
+    <p>レビュータイトル: <%= @content.title %></p>
+    <a href="<%= content_url(@content) %>">新しいレビューを見る</a>
+    <br>
+    <p>以上になります。</p>
+    <p>今後とも「ととの〜る」をご愛顧いただきますよう、よろしくお願いいたします。</p>
+  </body>
+</html>
