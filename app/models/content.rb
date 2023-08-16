@@ -5,6 +5,9 @@ class Content < ApplicationRecord
     has_many :tags, through: :content_tags
     has_many :favorites, dependent: :destroy
     
+    # 画像投稿機能を追加
+    has_one_attached :review_image
+    
     validates :title,presence:true, length: { minimum: 3, maximum: 35 }
     validates :text ,presence:true
     

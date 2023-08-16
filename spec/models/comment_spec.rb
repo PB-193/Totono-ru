@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   describe 'commentモデル#how_long_agoメソッドのテスト' do
+    let!(:user) { create(:user) }
+    let!(:content) { create(:content) }
+
     it '1時間以内の場合、分単位で表示されること' do
-      user = create(:user)
-      content = create(:content)
       comment = create(:comment, user: user, content: content, created_at: Time.now - 30.minutes)
       result = comment.how_long_ago
       expect(result).to eq('30分前')

@@ -84,6 +84,13 @@ header, footer {
   .index-username {
     text-align: center;
   }
+  
+/*投稿詳細*/
+/* 通常の画像サイズ */
+.review_image {
+  width: 100px;
+  height: 100px;
+}
 
 /*湯気エフェクト*/
 @keyframes steam01 {

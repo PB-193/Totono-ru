@@ -25,13 +25,19 @@
     <% if params[:id] %>
       <% if user.myspot.present? %>
         <p class="mb-0 text-muted">私のホームサウナは</p>
-        <p><%= user.myspot %> <span class="mb-0 text-muted" >です</span> </p>
+        <p>
+          <%= link_to user.myspot, "https://www.google.com/maps/search/?api=1&query=#{CGI.escape(user.myspot)}", target: "_blank" %>
+          <span class="mb-0 text-muted" >です</span> 
+        </p>
       <% else %>
       <% end %>
     <% else %>
       <% if current_user.myspot.present? %>
         <p class="mb-0 text-muted">私のホームサウナは</p>
-        <p><%= current_user.myspot %> <span class="mb-0 text-muted" >です</span> </p>
+        <p>
+          <%= link_to current_user.myspot, "https://www.google.com/maps/search/?api=1&query=#{CGI.escape(current_user.myspot)}", target: "_blank" %>
+          <span class="mb-0 text-muted" >です</span> 
+        </p>
       <% else %>
         <p class="mb-0 text-primary" >
            <%= link_to edit_information_path do %>

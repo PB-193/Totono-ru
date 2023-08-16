@@ -1,7 +1,7 @@
 <div class="col-md-7 mb-3">
   <div class="card">
     <div class="card-header">
-      <h5 class="card-title">レビュー情報</h5>
+      <h5 class="card-title">レビュー詳細</h5>
     </div>
     <div class="card-body">
       <table class="table pr-md">
@@ -60,6 +60,51 @@
           </tr>
         </tbody>
       </table>
+      
+      <div class="card mb-3" style="max-width: 600px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <% if content.review_image.attached? %>
+              <!-- 画像をクリックした際のモーダル表示部分 -->
+              <div class="review_image_modal" id="reviewImageModal">
+                <img id="modalImage">
+              </div>
+              <%= image_tag content.review_image, class: "review_image clickable" %>
+            <% else %>
+              <p><%= image_tag 'no_image', class: "review_image" %></p>
+            <% end %>
+          </div>
+          <div class="col-md-8" id="imageText">
+            <div class="card-body" >
+              <h5 class="card-title">写真をクリックすると拡大します。<br>画像がない場合は拡大しません。</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const reviewImage = document.querySelector(".review_image");
+    const modal = document.getElementById("reviewImageModal");
+    const modalImage = document.getElementById("modalImage");
+    const imageCaption = document.getElementById("imageCaption");
+
+    reviewImage.addEventListener("click", function () {
+      modal.style.display = "flex";
+      modalImage.src = this.src;
+      reviewImage.style.display = "none"; // 元の画像を非表示にする
+      imageText.style.display = "none"; // textを非表示にする
+    });
+
+    modal.addEventListener("click", function () {
+      modal.style.display = "none";
+      reviewImage.style.display = "block"; // 元の画像を再表示する
+      imageText.style.display = "block"; // textを再表示する
+    });
+  });
+</script>
