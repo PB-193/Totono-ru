@@ -55,5 +55,4 @@ class Content < ApplicationRecord
           self.tags << content_tag
        end
     end
-
 end
