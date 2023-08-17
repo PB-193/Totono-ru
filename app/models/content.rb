@@ -64,7 +64,7 @@ class Content < ApplicationRecord
     
     # いいねしたユーザのIDリストを取得するメソッド
     def send_message_to_favorited_users
-      favorited_users = Favorite.where(content_id: self.user.contents.pluck(:id)).pluck(:user_id)
+      favorited_users = Favorite.where(content_id: self.user.contents.pluck(:id)).pluck(:user_id).uniq
       favorited_users.each do |user_id|
         user = User.find(user_id)
         # 投稿した本人にメールを送信しない
