@@ -31,6 +31,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/environments/development
 
 /public/packs
 /public/packs-test
@@ -40,4 +41,3 @@ yarn-debug.log*
 .yarn-integrity
 
 /.env
-/config/environments
