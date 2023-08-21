@@ -61,30 +61,6 @@
         </tbody>
       </table>
       
-
     </div>
   </div>
 </div>
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const reviewImage = document.querySelector(".review_image");
-    const modal = document.getElementById("reviewImageModal");
-    const modalImage = document.getElementById("modalImage");
-    const imageCaption = document.getElementById("imageCaption");
-
-    reviewImage.addEventListener("click", function () {
-      modal.style.display = "flex";
-      modalImage.src = this.src;
-      reviewImage.style.display = "none"; // 元の画像を非表示にする
-      imageText.style.display = "none"; // textを非表示にする
-    });
-
-    modal.addEventListener("click", function () {
-      modal.style.display = "none";
-      reviewImage.style.display = "block"; // 元の画像を再表示する
-      imageText.style.display = "block"; // textを再表示する
-    });
-  });
-</script>
