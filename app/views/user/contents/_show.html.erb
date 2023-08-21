@@ -61,27 +61,7 @@
         </tbody>
       </table>
       
-      <div class="card mb-3" style="max-width: 600px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <% if content.review_image.attached? %>
-              <!-- 画像をクリックした際のモーダル表示部分 -->
-              <div class="review_image_modal" id="reviewImageModal">
-                <img id="modalImage">
-              </div>
-              <%= image_tag content.get_review_image, class: "review_image clickable" %>
-            <% else %>
-              <p>フォトはありません</p>
-            <% end %>
-          </div>
-          <div class="col-md-8" id="imageText">
-            <div class="card-body" >
-              <h5 class="card-title">写真をクリックすると拡大します。<br>画像がない場合は拡大しません。</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+
     </div>
   </div>
 </div>

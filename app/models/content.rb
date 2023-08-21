@@ -9,13 +9,13 @@ class Content < ApplicationRecord
     has_one_attached :review_image
     
     
-    def get_review_image
-      unless review_image.attached?
-        file_path = Rails.root.join('app/assets/images/no_image.jpg')
-        review_image_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
-      end
-      review_image
-    end
+    # def get_review_image
+    #   unless review_image.attached?
+    #     file_path = Rails.root.join('app/assets/images/no_image.jpg')
+    #     review_image_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    #   end
+    #   review_image
+    # end
     
     validates :title,presence:true, length: { minimum: 3, maximum: 35 }
     validates :text ,presence:true
