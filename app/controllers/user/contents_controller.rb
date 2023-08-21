@@ -25,10 +25,10 @@ class User::ContentsController < ApplicationController
   
     # ページネーションを適用してデータを取得
     if params[:sort] == 'random_list'
-      if Rails.env.development? # 開発環境の場合
-        @contents = Content.order('RANDOM()').page(params[:page])
-      else # 本番環境の場合
+      if Rails.env.production? # 開発環境の場合
         @contents = Content.order('RAND()').page(params[:page])
+      else # 本番環境の場合
+        @contents = Content.order('RANDOM()').page(params[:page])
       end
     else
       @contents = contents_relation.page(params[:page])
