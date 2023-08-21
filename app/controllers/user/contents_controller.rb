@@ -19,14 +19,20 @@ class User::ContentsController < ApplicationController
                           Content.ordered_by_favorite_count
                         elsif params[:sort] == 'comment_desc'
                           Content.ordered_by_comment_count
-                        elsif params[:sort] == 'random_list'
-                          Content.order('RANDOM()')
                         else
                           Content.order(created_at: :asc)
                         end
   
     # ページネーションを適用してデータを取得
-    @contents = contents_relation.page(params[:page])
+    if params[:sort] == 'random_list'
+      if Rails.env.development? # 開発環境の場合
+        @contents = Content.order('RANDOM()').page(params[:page])
+      else # 本番環境の場合
+        @contents = Content.order('RAND()').page(params[:page])
+      end
+    else
+      @contents = contents_relation.page(params[:page])
+    end
   end
 
   def show
