@@ -24,7 +24,7 @@
     </p>
     <% if params[:id] %>
       <% if user.myspot.present? %>
-        <p class="mb-0 text-muted">私のホームサウナは!!!!</p>
+        <p class="mb-0 text-muted">私のホームサウナは</p>
         <p>
           <%= link_to user.myspot, "https://www.google.com/maps/search/?api=1&query=#{CGI.escape(user.myspot)}", target: "_blank" %>
           <span class="mb-0 text-muted" >です</span> 
