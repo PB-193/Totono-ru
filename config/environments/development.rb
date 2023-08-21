@@ -73,9 +73,5 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.delivery_method = :letter_opener_web
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { host: '9324485c1f1c4799a4216495e8c8ef58.vfs.cloud9.ap-northeast-1.amazonaws.com', protocol: 'https' }
-
   config.hosts.clear
 end
