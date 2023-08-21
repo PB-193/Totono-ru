@@ -69,7 +69,7 @@
               <div class="review_image_modal" id="reviewImageModal">
                 <img id="modalImage">
               </div>
-              <%= image_tag content.review_image, class: "review_image clickable" %>
+              <%= image_tag content.get_review_image, class: "review_image clickable" %>
             <% else %>
               <p>フォトはありません</p>
             <% end %>

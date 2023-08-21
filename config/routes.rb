@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
-  
+
   get 'terms_of_use', to: 'homes#terms_of_use'
   get 'privacy_policy', to: 'homes#privacy_policy'
 
