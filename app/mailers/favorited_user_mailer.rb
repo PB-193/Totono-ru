@@ -1,4 +1,3 @@
-
 class FavoritedUserMailer < ApplicationMailer
   def new_content_message_email(user, content)
     @user = user

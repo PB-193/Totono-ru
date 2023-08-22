@@ -46,11 +46,14 @@ class User::ContentsController < ApplicationController
   
     if @content.save
       @content.save_tag(tag_list)
+      send_message_service = SendMessageService.new(@content)
+      send_message_service.send_message_to_favorited_users
       flash[:notice] = "投稿しました"
       redirect_to contents_path(sort: 'newest')
     else
       render :new
     end
+    
   end
 
   def edit
