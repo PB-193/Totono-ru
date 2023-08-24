@@ -8,7 +8,6 @@ class Content < ApplicationRecord
     # 画像投稿機能を追加
     has_one_attached :review_image
     
-    
     # def get_review_image
     #   unless review_image.attached?
     #     file_path = Rails.root.join('app/assets/images/no_image.jpg')
