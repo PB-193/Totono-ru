@@ -3,7 +3,7 @@
 
 <%= form_with model: @user, url: update_information_path, method: :patch, class: "my-form", multipart: true do |f| %>
   <div class="infomation-edit">
-    <table class="table table-bordered" >
+    <table class="table table-hover" >
       <tr>
         <td>ユーザ名</td>
         <td>
@@ -38,7 +38,7 @@
       <tr>
         <td colspan="2">
           <div class="d-flex justify-content-between">
-            <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+            <%= f.submit "編集内容を保存する", class: "btn-edit" %>
             <%= link_to "マイページに戻る" , myshow_path , class: "btn btn-secondary" %>
             <%= link_to "アカウントを停止する", finalcheck_path, class: "btn btn-danger" %>
           </div>
