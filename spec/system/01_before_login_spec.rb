@@ -1,4 +1,4 @@
-# require 'rails_helper'
+require 'rails_helper'
 
 describe '[STEP1] ユーザログイン前のテスト' do
   describe 'トップ画面のテスト' do
@@ -9,6 +9,16 @@ describe '[STEP1] ユーザログイン前のテスト' do
     context '表示内容の確認' do
       it 'URLが正しい' do
         expect(current_path).to eq '/'
+      end
+      it 'ゲストログイン,新規登録,ログインする のリンクの内容が正しい' do
+        expect(page).to have_link("ゲストでログインする", href: homes_guest_sign_in_path)
+        expect(page).to have_link("新規登録してはじめる", href: new_user_registration_path)
+        expect(page).to have_link("ログインしてはじめる", href: new_user_session_path)
+      end
+      it 'お問い合わせフォーム,利用規約,プライバシーポリシーのリンクの内容が正しい' do
+        expect(page).to have_link("お問い合わせフォーム", href: "https://forms.gle/odVjkTS2C3XXzyA79")
+        expect(page).to have_link("利用規約", href: terms_of_use_path)
+        expect(page).to have_link("プライバシーポリシー", href: privacy_policy_path)
       end
     end
   end
@@ -123,6 +133,5 @@ describe '[STEP1] ユーザログイン前のテスト' do
       end
     end
   end
-
   
 end

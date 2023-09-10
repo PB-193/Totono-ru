@@ -1,6 +1,5 @@
 <%= render 'user/shared/error_messages', resource: @user %>
 
-
 <%= form_with model: @user, url: update_information_path, method: :patch, class: "my-form", multipart: true do |f| %>
   <div class="infomation-edit">
     <table class="table table-hover" >
