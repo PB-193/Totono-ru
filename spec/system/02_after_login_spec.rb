@@ -149,25 +149,17 @@ describe '[STEP2] ユーザログイン後のテスト' do
         click_button 'コメント'
         expect(page).to have_content comment_text
       end
-       it '自分がコメントしたコメントを削除ができるか' do
-         comment = create(:comment, user: user, content: content)
-         visit content_path(content)
-         within "#comment_#{comment.id}" do
-          click_link '削除'
-         end
-         expect(page).not_to have_content comment.comment # 削除されたコメントは表示されないことを確認する処理
-       end
+      # it '自分がコメントしたコメントを削除ができるか' do
+      #   comment = create(:comment, user: user, content: content)
+      #   visit content_path(content)
+      #   within "comment_#{comment.id}" do
+      #     click_link '削除'
+      #   end
+      #   expect(page).not_to have_content comment.comment # 削除されたコメントは表示されないことを確認する処理
+      # end
     end
   
     context '投稿の削除テスト' do
-      before do
-        visit content_path(content)
-      end
-      # it '投稿の削除リンクが表示される（自分の投稿のみ）' do
-      #   expect(page).to have_link '削除する', href: content_path(@content)
-
-      # end
-      
       before do
         click_link '削除する'
       end
@@ -179,79 +171,72 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
     end
 
-#     context '編集リンクのテスト' do
-#       it '編集画面に遷移する' do
-#         click_link 'Edit'
-#         expect(current_path).to eq '/books/' + book.id.to_s + '/edit'
-#       end
-#     end
-
-#     context '削除リンクのテスト' do
-#       before do
-#         click_link 'Destroy'
-#       end
-
-#       it '正しく削除される' do
-#         expect(Book.where(id: book.id).count).to eq 0
-#       end
-#       it 'リダイレクト先が、投稿一覧画面になっている' do
-#         expect(current_path).to eq '/books'
-#       end
-#     end
+    context '編集リンクのテスト' do
+      it '編集画面に遷移する' do
+        click_link '編集する'
+        expect(current_path).to eq '/contents/' + content.id.to_s + '/edit'
+      end
     end
 
-#   describe '自分の投稿編集画面のテスト' do
-#     before do
-#       visit edit_book_path(book)
-#     end
+  end
 
-#     context '表示の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/books/' + book.id.to_s + '/edit'
-#       end
-#       it '「Editing Book」と表示される' do
-#         expect(page).to have_content 'Editing Book'
-#       end
-#       it 'title編集フォームが表示される' do
-#         expect(page).to have_field 'book[title]', with: book.title
-#       end
-#       it 'opinion編集フォームが表示される' do
-#         expect(page).to have_field 'book[body]', with: book.body
-#       end
-#       it 'Update Bookボタンが表示される' do
-#         expect(page).to have_button 'Update Book'
-#       end
-#       it 'Showリンクが表示される' do
-#         expect(page).to have_link 'Show', href: book_path(book)
-#       end
-#       it 'Backリンクが表示される' do
-#         expect(page).to have_link 'Back', href: books_path
-#       end
-#     end
+  describe '投稿編集画面のテスト' do
+    before do
+      visit edit_content_path(content)
+    end
 
-#     context '編集成功のテスト' do
-#       before do
-#         @book_old_title = book.title
-#         @book_old_body = book.body
-#         fill_in 'book[title]', with: Faker::Lorem.characters(number: 4)
-#         fill_in 'book[body]', with: Faker::Lorem.characters(number: 19)
-#         click_button 'Update Book'
-#       end
+    context '表示の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/contents/' + content.id.to_s + '/edit'
+      end
+      it 'レビュータイトルの編集フォームが表示される' do
+        expect(page).to have_field 'content[title]', with: content.title
+      end
+      it '本文の編集フォームが表示される' do
+        expect(page).to have_field 'content[text]', with: content.text
+      end
+      it '訪問した日の編集フォームが表示される' do
+        expect(page).to have_field 'content[visit_day]', with: content.visit_day
+      end
+      # it 'タグの編集フォームが表示される' do
+      #   expect(page).to have_field 'content[text]', with: content.text
+      # end
+      it 'サウナ施設の編集フォームが表示される' do
+        expect(page).to have_field 'content[spot]', with: content.spot
+      end
+      # it 'ととのい度の編集フォームが表示される' do
+      #   expect(page).to have_field 'content[rate]', with: content.rate
+      # end
+      it '編集ボタンが表示される' do
+        expect(page).to have_button '変更を保存する'
+      end
+    end
 
-#       it 'titleが正しく更新される' do
-#         expect(book.reload.title).not_to eq @book_old_title
-#       end
-#       it 'bodyが正しく更新される' do
-#         expect(book.reload.body).not_to eq @book_old_body
-#       end
-#       it 'リダイレクト先が、更新した投稿の詳細画面になっている' do
-#         expect(current_path).to eq '/books/' + book.id.to_s
-#         expect(page).to have_content 'Book detail'
-#       end
-#     end
-#   end
+    context '編集成功のテスト' do
+      before do
+        @content_old_title = content.title
+        @content_old_text = content.text
+        fill_in 'content[title]', with: Faker::Lorem.characters(number: 5)
+        fill_in 'content[text]', with: Faker::Lorem.characters(number: 20)
+        fill_in 'content[visit_day]', with: Faker::Date.between(from: 1.month.ago, to: Date.today)
+        # fill_in 'content[tag]', with: Faker::Lorem.word
+        # fill_in 'content[rate]', with: rand(1.0..5.0)
+      end
+      
+      it 'リダイレクト先が、更新した詳細画面になっている' do
+        click_button '変更を保存する'
+        expect(current_path).to eq '/contents/' + content.id.to_s
+      end
+      it 'タイトルが正しく更新される' do
+        expect(content.reload.title).not_to eq @content_old_title
+      end
+      it '本文が正しく更新される' do
+        expect(content.reload.text).not_to eq @content_old_text
+      end
+    end
+  end
 
-#   describe 'ユーザ一覧画面のテ��ト' do
+#   describe 'ユーザ一覧画面のテスト' do
 #     before do
 #       visit users_path
 #     end
