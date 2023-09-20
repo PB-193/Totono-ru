@@ -23,56 +23,55 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
     
     context '表示内容の確認' do
-        it 'URLが正しい' do
-          expect(current_path).to eq '/contents'
-        end
-        
-        it '自分と他人の投稿の投稿日が表示される' do
-          expect(page).to have_content content.created_at.strftime("%Y年%m月%d日")
-          expect(page).to have_content other_content.created_at.strftime("%Y年%m月%d日")
-        end
-        
-        it '自分と他人の投稿のタイトルのリンク先が正しい' do
-          expect(page).to have_link content.title, href: content_path(content)
-          expect(page).to have_link other_content.title, href: content_path(other_content)
-        end
-        
-        it '自分と他人の投稿のユーザ名が表示される' do
-          expect(page).to have_content content.user.name
-          expect(page).to have_content other_content.user.name
-        end
-        
-        it '自分と他人の投稿のユーザ画像が表示される' do
-          expect(page).to have_css(".user_profile[src*='#{content.user.profile_image.filename}']")
-          expect(page).to have_css(".user_profile[src*='#{other_content.user.profile_image.filename}']")
-        end
-        
-        it '自分と他人の投稿の訪問日が表示される' do
-          expect(page).to have_content content.visit_day.strftime("%Y年%m月%d日")
-          expect(page).to have_content other_content.visit_day.strftime("%Y年%m月%d日")
-        end
-        
-        # it '自分と他人の投稿のタグが表示される' do
-        #   expect(page).to have_content tag.name
-        #   expect(page).to have_content other_tag.name
-        # end
-        
-        it '自分と他人の投稿のサウナ施設が表示される' do
-          expect(page).to have_content content.spot
-          expect(page).to have_content other_content.spot
-        end
-        
-        it '自分と他人の投稿のいいね数とコメント数が表示される' do
-          expect(page).to have_content "❤️ #{content.favorites.count} ️💬 #{content.comments.count}"
-          expect(page).to have_content "❤️ #{other_content.favorites.count} ️💬 #{other_content.comments.count}"
-        end
-        
-        it '自分と他人のユーザ画像のリンク先が正しい' do
-          expect(page).to have_link(nil, href: myshow_path)
-          expect(page).to have_link(nil, href: user_path(other_content.user))
-        end
+      it 'URLが正しい' do
+        expect(current_path).to eq '/contents'
+      end
+      
+      it '自分と他人の投稿の投稿日が表示される' do
+        expect(page).to have_content content.created_at.strftime("%Y年%m月%d日")
+        expect(page).to have_content other_content.created_at.strftime("%Y年%m月%d日")
+      end
+      
+      it '自分と他人の投稿のタイトルのリンク先が正しい' do
+        expect(page).to have_link content.title, href: content_path(content)
+        expect(page).to have_link other_content.title, href: content_path(other_content)
+      end
+      
+      it '自分と他人の投稿のユーザ名が表示される' do
+        expect(page).to have_content content.user.name
+        expect(page).to have_content other_content.user.name
+      end
+      
+      it '自分と他人の投稿のユーザ画像が表示される' do
+        expect(page).to have_css(".user_profile[src*='#{content.user.profile_image.filename}']")
+        expect(page).to have_css(".user_profile[src*='#{other_content.user.profile_image.filename}']")
+      end
+      
+      it '自分と他人の投稿の訪問日が表示される' do
+        expect(page).to have_content content.visit_day.strftime("%Y年%m月%d日")
+        expect(page).to have_content other_content.visit_day.strftime("%Y年%m月%d日")
+      end
+      
+      # it '自分と他人の投稿のタグが表示される' do
+      #   expect(page).to have_content tag.name
+      #   expect(page).to have_content other_tag.name
+      # end
+      
+      it '自分と他人の投稿のサウナ施設が表示される' do
+        expect(page).to have_content content.spot
+        expect(page).to have_content other_content.spot
+      end
+      
+      it '自分と他人の投稿のいいね数とコメント数が表示される' do
+        expect(page).to have_content "❤️ #{content.favorites.count} ️💬 #{content.comments.count}"
+        expect(page).to have_content "❤️ #{other_content.favorites.count} ️💬 #{other_content.comments.count}"
+      end
+      
+      it '自分と他人のユーザ画像のリンク先が正しい' do
+        expect(page).to have_link(nil, href: myshow_path)
+        expect(page).to have_link(nil, href: user_path(other_content.user))
+      end
     end
-  end
 
     context '投稿成功のテスト' do
       before do
@@ -93,6 +92,8 @@ describe '[STEP2] ユーザログイン後のテスト' do
       end
     end
     
+  end
+
 
   describe '投稿詳細画面のテスト' do
     before do
@@ -236,94 +237,81 @@ describe '[STEP2] ユーザログイン後のテスト' do
     end
   end
 
-#   describe 'ユーザ一覧画面のテスト' do
-#     before do
-#       visit users_path
-#     end
+  describe 'マイページのテスト' do
+    before do
+      visit myshow_path
+    end
 
-#     context '表示内容の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/users'
-#       end
-#       it '自分と他人の画像が表示される: fallbackの画像がサイドバーの1つ＋一覧(2人)の2つの計3つ存在する' do
-#         expect(all('img').size).to eq(3)
-#       end
-#       it '自分と他人の名前がそれぞれ表示される' do
-#         expect(page).to have_content user.name
-#         expect(page).to have_content other_user.name
-#       end
-#       it '自分と他人のshowリンクがそれぞれ表示される' do
-#         expect(page).to have_link 'Show', href: user_path(user)
-#         expect(page).to have_link 'Show', href: user_path(other_user)
-#       end
-#     end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/user/myshow'
+      end
+      it '自分のプロフィール画像が表示される' do
+        expect(all('img').size)
+      end
+      it '自分の名前がそれぞれ表示される' do
+        expect(page).to have_content user.name
+      end
+     it '編集ボタンとパスワード変更/退会ボタンが表示される' do
+        expect(page).to have_button 'プロフィールの編集'
+        expect(page).to have_button 'パスワードの変更/退会'
+      end
+    end
 
-#   describe '自分のユーザ詳細画面のテスト' do
-#     before do
-#       visit user_path(user)
-#     end
-
-#     context '表示の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/users/' + user.id.to_s
-#       end
-#       it '投稿一覧のユーザ画像のリンク先が正しい' do
-#         expect(page).to have_link '', href: user_path(user)
-#       end
-#       it '投稿一覧に自分の投稿のtitleが表示され、リンクが正しい' do
-#         expect(page).to have_link book.title, href: book_path(book)
-#       end
-#       it '投稿一覧に自分の投稿のopinionが表示される' do
-#         expect(page).to have_content book.body
-#       end
-#       it '他人の投稿は表示されない' do
-#         expect(page).not_to have_link '', href: user_path(other_user)
-#         expect(page).not_to have_content other_book.title
-#         expect(page).not_to have_content other_book.body
-#       end
-#     end
-
-#   describe '自分のユーザ情報編集画面のテスト' do
-#     before do
-#       visit edit_user_path(user)
-#     end
-
-#     context '表示の確認' do
-#       it 'URLが正しい' do
-#         expect(current_path).to eq '/users/' + user.id.to_s + '/edit'
-#       end
-#       it '名前編集フォームに自分の名前が表示される' do
-#         expect(page).to have_field 'user[name]', with: user.name
-#       end
-#       it '画像編集フォームが表示される' do
-#         expect(page).to have_field 'user[profile_image]'
-#       end
-#       it '自己紹介編集フォームに自分の自己紹介文が表示される' do
-#         expect(page).to have_field 'user[introduction]', with: user.introduction
-#       end
-#       it 'Update Userボタンが表示される' do
-#         expect(page).to have_button 'Update User'
-#       end
-#     end
-
-#     context '更新成功のテスト' do
-#       before do
-#         @user_old_name = user.name
-#         @user_old_intrpduction = user.introduction
-#         fill_in 'user[name]', with: Faker::Lorem.characters(number: 9)
-#         fill_in 'user[introduction]', with: Faker::Lorem.characters(number: 19)
-#         click_button 'Update User'
-#       end
-
-#       it 'nameが正しく更新される' do
-#         expect(user.reload.name).not_to eq @user_old_name
-#       end
-#       it 'introductionが正しく更新される' do
-#         expect(user.reload.introduction).not_to eq @user_old_intrpduction
-#       end
-#       it 'リダイレクト先が、自分のユーザ詳細画面になっている' do
-#         expect(current_path).to eq '/users/' + user.id.to_s
-#       end
-#     end
-#   end
+    describe '自分のユーザ情報編集画面のテスト' do
+      before do
+        visit  edit_information_path
+      end
+  
+      context '表示の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/user/information/edit'
+        end
+        it 'ユーザ名編集フォームに自分のユーザ名が表示される' do
+          expect(page).to have_field 'user[name]', with: user.name
+        end
+        it 'メールアドレス編集フォームに自分のメールアドレスが表示される' do
+          expect(page).to have_field 'user[email]', with: user.email
+        end
+        it 'ホームサウナ編集フォームに自分のホームサウナが表示される' do
+          expect(page).to have_field 'user[spot]', with: user.spot
+        end
+        it '画像編集フォームが表示される' do
+          expect(page).to have_field 'user[profile_image]'
+        end
+        it '編集保存ボタン,戻るボタン,アカウント停止ボタンが表示される' do
+          expect(page).to have_button '編集内容を保存する'
+          expect(page).to have_button 'マイページに戻る'
+          expect(page).to have_button 'アカウントを停止する'
+        end
+      end
+  
+      context '更新成功のテスト' do
+        before do
+          @user_old_name = user.name
+          @user_old_email = user.email
+          @uset_old_spot = uset.spot
+          fill_in 'user[name]', with: Faker::Lorem.characters(number: 9)
+          fill_in 'user[email]', with: Faker::Internet.email
+          fill_in 'user[spot]', with: Faker::Lorem.characters(number: 20)
+          click_button '編集内容を保存する'
+        end
+  
+        it 'ユーザ名が正しく更新される' do
+          expect(user.reload.name).not_to eq @user_old_name
+        end
+        it 'メールアドレスが正しく更新される' do
+          expect(user.reload.email).not_to eq @user_old_email
+        end
+        it 'ホームサウナが正しく更新される' do
+          expect(user.reload.spot).not_to eq @user_old_spot
+        end
+        it 'リダイレクト先が、マイページ画面になっている' do
+          expect(current_path).to eq '/user/myshow'
+        end
+      end
+      
+    end
+  end
+  
 end

@@ -17,7 +17,7 @@ class Comment < ApplicationRecord
         (Date.today - self.created_at.to_date).to_i.to_s + "日前"
       elsif (Date.today - self.created_at.to_date).to_i <= 365
         #12ヶ月以内なら
-        (Date.today - self.created_at.to_date).to_i.to_s / 30 + "ヶ月前"
+        ((Date.today - self.created_at.to_date).to_i / 30).to_s + "ヶ月前"
       else
         # それ以降
         self.created_at

@@ -2,6 +2,7 @@ FactoryBot.define do #宣言文でありデータの定義を行う際に記述�
   factory :user do #どのモデルに対してデータ定義を行うのか記します。factory :モデル名 do ~ end
     name { Faker::Lorem.characters(number: 10) }
     email { Faker::Internet.email }
+    # spot { 'MySounaSpot' }
     password { 'password' }
     password_confirmation { 'password' }
     
