@@ -113,6 +113,8 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    impressionist (2.0.0)
+      nokogiri (~> 1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -305,6 +307,7 @@ DEPENDENCIES
   faker
   google_places
   high_voltage
+  impressionist
   jbuilder (~> 2.7)
   kaminari (~> 1.2.1)
   listen (~> 3.3)

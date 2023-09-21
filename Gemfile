@@ -85,3 +85,5 @@ gem "net-pop"
 gem "net-imap"
 
 gem 'high_voltage'
+
+gem 'impressionist'

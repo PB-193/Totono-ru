@@ -37,6 +37,7 @@ class User::ContentsController < ApplicationController
 
   def show
     @content = Content.find(params[:id])
+    impressionist(@content, nil, unique: [:session_hash])
     @comment = Comment.new
   end
 
