@@ -3,8 +3,8 @@ FactoryBot.define do #宣言文でありデータの定義を行う際に記述�
     user # この行で関連する User レコードを生成
     visit_day { Date.today }
     spot { Faker::Lorem.word }
-    title { Faker::Lorem.sentence }
-    text { Faker::Lorem.paragraph }
+    title { Faker::Lorem.characters(number: 5) }
+    text { Faker::Lorem.characters(number: 20) }
     rate { rand(1.0..5.0) }
     created_at { Time.now }
     updated_at { Time.now }

@@ -1,9 +1,10 @@
 <div class="row">
-  <div class="col-md-1 mb-3" , id="favorite_buttons_<%= @content.id %>" >
-    <%= render 'favorite' , content: @content %>
+  <div class="col-md-1 mb-3" >
+    <%= render 'favorite' , content: @content %> <br>
+    <%= render 'impressionist_count' , content: @content %>
   </div>
   
-    <%= render 'show' , content: @content %>
+  <%= render 'show' , content: @content %>
     
   <div class="col md-4">
     <div class="card">

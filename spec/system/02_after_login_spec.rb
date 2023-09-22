@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe '[STEP2] ユーザログイン後のテスト' do
+describe '[STEP2] ユーザログイン後の投稿のテスト' do
   let(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:tag) { create(:tag) }
@@ -60,6 +60,11 @@ describe '[STEP2] ユーザログイン後のテスト' do
       it '自分と他人の投稿のサウナ施設が表示される' do
         expect(page).to have_content content.spot
         expect(page).to have_content other_content.spot
+      end
+      
+      it '自分と他人のレビューの閲覧数が表示される' do
+        expect(page).to have_content content.impressionist_count
+        expect(page).to have_content other_content.impressionist_count
       end
       
       it '自分と他人の投稿のいいね数とコメント数が表示される' do
@@ -124,6 +129,9 @@ describe '[STEP2] ユーザログイン後のテスト' do
       # it '投稿のととのい度が表示される' do
       #   expect(page).to have_content content.rate
       # end
+      it '投稿の閲覧数が表示される' do
+        expect(page).to have_content content.impressionist_count
+      end
       it '投稿の本文が表示される' do
         expect(page).to have_content content.text
       end
@@ -223,95 +231,19 @@ describe '[STEP2] ユーザログイン後のテスト' do
         # fill_in 'content[tag]', with: Faker::Lorem.word
         # fill_in 'content[rate]', with: rand(1.0..5.0)
       end
-      
-      it 'リダイレクト先が、更新した詳細画面になっている' do
-        click_button '変更を保存する'
-        expect(current_path).to eq '/contents/' + content.id.to_s
-      end
+
       it 'タイトルが正しく更新される' do
         expect(content.reload.title).not_to eq @content_old_title
       end
       it '本文が正しく更新される' do
         expect(content.reload.text).not_to eq @content_old_text
       end
-    end
-  end
-
-  describe 'マイページのテスト' do
-    before do
-      visit myshow_path
-    end
-
-    context '表示内容の確認' do
-      it 'URLが正しい' do
-        expect(current_path).to eq '/user/myshow'
-      end
-      it '自分のプロフィール画像が表示される' do
-        expect(all('img').size)
-      end
-      it '自分の名前がそれぞれ表示される' do
-        expect(page).to have_content user.name
-      end
-     it '編集ボタンとパスワード変更/退会ボタンが表示される' do
-        expect(page).to have_button 'プロフィールの編集'
-        expect(page).to have_button 'パスワードの変更/退会'
-      end
-    end
-
-    describe '自分のユーザ情報編集画面のテスト' do
-      before do
-        visit  edit_information_path
-      end
-  
-      context '表示の確認' do
-        it 'URLが正しい' do
-          expect(current_path).to eq '/user/information/edit'
-        end
-        it 'ユーザ名編集フォームに自分のユーザ名が表示される' do
-          expect(page).to have_field 'user[name]', with: user.name
-        end
-        it 'メールアドレス編集フォームに自分のメールアドレスが表示される' do
-          expect(page).to have_field 'user[email]', with: user.email
-        end
-        it 'ホームサウナ編集フォームに自分のホームサウナが表示される' do
-          expect(page).to have_field 'user[spot]', with: user.spot
-        end
-        it '画像編集フォームが表示される' do
-          expect(page).to have_field 'user[profile_image]'
-        end
-        it '編集保存ボタン,戻るボタン,アカウント停止ボタンが表示される' do
-          expect(page).to have_button '編集内容を保存する'
-          expect(page).to have_button 'マイページに戻る'
-          expect(page).to have_button 'アカウントを停止する'
-        end
-      end
-  
-      context '更新成功のテスト' do
-        before do
-          @user_old_name = user.name
-          @user_old_email = user.email
-          @uset_old_spot = uset.spot
-          fill_in 'user[name]', with: Faker::Lorem.characters(number: 9)
-          fill_in 'user[email]', with: Faker::Internet.email
-          fill_in 'user[spot]', with: Faker::Lorem.characters(number: 20)
-          click_button '編集内容を保存する'
-        end
-  
-        it 'ユーザ名が正しく更新される' do
-          expect(user.reload.name).not_to eq @user_old_name
-        end
-        it 'メールアドレスが正しく更新される' do
-          expect(user.reload.email).not_to eq @user_old_email
-        end
-        it 'ホームサウナが正しく更新される' do
-          expect(user.reload.spot).not_to eq @user_old_spot
-        end
-        it 'リダイレクト先が、マイページ画面になっている' do
-          expect(current_path).to eq '/user/myshow'
-        end
+      it 'リダイレクト先が、更新した詳細画面になっている' do
+        click_button '変更を保存する'
+        expect(current_path).to eq '/contents/' + content.id.to_s
       end
       
     end
+    
   end
-  
 end
