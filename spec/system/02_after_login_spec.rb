@@ -233,12 +233,14 @@ describe '[STEP2] ユーザログイン後の投稿のテスト' do
       end
 
       it 'タイトルが正しく更新される' do
+        click_button '変更を保存する'
         expect(content.reload.title).not_to eq @content_old_title
       end
       it '本文が正しく更新される' do
+        click_button '変更を保存する'
         expect(content.reload.text).not_to eq @content_old_text
       end
-      it 'リダイレクト先が、更新した詳細画面になっている' do
+      it 'リダイレクト先が、投稿詳細画面になっている' do
         click_button '変更を保存する'
         expect(current_path).to eq '/contents/' + content.id.to_s
       end

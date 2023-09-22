@@ -49,7 +49,7 @@ describe '[STEP3] ユーザログイン後のマイページのテスト' do
               expect(page).to have_field 'user[email]', with: user.email
             end
             it 'ホームサウナ編集フォームに自分のホームサウナが表示される' do
-              expect(page).to have_field 'user[spot]', with: user.spot
+              expect(page).to have_field 'user[myspot]', with: user.myspot
             end
             it '画像編集フォームが表示される' do
               expect(page).to have_field 'user[profile_image]'
@@ -65,10 +65,10 @@ describe '[STEP3] ユーザログイン後のマイページのテスト' do
             before do
               @user_old_name = user.name
               @user_old_email = user.email
-              @uset_old_spot = uset.spot
+              @uset_old_myspot = user.myspot
               fill_in 'user[name]', with: Faker::Lorem.characters(number: 9)
               fill_in 'user[email]', with: Faker::Internet.email
-              fill_in 'user[spot]', with: Faker::Lorem.characters(number: 20)
+              fill_in 'user[myspot]', with: Faker::Lorem.characters(number: 20)
               click_button '編集内容を保存する'
             end
       
@@ -79,7 +79,7 @@ describe '[STEP3] ユーザログイン後のマイページのテスト' do
               expect(user.reload.email).not_to eq @user_old_email
             end
             it 'ホームサウナが正しく更新される' do
-              expect(user.reload.spot).not_to eq @user_old_spot
+              expect(user.reload.myspot).not_to eq @user_old_myspot
             end
             it 'リダイレクト先が、マイページ画面になっている' do
               expect(current_path).to eq '/user/myshow'
