@@ -21,6 +21,12 @@ class Admin::ContentsController < ApplicationController
     end
   end
 
+  def delete
+    selected_content_ids = params[:content_ids] || []
+    Content.where(id: selected_content_ids).destroy_all
+    redirect_to admin_contents_path, notice: '投稿を一括で削除しました。'
+  end
+    
   def destroy
     @content = Content.find(params[:id])
     @content.destroy

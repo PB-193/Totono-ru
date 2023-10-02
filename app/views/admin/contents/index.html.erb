@@ -1,8 +1,8 @@
-<h3>投稿一覧と削除</h3>
+<h3>投稿一覧と一括削除</h3>
 <div class="row">
   <div class="col-md-10">
     <div class="content-list">
-      <%= form_tag delete_admin_tags_path, method: :delete do %>
+      <%= form_tag delete_admin_contents_path, method: :delete do %>
         <table class="table">
           <thead>
             <tr>
@@ -16,14 +16,15 @@
           <tbody>
             <% @contents.each do |content| %>
               <tr>
-                  <th><%= content.created_at.strftime("%Y年%m月%d日") %></th>
-                  <th><%= content.title %></th>
+                  <td><%= content.created_at.strftime("%Y年%m月%d日") %></td>
+                  <td><%= content.title %></td>
+                  <td><%= check_box_tag 'content_ids[]', content.id %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
         <div class="text-center">
-          <%= submit_tag '投稿を削除する', class: "btn btn-danger" %>
+          <%= submit_tag '投稿を一括削除する', class: "btn btn-danger" %>
         </div>
       <% end %>
     </div>

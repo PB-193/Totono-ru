@@ -26,7 +26,10 @@
             </li>
           <% elsif admin_signed_in? %>
             <li class="list-inline-item">
-              <%= link_to "投稿一覧", admin_homes_top_path %>
+              <%= link_to "投稿一覧(ユーザ側)", admin_homes_top_path %>
+            </li>
+            <li class="list-inline-item">
+              <%= link_to "投稿一覧", admin_contents_path %>
             </li>
             <li class="list-inline-item">
               <%= link_to "タグ一覧", admin_tags_path %>

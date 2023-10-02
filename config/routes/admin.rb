@@ -13,7 +13,11 @@
         delete :delete
       end
     end
-    resources :contents, only: [:index, :show, :update , :destroy]
+    resources :contents, only: [:index, :show, :update , :destroy] do
+      collection do
+        delete :delete
+      end
+    end
     get 'homes/top'
     get 'tests/show'
   end
