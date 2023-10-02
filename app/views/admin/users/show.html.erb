@@ -24,8 +24,10 @@
         <tr>
           <th>停止ステータス</th>
           <td>
-            <%= f.radio_button :is_deleted, false %><%= f.label :is_deleted, "有効", class: "text-active" %>
-            <%= f.radio_button :is_deleted, true %><%= f.label :is_deleted, "停止済み", class: "text-invalid" %>
+            <%= f.radio_button :is_deleted, false %>
+            <%= f.label :is_deleted, "有効", class: "text-active" %>
+            <%= f.radio_button :is_deleted, true %>
+            <%= f.label :is_deleted, "停止済み", class: "text-invalid" %>
             <%= f.submit "更新する", data: { confirm: '管理者権限で更新しますか？' }, class: "btn btn-primary btn-sm" %>
           </td>
         </tr>
@@ -36,8 +38,8 @@
 <div class="text-center mt-3">
   <%= link_to "ユーザ一覧に戻る", admin_users_path, class: "btn btn-secondary" %>
   <%= link_to 'このアカウントを抹消する',
-              admin_user_path, 
-              method: :delete, 
-              data: { confirm: '管理者権限でこのアカウントを完全に抹消しますか?' } ,
-              class: "btn btn-danger" %>
+      admin_user_path, 
+      method: :delete, 
+      data: { confirm: '管理者権限でこのアカウントを完全に抹消しますか?' } ,
+      class: "btn btn-danger" %>
 </div>

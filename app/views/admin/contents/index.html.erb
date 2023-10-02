@@ -1,0 +1,32 @@
+<h3>投稿一覧と削除</h3>
+<div class="row">
+  <div class="col-md-10">
+    <div class="content-list">
+      <%= form_tag delete_admin_tags_path, method: :delete do %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>投稿日</th>
+              <th>タイトル</th>
+              <th>削除する</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @contents.each do |content| %>
+              <tr>
+                  <th><%= content.created_at.strftime("%Y年%m月%d日") %></th>
+                  <th><%= content.title %></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <%= submit_tag '投稿を削除する', class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

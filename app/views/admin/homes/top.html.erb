@@ -1,11 +1,12 @@
-<h2>全ての投稿を確認する</h2>
-<div class="row">
-    <%= render 'user/contents/sort_list' %>
-    
-    <div class="col-md-8">
-       <%= render 'user/contents/index', contents: @contents %>
+<div>
+  <h2>全ての投稿を確認する</h2>
+    <div class="row">
+        <%= render 'user/contents/sort_list' %>
+        
+        <div class="col-md-8">
+           <%= render 'user/contents/index', contents: @contents %>
+        </div>
+      
     </div>
-  
-</div>
-
     <%= render 'user/contents/paginate', contents: @contents%>
+</div>
