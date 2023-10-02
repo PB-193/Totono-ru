@@ -3,21 +3,21 @@
         
           <div class="card-header">
             <% if params[:sort] == 'oldest' %>
-              <small>「投稿が古い順」で表示中</small>
+              <small><strong>「投稿が古い順」で表示中</strong></small>
             <% elsif params[:sort] == 'newest' %>
-              <small>「投稿が新しい順」で表示中</small>
+              <small><strong>「投稿が新しい順」で表示中</strong></small>
             <% elsif params[:sort] == 'rate_desc' %>
-              <small>「ととのい度が高い順」で表示中</small>
+              <small><strong>「ととのい度が高い順」で表示中</strong></small>
             <% elsif params[:sort] == 'rate_asc' %>
-              <small>「ととのい度が低い順」で表示中</small>
+              <small><strong>「ととのい度が低い順」で表示中</strong></small>
             <% elsif params[:sort] == 'favorite_desc' %>
-              <small>「いいねが多い順」で表示中</small>
+              <small><strong>「いいねが多い順」で表示中</strong></small>
             <% elsif params[:sort] == 'comment_desc' %>
-              <small>「コメントが多い順」で表示中</small>
+              <small><strong>「コメントが多い順」で表示中</strong></small>
             <% elsif params[:sort] == 'random_list' %>
-              <small>「順不同」で表示中</small>
+              <small><strong>「順不同」で表示中</strong></small>
             <% else %>
-              <small>「投稿が古い順」で表示中</small>
+              <small><strong>「投稿が古い順」で表示中</strong></small>
             <% end %>
           </div>
           

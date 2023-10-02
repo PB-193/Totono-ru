@@ -9,6 +9,7 @@ class User::UsersController < ApplicationController
     @comment_contents = @user.comments.order(created_at: :asc).page(params[:page])
   end
 
+  
 
   def show
     @user = User.find(params[:id])
