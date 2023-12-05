@@ -2,11 +2,28 @@
 <html>
   <head>
     <title>ととの〜る ~サウナーが作る日々サ活レビューサイト~</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- SEO対策のためのmetaタグ -->
+    <meta name="description" content="サウナ愛好家が日々のサ活を共有する日記・投稿サイト。気軽にサウナの魅力を発見し、ととのい体験をシェアしましょう。">
+    <meta name="keywords" content="サウナ, ととのい, 日記, 投稿サイト, 気軽に">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="ととの〜る ~サウナーが作る日々サ活レビューサイト~">
+    <meta property="og:description" content="サウナ愛好家が日々のサ活を共有する日記・投稿サイト。気軽にサウナの魅力を発見し、ととのい体験をシェアしましょう。">
+    <meta property="og:image" content="https://imgur.com/a/ESz5Gam">
+    <meta property="og:url" content="https://totono-ru.com/">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ととの〜る ~サウナーが作る日々サ活レビューサイト~">
+    <meta name="twitter:description" content="サウナ愛好家が日々のサ活を共有する日記・投稿サイト。気軽にサウナの魅力を発見し、ととのい体験をシェアしましょう。">
+    <meta name="twitter:image" content="https://imgur.com/a/ESz5Gam">
     
     <!-- マイページのJSの挙動を修正するためのコード -->
       <% if current_page?(myshow_path) %>
@@ -30,7 +47,7 @@
 
       gtag('config', 'G-WQRD9ZNJQB');
     </script>
-    
+
   </head>
   <body>
     <div id="body-main">
